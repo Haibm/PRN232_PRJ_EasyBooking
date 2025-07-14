@@ -1,0 +1,35 @@
+@{
+    var currentPath = Context.Request.Path.Value?.ToLower() ?? "";
+}
+
+<div class="bg-dark text-white min-vh-100 p-3" style="width: 250px;">
+    <h5 class="text-uppercase text-center mb-4">ADMIN</h5>
+
+    <ul class="nav nav-pills flex-column" id="sidebarMenu">
+
+        <!-- Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link @(currentPath.StartsWith("/admin/dashboard") ? "active" : "text-white")"
+               href="/Admin/Dashboard">
+                <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+        </li>
+
+        <!-- Quản lý User -->
+        <li class="nav-item">
+            @{
+                var isMovieActive = currentPath.StartsWith("/admin/users");
+            }
+            <a class="nav-link collapsed text-white @(isMovieActive ? "" : "collapsed")"
+               data-bs-toggle="collapse" href="#moviesMenu" role="button" aria-expanded="@isMovieActive.ToString().ToLower()">
+                 Quản lý User
+            </a>
+            <div class="collapse @(isMovieActive ? "show" : "")" id="moviesMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/admin/users/list" ? "active" : "")" href="/Admin/User/List">Danh sách User</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/admin/user/create" ? "active" : "")" href="/Admin/User/Create">Thêm User</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
