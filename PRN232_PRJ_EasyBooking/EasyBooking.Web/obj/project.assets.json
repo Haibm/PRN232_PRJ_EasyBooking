@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
+      "projectUniqueName": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
       "projectName": "EasyBooking.Web",
-      "projectPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
+      "projectPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\obj\\",
+      "outputPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

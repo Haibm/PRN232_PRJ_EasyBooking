@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj": {}
+    "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj": {}
   },
   "projects": {
-    "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj": {
+    "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
+        "projectUniqueName": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
         "projectName": "EasyBooking.Business",
-        "projectPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
+        "projectPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\obj\\",
+        "outputPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

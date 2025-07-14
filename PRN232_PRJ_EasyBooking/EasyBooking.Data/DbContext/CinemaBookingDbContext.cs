@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EasyBooking.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace EasyBooking.Data.DbContext;
+namespace EasyBooking.Data.DbContexts;
 
 public partial class CinemaBookingDbContext : DbContext
 {
