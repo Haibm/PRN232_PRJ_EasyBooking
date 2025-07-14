@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EasyBooking.Web.props" />
+</Project>

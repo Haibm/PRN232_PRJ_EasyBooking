@@ -1,0 +1,16 @@
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\bin\Debug\net8.0\EasyBooking.Business.deps.json
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\bin\Debug\net8.0\EasyBooking.Business.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\bin\Debug\net8.0\EasyBooking.Business.pdb
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.GeneratedMSBuildEditorConfig.editorconfig
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.AssemblyInfoInputs.cache
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.AssemblyInfo.cs
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.csproj.CoreCompileInputs.cache
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.sourcelink.json
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\refint\EasyBooking.Business.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.pdb
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\ref\EasyBooking.Business.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBooking.Business.csproj.AssemblyReference.cache
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\bin\Debug\net8.0\EasyBooking.Data.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\bin\Debug\net8.0\EasyBooking.Data.pdb
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Business\obj\Debug\net8.0\EasyBook.2CE5BC5D.Up2Date

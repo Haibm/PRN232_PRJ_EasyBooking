@@ -1,0 +1,88 @@
+@{
+    var currentPath = Context.Request.Path.Value?.ToLower() ?? "";
+}
+
+<div class="bg-dark text-white min-vh-100 p-3" style="width: 250px;">
+    <h5 class="text-uppercase text-center mb-4">STAFF</h5>
+    <ul class="nav nav-pills flex-column" id="sidebarMenu">
+        <!-- Manage Showtimes -->
+        <li class="nav-item">
+            @{
+                var isShowtimeActive = currentPath.StartsWith("/staff/manageshowtimes");
+            }
+            <a class="nav-link collapsed text-white @(isShowtimeActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#showtimesMenu" role="button" aria-expanded="@isShowtimeActive.ToString().ToLower()">
+                <i class="bi bi-calendar-event"></i> Manage Showtimes
+            </a>
+            <div class="collapse @(isShowtimeActive ? "show" : "")" id="showtimesMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/manageshowtimes/list" ? "active" : "")" href="/Staff/ManageShowtimes/List">Showtime List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/manageshowtimes/create" ? "active" : "")" href="/Staff/ManageShowtimes/Create">Add Showtime</a></li>
+                </ul>
+            </div>
+        </li>
+        <!-- Manage Cinemas -->
+        <li class="nav-item">
+            @{
+                var isCinemaActive = currentPath.StartsWith("/staff/managecinemas");
+            }
+            <a class="nav-link collapsed text-white @(isCinemaActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#cinemasMenu" role="button" aria-expanded="@isCinemaActive.ToString().ToLower()">
+                <i class="bi bi-building"></i> Manage Cinemas
+            </a>
+            <div class="collapse @(isCinemaActive ? "show" : "")" id="cinemasMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managecinemas/list" ? "active" : "")" href="/Staff/ManageCinemas/List">Cinema List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managecinemas/create" ? "active" : "")" href="/Staff/ManageCinemas/Create">Add Cinema</a></li>
+                </ul>
+            </div>
+        </li>
+        <!-- Manage Genres -->
+        <li class="nav-item">
+            @{
+                var isGenreActive = currentPath.StartsWith("/staff/managegenres");
+            }
+            <a class="nav-link collapsed text-white @(isGenreActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#genresMenu" role="button" aria-expanded="@isGenreActive.ToString().ToLower()">
+                <i class="bi bi-tags"></i> Manage Genres
+            </a>
+            <div class="collapse @(isGenreActive ? "show" : "")" id="genresMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managegenres/list" ? "active" : "")" href="/Staff/ManageGenres/List">Genre List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managegenres/create" ? "active" : "")" href="/Staff/ManageGenres/Create">Add Genre</a></li>
+                </ul>
+            </div>
+        </li>
+        <!-- Manage Orders -->
+        <li class="nav-item">
+            @{
+                var isOrderActive = currentPath.StartsWith("/staff/manageorders");
+            }
+            <a class="nav-link collapsed text-white @(isOrderActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#ordersMenu" role="button" aria-expanded="@isOrderActive.ToString().ToLower()">
+                <i class="bi bi-receipt"></i> Manage Orders
+            </a>
+            <div class="collapse @(isOrderActive ? "show" : "")" id="ordersMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/manageorders/list" ? "active" : "")" href="/Staff/ManageOrders/List">Order List</a></li>
+                </ul>
+            </div>
+        </li>
+        <!-- Manage Rooms -->
+        <li class="nav-item">
+            @{
+                var isRoomActive = currentPath.StartsWith("/staff/managerooms");
+            }
+            <a class="nav-link collapsed text-white @(isRoomActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#roomsMenu" role="button" aria-expanded="@isRoomActive.ToString().ToLower()">
+                <i class="bi bi-door-closed"></i> Manage Rooms
+            </a>
+            <div class="collapse @(isRoomActive ? "show" : "")" id="roomsMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managerooms/list" ? "active" : "")" href="/Staff/ManageRooms/List">Room List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managerooms/create" ? "active" : "")" href="/Staff/ManageRooms/Create">Add Room</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div> 

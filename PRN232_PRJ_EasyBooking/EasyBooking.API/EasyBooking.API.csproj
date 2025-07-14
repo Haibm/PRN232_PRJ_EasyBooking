@@ -13,8 +13,12 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Admin\" />
-    <Folder Include="Controllers\User\" />
     <Folder Include="Controllers\Staff\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyBooking.Business\EasyBooking.Business.csproj" />
+    <ProjectReference Include="..\EasyBooking.Data\EasyBooking.Data.csproj" />
   </ItemGroup>
 
 </Project>
