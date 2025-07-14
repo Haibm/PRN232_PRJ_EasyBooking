@@ -1,0 +1,14 @@
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\bin\Debug\net8.0\EasyBooking.Data.deps.json
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\bin\Debug\net8.0\EasyBooking.Data.dll
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\bin\Debug\net8.0\EasyBooking.Data.pdb
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.GeneratedMSBuildEditorConfig.editorconfig
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.AssemblyInfoInputs.cache
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.AssemblyInfo.cs
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.csproj.CoreCompileInputs.cache
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.dll
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\refint\EasyBooking.Data.dll
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.pdb
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\ref\EasyBooking.Data.dll
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\bin\Debug\net8.0\EasyBooking.Data.runtimeconfig.json
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.csproj.AssemblyReference.cache
+G:\Ki_8\PRN232\PRN232_PRJ\PRN232_PRJ_EasyBooking\EasyBooking.Data\obj\Debug\net8.0\EasyBooking.Data.genruntimeconfig.cache

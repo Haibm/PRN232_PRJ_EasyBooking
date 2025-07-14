@@ -1,0 +1,6 @@
+@EasyBooking.API_HostAddress = http://localhost:5063
+
+GET {{EasyBooking.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
