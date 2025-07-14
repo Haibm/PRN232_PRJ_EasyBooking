@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyBooking.Data\EasyBooking.Data.csproj" />
+  </ItemGroup>
+
 </Project>

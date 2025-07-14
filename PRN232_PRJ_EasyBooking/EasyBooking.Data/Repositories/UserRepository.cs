@@ -1,4 +1,4 @@
-using EasyBooking.Data.DbContext;
+using EasyBooking.Data.DbContexts;
 using EasyBooking.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
