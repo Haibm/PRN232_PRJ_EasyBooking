@@ -1,4 +1,24 @@
 ﻿@page
 @model EasyBooking.Web.Pages.Authen.LogoutModel
 @{
+    ViewData["Title"] = "Logout";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng xuất - Blush & Brush</title>
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h2>Bạn đã đăng xuất.</h2>
+            <form method="post" asp-area="" asp-page="/Authen/Logout" class="form-inline">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

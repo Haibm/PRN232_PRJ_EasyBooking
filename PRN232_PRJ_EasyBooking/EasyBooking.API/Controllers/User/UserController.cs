@@ -1,11 +1,12 @@
 using EasyBooking.Business.DTOs;
 using EasyBooking.Business.Interfaces;
+using EasyBooking.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace EasyBooking.API.Controllers.User
 {
-    [Route("api/admin/users")]
+    [Route("api/users")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -37,6 +38,16 @@ namespace EasyBooking.API.Controllers.User
                 return BadRequest(ModelState);
             await _userService.AddAsync(userDto);
             return Ok();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] UserDto loginDto)
+        {
+            if (string.IsNullOrEmpty(loginDto.Username) || string.IsNullOrEmpty(loginDto.PasswordHash))
+                return BadRequest("Username and password are required.");
+            var user = await _userService.GetByUsernamePass(loginDto.Username, loginDto.PasswordHash);
+            if (user == null) return Unauthorized();
+            return Ok(user);
         }
 
         [HttpPut("{id}")]

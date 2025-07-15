@@ -29,3 +29,33 @@ G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj
 G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.pdb
 G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.genruntimeconfig.cache
 G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\ref\EasyBooking.Web.dll
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\appsettings.Development.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\appsettings.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.staticwebassets.runtime.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.staticwebassets.endpoints.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.exe
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.deps.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.runtimeconfig.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.dll
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\bin\Debug\net8.0\EasyBooking.Web.pdb
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.AssemblyInfoInputs.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.AssemblyInfo.cs
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.csproj.CoreCompileInputs.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.RazorAssemblyInfo.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.RazorAssemblyInfo.cs
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.sourcelink.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\scopedcss\bundle\EasyBooking.Web.styles.css
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\scopedcss\projectbundle\EasyBooking.Web.bundle.scp.css
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\staticwebassets.build.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\staticwebassets.development.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.dll
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\refint\EasyBooking.Web.dll
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.pdb
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\EasyBooking.Web.genruntimeconfig.cache
+D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web\obj\Debug\net8.0\ref\EasyBooking.Web.dll
