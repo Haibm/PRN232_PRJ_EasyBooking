@@ -1,0 +1,50 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageRooms.EditModel
+@{
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/Staff/ManageRooms/List">Danh sách phòng chiếu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Sửa phòng chiếu</li>
+        </ol>
+    </nav>
+    <h2>Sửa phòng chiếu</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Room.Name" class="form-label">Tên phòng</label>
+            <input asp-for="Room.Name" class="form-control" />
+            <span asp-validation-for="Room.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.Capacity" class="form-label">Sức chứa</label>
+            <input asp-for="Room.Capacity" class="form-control" />
+            <span asp-validation-for="Room.Capacity" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.Location" class="form-label">Vị trí</label>
+            <input asp-for="Room.Location" class="form-control" />
+            <span asp-validation-for="Room.Location" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.CinemaId" class="form-label">Rạp</label>
+            <select asp-for="Room.CinemaId" class="form-select">
+                <option value="">Chọn rạp</option>
+                @foreach (var cinema in Model.AllCinemas)
+                {
+                    <option value="@cinema.CinemaId" selected="@(Model.Room.CinemaId == cinema.CinemaId)">@cinema.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Room.CinemaId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+        <a href="/Staff/ManageRooms/List" class="btn btn-secondary ms-2">Quay lại</a>
+    </form>
+    @if (Model.Success)
+    {
+        <div class="alert alert-success mt-3">Cập nhật thành công!</div>
+    }
+</div> 

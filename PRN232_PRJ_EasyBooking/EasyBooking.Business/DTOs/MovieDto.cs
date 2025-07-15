@@ -1,25 +1,17 @@
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
 
 namespace EasyBooking.Business.DTOs
 {
     public class MovieDto
     {
         public int MovieId { get; set; }
-
-        [Required]
-        [StringLength(200)]
         public string Title { get; set; }
-
-        [StringLength(1000)]
         public string? Description { get; set; }
-
-        [Range(1, 500)]
         public int? Duration { get; set; }
-
-        [Url]
         public string? PosterUrl { get; set; }
-
-        [StringLength(50)]
         public string? Status { get; set; }
+        public List<string> Genres { get; set; } = new();
+        public List<DateTime> Showtimes { get; set; } = new();
     }
 } 

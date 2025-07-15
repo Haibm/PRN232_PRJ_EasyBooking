@@ -1,7 +1,29 @@
 @page
+@model EasyBooking.Web.Pages.Staff.ManageGenres.CreateModel
 @{
     Layout = "_StaffLayout";
 }
 
-<h2>Add Genre</h2>
-<p>This is the staff's add genre page.</p> 
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/Staff/ManageGenres/List">Danh sách thể loại</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tạo thể loại</li>
+        </ol>
+    </nav>
+    <h2>Tạo thể loại</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Genre.Name" class="form-label">Tên thể loại</label>
+            <input asp-for="Genre.Name" class="form-control" />
+            <span asp-validation-for="Genre.Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Tạo</button>
+        <a href="/Staff/ManageGenres/List" class="btn btn-secondary ms-2">Quay lại</a>
+    </form>
+    @if (Model.Success)
+    {
+        <div class="alert alert-success mt-3">Tạo thể loại thành công!</div>
+    }
+</div> 

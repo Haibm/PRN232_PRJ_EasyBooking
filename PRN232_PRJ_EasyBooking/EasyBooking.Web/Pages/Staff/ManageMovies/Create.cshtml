@@ -1,0 +1,41 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageMovies.CreateModel
+@{
+    Layout = "_StaffLayout";
+}
+
+<h2>Add Movie</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Movie.Title" class="form-label">Title</label>
+        <input asp-for="Movie.Title" class="form-control" />
+        <span asp-validation-for="Movie.Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Movie.Description" class="form-label">Description</label>
+        <textarea asp-for="Movie.Description" class="form-control"></textarea>
+        <span asp-validation-for="Movie.Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Movie.Duration" class="form-label">Duration</label>
+        <input asp-for="Movie.Duration" class="form-control" />
+        <span asp-validation-for="Movie.Duration" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Movie.PosterUrl" class="form-label">Poster URL</label>
+        <input asp-for="Movie.PosterUrl" class="form-control" />
+        <span asp-validation-for="Movie.PosterUrl" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Movie.Status" class="form-label">Status</label>
+        <input asp-for="Movie.Status" class="form-control" />
+        <span asp-validation-for="Movie.Status" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+</form>
+
+@if (Model.Success)
+{
+    <div class="alert alert-success mt-3">Movie added successfully!</div>
+} 

@@ -11,6 +11,16 @@ namespace EasyBooking.Business
         {
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IRoomRepository, RoomRepository>();
+            services.AddScoped<IRoomService, RoomService>();
+            services.AddScoped<IShowtimeRepository, ShowtimeRepository>();
+            services.AddScoped<IShowtimeService, ShowtimeService>();
+            services.AddScoped<ICinemaRepository, CinemaRepository>();
+            services.AddScoped<ICinemaService, CinemaService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             return services;
         }
     }

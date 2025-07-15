@@ -84,5 +84,21 @@
                 </ul>
             </div>
         </li>
+        <!-- Manage Movies -->
+        <li class="nav-item">
+            @{
+                var isMovieActive = currentPath.StartsWith("/staff/managemovies");
+            }
+            <a class="nav-link collapsed text-white @(isMovieActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#moviesMenu" role="button" aria-expanded="@isMovieActive.ToString().ToLower()">
+                <i class="bi bi-film"></i> Manage Movies
+            </a>
+            <div class="collapse @(isMovieActive ? "show" : "")" id="moviesMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managemovies/list" ? "active" : "")" href="/Staff/ManageMovies/List">Movie List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managemovies/create" ? "active" : "")" href="/Staff/ManageMovies/Create">Add Movie</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </div> 
