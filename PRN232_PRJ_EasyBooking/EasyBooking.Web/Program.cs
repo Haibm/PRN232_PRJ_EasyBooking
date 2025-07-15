@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace EasyBooking.Web
 {
     public class Program
@@ -8,6 +11,7 @@ namespace EasyBooking.Web
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -24,6 +28,7 @@ namespace EasyBooking.Web
 
             app.UseRouting();
 
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapRazorPages();

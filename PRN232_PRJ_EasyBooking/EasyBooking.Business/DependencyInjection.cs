@@ -1,4 +1,5 @@
-﻿using EasyBooking.Business.Interfaces;
+
+using EasyBooking.Business.Interfaces;
 using EasyBooking.Business.Services;
 using EasyBooking.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;

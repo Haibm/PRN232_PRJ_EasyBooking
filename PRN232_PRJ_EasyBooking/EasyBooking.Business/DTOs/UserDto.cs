@@ -5,7 +5,6 @@ namespace EasyBooking.Business.DTOs
     public class UserDto
     {
         public int UserId { get; set; }
-
         [Required]
         [StringLength(100)]
         public string Username { get; set; }

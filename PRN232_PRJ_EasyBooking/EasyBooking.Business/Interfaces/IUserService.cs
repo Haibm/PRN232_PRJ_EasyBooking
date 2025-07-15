@@ -11,5 +11,6 @@ namespace EasyBooking.Business.Interfaces
         Task AddAsync(UserDto userDto);
         Task UpdateAsync(UserDto userDto);
         Task DeleteAsync(int id);
+        Task<UserDto> GetByUsernamePass(string username,string pass);
     }
 } 

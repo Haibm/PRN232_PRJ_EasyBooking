@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "EasyBooking.API\\EasyBooking.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "EasyBooking.Web\\EasyBooking.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -14,9 +14,11 @@ namespace EasyBooking.API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<EasyBooking.Data.DbContexts.CinemaBookingDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
 
             builder.Services.AddProjectServices();
             var app = builder.Build();
@@ -32,7 +34,7 @@ namespace EasyBooking.API
 
             app.UseAuthorization();
 
-
+            app.UseSession();
             app.MapControllers();
 
             app.Run();
