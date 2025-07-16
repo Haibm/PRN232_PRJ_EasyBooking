@@ -42,10 +42,10 @@ namespace EasyBooking.API.Controllers.Admin
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UserDto userDto)
         {
-            if (id != userDto.UserId) return BadRequest();
+            if (id != userDto.UserId) return BadRequest(new { error = "Id trên URL không khớp với UserId trong dữ liệu gửi lên." });
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            await _userService.UpdateAsync(userDto);
+            await _userService.AdminUpdateAsync(userDto);
             return NoContent();
         }
 

@@ -1,0 +1,61 @@
+﻿@page
+@model EasyBooking.Web.Pages.Admin.ManageAccounts.CreateModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/Admin/ManageAccounts/List">Danh sách tài khoản</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tạo tài khoản</li>
+        </ol>
+    </nav>
+    <h2>Tạo tài khoản</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="User.Username" class="form-label">Username</label>
+            <input asp-for="User.Username" class="form-control" />
+            <span asp-validation-for="User.Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="User.PasswordHash" class="form-label">Password</label>
+            <input asp-for="User.PasswordHash" class="form-control" type="password" />
+            <span asp-validation-for="User.PasswordHash" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="User.FullName" class="form-label">Full Name</label>
+            <input asp-for="User.FullName" class="form-control" />
+            <span asp-validation-for="User.FullName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="User.Email" class="form-label">Email</label>
+            <input asp-for="User.Email" class="form-control" />
+            <span asp-validation-for="User.Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="User.Role" class="form-label">Role</label>
+            <select asp-for="User.Role" class="form-select">
+                <option value="Admin">Admin</option>
+                <option value="Staff">Staff</option>
+                <option value="User">User</option>
+            </select>
+            <span asp-validation-for="User.Role" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="User.IsActive" class="form-label">Active</label>
+            <select asp-for="User.IsActive" class="form-select">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <span asp-validation-for="User.IsActive" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Tạo</button>
+        <a href="/Admin/ManageAccounts/List" class="btn btn-secondary ms-2">Quay lại</a>
+    </form>
+    @if (Model.Success)
+    {
+        <div class="alert alert-success mt-3">Tạo tài khoản thành công!</div>
+    }
+</div>

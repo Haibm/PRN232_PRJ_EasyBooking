@@ -47,6 +47,8 @@ namespace EasyBooking.API.Controllers.User
                 return BadRequest("Username and password are required.");
             var user = await _userService.GetByUsernamePass(loginDto.Username, loginDto.PasswordHash);
             if (user == null) return Unauthorized();
+            if (user.IsActive.HasValue && !user.IsActive.Value)
+                return StatusCode(403, "Tài khoản đã bị khoá.");
             return Ok(user);
         }
 

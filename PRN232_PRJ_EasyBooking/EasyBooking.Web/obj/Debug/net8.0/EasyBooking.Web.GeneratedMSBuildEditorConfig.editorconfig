@@ -24,6 +24,38 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageAccounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageAccounts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageAccounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQWNjb3VudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageAccounts/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQWNjb3VudHNcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageCinemas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQ2luZW1hc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageCinemas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQ2luZW1hc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageCinemas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQ2luZW1hc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/ManageCinemas/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFuYWdlQ2luZW1hc1xMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Authen/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
