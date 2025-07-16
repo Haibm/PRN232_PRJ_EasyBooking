@@ -1,0 +1,19 @@
+﻿@page "{userId:int}"
+@model EasyBooking.Web.Pages.Authen.ProfileModel
+
+<h2>Thông tin cá nhân</h2>
+<form method="post">
+    <div>
+        <label>Username:</label>
+        <input asp-for="User.Username" readonly/>
+    </div>
+    <div>
+        <label>Full Name:</label>
+        <input asp-for="User.FullName" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input asp-for="User.Email" />
+    </div>
+    <button type="submit">Cập nhật</button>
+</form>

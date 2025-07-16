@@ -87,6 +87,7 @@ namespace EasyBooking.Business.Services
             if (u == null) return null;
             return new UserDto
             {
+                UserId = u.UserId,
                 Username = u.Username,
                 PasswordHash = u.PasswordHash,
                 FullName = u.FullName,

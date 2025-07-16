@@ -36,11 +36,21 @@
                     <ul class="navbar-nav">
                         @{
                             var userName = Context.Session.GetString("Username");
+                            var userId = Context.Session.GetInt32("UserId");
                         }
                         @if (!string.IsNullOrEmpty(userName))
                         {
                             <li class="nav-item">
-                                <span class="nav-link text-dark">Hello, @userName!</span>
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle user-greeting" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Hello, @userName!
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="/Authen/Profile/@userId">View Profile</a></li>
+                                        <li><a class="dropdown-item" href="/Authen/Setting/@userId">Setting</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <form method="post" asp-area="" asp-page="/Authen/Logout" class="form-inline" onsubmit="setTimeout(function(){ window.location.href = '/Index'; }, 100);">

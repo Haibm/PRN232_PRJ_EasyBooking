@@ -6,11 +6,11 @@ namespace EasyBooking.Business.DTOs
     {
         public int CinemaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên rạp là bắt buộc")]
         [StringLength(200)]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Địa chỉ là bắt buộc")]
         [StringLength(300)]
         public string Address { get; set; }
 

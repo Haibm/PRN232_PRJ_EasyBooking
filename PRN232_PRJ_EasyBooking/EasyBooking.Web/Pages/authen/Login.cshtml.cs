@@ -47,10 +47,13 @@ namespace EasyBooking.Web.Pages.Authen
                     var role = root.GetProperty("role").GetString();
                     var username = root.GetProperty("username").GetString();
                     var password = root.GetProperty("passwordHash").GetString();
+                    var userId = root.GetProperty("userId").GetInt32();
 
-                    HttpContext.Session.SetString("Username", username);
-                    HttpContext.Session.SetString("Password", password);
+
+                    HttpContext.Session.SetString("Username", Username);
+                    HttpContext.Session.SetString("Password", Password);
                     HttpContext.Session.SetString("Role", role);
+                    HttpContext.Session.SetInt32("UserId", userId);
 
                     if (role == "Admin")
                         return RedirectToPage("/Admin/Dashboard");

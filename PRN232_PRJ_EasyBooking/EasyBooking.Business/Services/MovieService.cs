@@ -5,6 +5,7 @@ using EasyBooking.Data.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace EasyBooking.Business.Services
 {
@@ -26,7 +27,9 @@ namespace EasyBooking.Business.Services
                 Description = m.Description,
                 Duration = m.Duration,
                 PosterUrl = m.PosterUrl,
-                Status = m.Status
+                Status = m.Status,
+                Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
+                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
             });
         }
 
@@ -41,7 +44,9 @@ namespace EasyBooking.Business.Services
                 Description = m.Description,
                 Duration = m.Duration,
                 PosterUrl = m.PosterUrl,
-                Status = m.Status
+                Status = m.Status,
+                Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
+                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
             };
         }
 

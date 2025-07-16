@@ -13,4 +13,8 @@
     <None Remove="Services\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyBooking.Business\EasyBooking.Business.csproj" />
+  </ItemGroup>
+
 </Project>

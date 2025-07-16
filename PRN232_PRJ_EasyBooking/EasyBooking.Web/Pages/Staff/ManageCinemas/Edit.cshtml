@@ -1,0 +1,39 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageCinemas.EditModel
+@{
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/Staff/ManageCinemas/List">Danh sách rạp chiếu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Sửa rạp chiếu</li>
+        </ol>
+    </nav>
+    <h2>Sửa rạp chiếu</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Cinema.Name" class="form-label">Tên rạp</label>
+            <input asp-for="Cinema.Name" class="form-control" />
+            <span asp-validation-for="Cinema.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cinema.Address" class="form-label">Địa chỉ</label>
+            <input asp-for="Cinema.Address" class="form-control" />
+            <span asp-validation-for="Cinema.Address" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cinema.Phone" class="form-label">Số điện thoại</label>
+            <input asp-for="Cinema.Phone" class="form-control" />
+            <span asp-validation-for="Cinema.Phone" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+        <a href="/Staff/ManageCinemas/List" class="btn btn-secondary ms-2">Quay lại</a>
+    </form>
+    @if (Model.Success)
+    {
+        <div class="alert alert-success mt-3">Cập nhật thành công!</div>
+    }
+</div> 
