@@ -26,17 +26,23 @@ namespace EasyBooking.Web.Pages.Staff.ManageCinemas
         {
             if (!ModelState.IsValid)
                 return Page();
+
             using var client = new HttpClient();
             client.BaseAddress = new System.Uri("https://localhost:7087/");
+
+            // ✅ Đảm bảo ID trong body khớp với ID trên URL
+            Cinema.CinemaId = id;
+
             var response = await client.PutAsJsonAsync($"api/staff/cinemas/{id}", Cinema);
             Success = response.IsSuccessStatusCode;
+
             if (Success)
             {
-                // Thành công, chuyển về List
                 return RedirectToPage("/Staff/ManageCinemas/List");
             }
-            // Nếu lỗi thực sự, giữ lại form
+
             return Page();
         }
+
     }
 } 

@@ -1,5 +1,5 @@
 @page
-@model EasyBooking.Web.Pages.Staff.ManageShowtimes.CreateModel
+@model EasyBooking.Web.Pages.Staff.ManageShowtimes.EditModel
 @{
     Layout = "_StaffLayout";
 }
@@ -9,10 +9,10 @@
         <ol class="breadcrumb bg-white px-0 mb-3">
             <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="/Staff/ManageShowtimes/List">Danh sách lịch chiếu</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tạo lịch chiếu</li>
+            <li class="breadcrumb-item active" aria-current="page">Sửa lịch chiếu</li>
         </ol>
     </nav>
-    <h2>Tạo lịch chiếu</h2>
+    <h2>Sửa lịch chiếu</h2>
     <form method="post">
         <div class="mb-3">
             <label asp-for="Showtime.MovieId" class="form-label">Phim</label>
@@ -20,7 +20,7 @@
                 <option value="">Chọn phim</option>
                 @foreach (var movie in Model.AllMovies)
                 {
-                    <option value="@movie.MovieId">@movie.Title</option>
+                    <option value="@movie.MovieId" selected="@(Model.Showtime.MovieId == movie.MovieId)">@movie.Title</option>
                 }
             </select>
             <span asp-validation-for="Showtime.MovieId" class="text-danger"></span>
@@ -31,7 +31,7 @@
                 <option value="">Chọn phòng</option>
                 @foreach (var room in Model.AllRooms)
                 {
-                    <option value="@room.RoomId">@room.Name</option>
+                    <option value="@room.RoomId" selected="@(Model.Showtime.RoomId == room.RoomId)">@room.Name</option>
                 }
             </select>
             <span asp-validation-for="Showtime.RoomId" class="text-danger"></span>
@@ -46,11 +46,11 @@
             <input asp-for="Showtime.Price" class="form-control" />
             <span asp-validation-for="Showtime.Price" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">Tạo</button>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="/Staff/ManageShowtimes/List" class="btn btn-secondary ms-2">Quay lại</a>
     </form>
     @if (Model.Success)
     {
-        <div class="alert alert-success mt-3">Tạo lịch chiếu thành công!</div>
+        <div class="alert alert-success mt-3">Cập nhật thành công!</div>
     }
 </div> 

@@ -1,7 +1,61 @@
 @page
+@model EasyBooking.Web.Pages.Staff.ManageShowtimes.ListModel
 @{
     Layout = "_StaffLayout";
 }
 
-<h2>Showtime List</h2>
-<p>This is the staff's showtime list page.</p> 
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Danh sách lịch chiếu</li>
+        </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <a class="btn btn-primary me-2" href="/Staff/ManageShowtimes/Create"><i class="bi bi-plus-lg"></i> Tạo lịch chiếu</a>
+            <a class="btn btn-outline-secondary" href="/Staff/ManageShowtimes/List"><i class="bi bi-arrow-clockwise"></i> Refresh</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Phim</th>
+                    <th>Phòng chiếu</th>
+                    <th>Ngày chiếu</th>
+                    <th>Giá vé</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if (Model.Showtimes == null)
+            {
+                <tr><td colspan="5" class="text-center">Loading...</td></tr>
+            }
+            else if (!Model.Showtimes.Any())
+            {
+                <tr><td colspan="5" class="text-center">Không có lịch chiếu nào.</td></tr>
+            }
+            else
+            {
+                foreach (var showtime in Model.Showtimes)
+                {
+                    <tr>
+                        <td>@showtime.MovieTitle</td>
+                        <td>@showtime.RoomName</td>
+                        <td>@showtime.StartTime.ToString("dd-MM-yyyy HH:mm")</td>
+                        <td>@showtime.Price.ToString("N0")</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageShowtimes/Edit?id=@showtime.ShowtimeId">Edit</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@showtime.ShowtimeId" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this showtime?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div> 
