@@ -216,3 +216,15 @@ D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\Easy
 D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\obj\Debug\net8.0\EasyBooking.API.pdb
 D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\obj\Debug\net8.0\EasyBooking.API.genruntimeconfig.cache
 D:\team project\projectPRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\obj\Debug\net8.0\ref\EasyBooking.API.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\System.IO.Pipelines.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\System.Text.Json.dll
+G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

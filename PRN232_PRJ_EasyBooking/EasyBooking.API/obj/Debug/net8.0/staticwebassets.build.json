@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"S4+tdf/5KwxrkJ8e2BwmlOAvUFrNs6OsVMv2fIxP1BU=","Source":"EasyBooking.API","BasePath":"_content/EasyBooking.API","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "J1XmCtPKBG5g16NEH5JUiPAqOb6VEX7ouefex2EB0eg=",
+  "Source": "EasyBooking.API",
+  "BasePath": "_content/EasyBooking.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
