@@ -3,7 +3,6 @@
 @{
     Layout = "_StaffLayout";
 }
-
 <div class="container-fluid py-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white px-0 mb-3">
@@ -44,41 +43,57 @@
                 foreach (var movie in Model.Movies)
                 {
                     <tr>
-                        <td><a href="/Staff/ManageMovies/Edit?id=@movie.MovieId">@movie.Title</a></td>
+                        <td><a href="/Staff/ManageMovies/Edit/@movie.MovieId">@movie.Title</a></td>
                         <td>@movie.Description</td>
                         <td>@movie.Duration</td>
                         <td>
-                            @if (movie.Genres != null)
+                            @if (movie.Genres != null && movie.Genres.Any())
                             {
                                 foreach (var genre in movie.Genres)
                                 {
-                                    <span class="badge bg-primary me-1">@genre</span>
+                                    <span class="genre-tag me-1 mb-1">@genre</span>
                                 }
-                            }
-                        </td>
-                        <td>
-                            @if (movie.Showtimes != null)
-                            {
-                                foreach (var showtime in movie.Showtimes)
-                                {
-                                    <span class="badge bg-warning text-dark me-1">@showtime.ToString("dd-MM-yyyy")</span>
-                                }
-                            }
-                        </td>
-                        <td>
-                            @if (movie.Status == "Công khai")
-                            {
-                                <span class="badge bg-success">Công khai</span>
                             }
                             else
                             {
-                                <span class="badge bg-secondary">Nháp</span>
+                                <span class="text-muted">Chưa có thể loại</span>
                             }
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageMovies/Edit?id=@movie.MovieId">Edit</a>
+                            @if (movie.Showtimes != null && movie.Showtimes.Any())
+                            {
+                                foreach (var showtime in movie.Showtimes)
+                                {
+                                    <span class="badge bg-warning text-dark me-1">@showtime.ToString("dd-MM-yyyy HH:mm")</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="text-muted">Chưa có lịch chiếu</span>
+                            }
+                        </td>
+                        <td>
+                            @if (movie.Status == "NowShowing")
+                            {
+                                <span class="badge bg-success">Đang chiếu</span>
+                            }
+                            else if (movie.Status == "Upcoming")
+                            {
+                                <span class="badge bg-warning text-dark">Sắp chiếu</span>
+                            }
+                            else if (movie.Status == "StopShowing")
+                            {
+                                <span class="badge bg-secondary">Ngừng chiếu</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@movie.Status</span>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageMovies/Edit/@movie.MovieId">Edit</a>
                             <form method="post" asp-page-handler="Delete" asp-route-id="@movie.MovieId" style="display:inline;">
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this movie?');">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa phim này?');">Delete</button>
                             </form>
                         </td>
                     </tr>
@@ -87,4 +102,19 @@
             </tbody>
         </table>
     </div>
-</div> 
+</div>
+@section Styles {
+    <style>
+        .genre-tag {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 16px;
+            border: 1px solid #4F8CFF;
+            background: #fff;
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+    </style>
+} 

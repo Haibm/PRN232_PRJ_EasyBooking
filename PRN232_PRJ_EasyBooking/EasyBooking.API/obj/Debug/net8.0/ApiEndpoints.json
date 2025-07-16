@@ -395,6 +395,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.TicketController",
+    "Method": "GetAll",
+    "RelativePath": "api/staff/tickets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.TicketController",
+    "Method": "Create",
+    "RelativePath": "api/staff/tickets",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ticketDto",
+        "Type": "EasyBooking.Business.DTOs.TicketDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.TicketController",
+    "Method": "GetById",
+    "RelativePath": "api/staff/tickets/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.TicketController",
+    "Method": "Update",
+    "RelativePath": "api/staff/tickets/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ticketDto",
+        "Type": "EasyBooking.Business.DTOs.TicketDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.TicketController",
+    "Method": "Delete",
+    "RelativePath": "api/staff/tickets/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.User.UserController",
     "Method": "GetAll",
     "RelativePath": "api/users",

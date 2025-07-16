@@ -100,5 +100,21 @@
                 </ul>
             </div>
         </li>
+        <!-- Manage Tickets -->
+        <li class="nav-item">
+            @{
+                var isTicketActive = currentPath.StartsWith("/staff/managetickets");
+            }
+            <a class="nav-link collapsed text-white @(isTicketActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#ticketsMenu" role="button" aria-expanded="@isTicketActive.ToString().ToLower()">
+                <i class="bi bi-ticket-perforated"></i> Manage Tickets
+            </a>
+            <div class="collapse @(isTicketActive ? "show" : "")" id="ticketsMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managetickets/list" ? "active" : "")" href="/Staff/ManageTickets/List">Ticket List</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managetickets/create" ? "active" : "")" href="/Staff/ManageTickets/Create">Add Ticket</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </div> 
