@@ -12,20 +12,9 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
         [BindProperty]
         public MovieDto Movie { get; set; }
         public bool Success { get; set; }
-        public List<string> AllGenres { get; set; } = new();
-        [BindProperty]
-        public List<string> SelectedGenres { get; set; } = new();
-        public class GenreDto
+
+        public void OnGet()
         {
-            public int GenreId { get; set; }
-            public string Name { get; set; }
-        }
-        public async Task OnGetAsync()
-        {
-            using var client = new HttpClient();
-            client.BaseAddress = new System.Uri("https://localhost:7087/");
-            var genres = await client.GetFromJsonAsync<List<GenreDto>>("api/staff/genres");
-            AllGenres = genres != null ? genres.Select(g => g.Name).ToList() : new List<string>();
             Success = false;
         }
 
@@ -33,9 +22,9 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
         {
             if (!ModelState.IsValid)
                 return Page();
-            Movie.Genres = SelectedGenres;
+
             using var client = new HttpClient();
-            client.BaseAddress = new System.Uri("https://localhost:7087/");
+            client.BaseAddress = new System.Uri("https://localhost:7087/"); // Sửa lại nếu API chạy port khác
             var response = await client.PostAsJsonAsync("api/staff/movies", Movie);
             Success = response.IsSuccessStatusCode;
             if (Success)
@@ -43,14 +32,6 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
                 ModelState.Clear();
                 Movie = new MovieDto();
             }
-            else
-            {
-                var errorMsg = await response.Content.ReadAsStringAsync();
-                ModelState.AddModelError(string.Empty, errorMsg);
-            }
-            // Reload genres for redisplay
-            var genres = await client.GetFromJsonAsync<List<GenreDto>>("api/staff/genres");
-            AllGenres = genres != null ? genres.Select(g => g.Name).ToList() : new List<string>();
             return Page();
         }
     }

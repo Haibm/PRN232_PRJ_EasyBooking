@@ -12,4 +12,4 @@ namespace EasyBooking.Data.Repositories
         Task UpdateAsync(Ticket ticket);
         Task DeleteAsync(int id);
     }
-}
+} 

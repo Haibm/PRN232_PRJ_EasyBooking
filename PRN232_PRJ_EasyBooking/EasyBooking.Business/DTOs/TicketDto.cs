@@ -25,4 +25,4 @@ namespace EasyBooking.Business.DTOs
         [StringLength(20)]
         public string? PaymentMethod { get; set; }
     }
-}
+} 
