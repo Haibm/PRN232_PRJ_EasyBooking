@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\EasyBooking.API.props" />
-</Project>
