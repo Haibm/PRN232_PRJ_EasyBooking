@@ -47,7 +47,11 @@
                         <td>@user.FullName</td>
                         <td>@user.Email</td>
                         <td>@user.Role</td>
-                        <td>@(user.IsActive == true ? "Yes" : "No")</td>
+                        <td>
+                            <span class="status-badge @(user.IsActive == true ? "active" : "inactive")">
+                                @(user.IsActive == true ? "Active" : "Inactive")
+                            </span>
+                        </td>
                         <td>
                             <a class="btn btn-sm btn-warning me-1" href="/Admin/ManageAccounts/Edit?id=@user.UserId">Edit</a>
                             <a class="btn btn-sm btn-danger" href="/Admin/ManageAccounts/Delete?id=@user.UserId" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?');">Delete</a>
