@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EasyBooking.API\EasyBooking.API.csproj" />
     <ProjectReference Include="..\EasyBooking.Business\EasyBooking.Business.csproj" />
+    <ProjectReference Include="..\EasyBooking.Data\EasyBooking.Data.csproj" />
   </ItemGroup>
 
 </Project>

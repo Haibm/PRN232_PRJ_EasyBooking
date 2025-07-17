@@ -3,7 +3,119 @@
   "WorkspaceRootPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\easybooking.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\easybooking.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\easybooking.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\easybooking.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.api\\controllers\\staff\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|solutionrelative:easybooking.api\\controllers\\staff\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.data\\repositories\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|solutionrelative:easybooking.data\\repositories\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\services\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\services\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\interfaces\\iticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\interfaces\\iticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\shared\\_stafflayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\shared\\_stafflayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\shared\\_staffsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\shared\\_staffsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.api\\controllers\\admin\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|solutionrelative:easybooking.api\\controllers\\admin\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.api\\controllers\\admin\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE0AADF6-839C-40FC-8C18-48F1351835BA}|EasyBooking.API\\EasyBooking.API.csproj|solutionrelative:easybooking.api\\controllers\\admin\\moviecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managetickets\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managetickets\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.data\\repositories\\iticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|solutionrelative:easybooking.data\\repositories\\iticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,8 +125,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 195,
+          "SelectedChildIndex": 38,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:36:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
@@ -164,8 +280,159 @@
               "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\appsettings.json",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\appsettings.json",
+              "RelativeToolTip": "EasyBooking.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-17T08:01:09.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EasyBooking.Business.csproj",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
+              "RelativeDocumentMoniker": "EasyBooking.Business\\EasyBooking.Business.csproj",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\EasyBooking.Business.csproj",
+              "RelativeToolTip": "EasyBooking.Business\\EasyBooking.Business.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-17T07:58:01.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EasyBooking.Web.csproj",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\EasyBooking.Web.csproj",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\EasyBooking.Web.csproj",
+              "RelativeToolTip": "EasyBooking.Web\\EasyBooking.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-17T07:54:45.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "ViewState": "AgIAABkCAAAAAAAAAAAQwC4CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-07-17T07:48:41.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ITicketService.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Interfaces\\ITicketService.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Business\\Interfaces\\ITicketService.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Interfaces\\ITicketService.cs",
+              "RelativeToolTip": "EasyBooking.Business\\Interfaces\\ITicketService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:58:56.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TicketService.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\TicketService.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Business\\Services\\TicketService.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\TicketService.cs",
+              "RelativeToolTip": "EasyBooking.Business\\Services\\TicketService.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAUwFQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:58:42.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_StaffLayout.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Shared\\_StaffLayout.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Shared\\_StaffLayout.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Shared\\_StaffLayout.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Shared\\_StaffLayout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwB0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:57:54.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_StaffSidebar.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Shared\\_StaffSidebar.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Shared\\_StaffSidebar.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Shared\\_StaffSidebar.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Shared\\_StaffSidebar.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAuwHUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:57:24.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MovieService.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\MovieService.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Business\\Services\\MovieService.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\MovieService.cs",
+              "RelativeToolTip": "EasyBooking.Business\\Services\\MovieService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwA0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:55:56.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TicketController.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
+              "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
+              "RelativeToolTip": "EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:54:08.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "List.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:53:22.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:49:13.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:45:34.324Z"
             },
             {
               "$type": "Bookmark",
@@ -302,10 +569,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:138:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:38:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -465,14 +728,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:37:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:39:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:40:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
@@ -626,10 +881,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:26:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             },
             {
               "$type": "Bookmark",
@@ -796,17 +1047,6 @@
               "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ViewState": "AgIAAPABAAAAAAAAAAAAwNoBAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-07-17T00:34:32.292Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
@@ -848,10 +1088,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:34:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
@@ -879,12 +1115,216 @@
               "Name": "ST:8:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:34:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAUwEMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:45:35.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:45:00.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAIwFMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:44:27.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:43:54.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "List.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\List.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:43:46.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:43:19.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Delete.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:42:31.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Edit.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:42:30.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:42:11.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Create.cshtml.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAswCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:37:41.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-17T06:36:29.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Admin\\UserController.cs",
+              "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\Admin\\UserController.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Admin\\UserController.cs",
+              "RelativeToolTip": "EasyBooking.API\\Controllers\\Admin\\UserController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwDAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:36:19.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MovieController.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Admin\\MovieController.cs",
+              "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\Admin\\MovieController.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Admin\\MovieController.cs",
+              "RelativeToolTip": "EasyBooking.API\\Controllers\\Admin\\MovieController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:35:30.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ITicketRepository.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\ITicketRepository.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Data\\Repositories\\ITicketRepository.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\ITicketRepository.cs",
+              "RelativeToolTip": "EasyBooking.Data\\Repositories\\ITicketRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:35:15.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TicketRepository.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\TicketRepository.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Data\\Repositories\\TicketRepository.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\TicketRepository.cs",
+              "RelativeToolTip": "EasyBooking.Data\\Repositories\\TicketRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T06:35:11.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Business\\DependencyInjection.cs",
+              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DependencyInjection.cs",
+              "RelativeToolTip": "EasyBooking.Business\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T02:29:33.61Z"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:36:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:38:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:37:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:39:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:34:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         },
@@ -1005,10 +1445,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:13:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:33:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Bookmark",

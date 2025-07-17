@@ -41,6 +41,8 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
         {
             if (!ModelState.IsValid)
                 return Page();
+            Movie.MovieId = id;
+
             Movie.Genres = SelectedGenres;
             using var client = new HttpClient();
             client.BaseAddress = new System.Uri("https://localhost:7087/");
@@ -52,10 +54,15 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
                 Movie = await client.GetFromJsonAsync<MovieDto>($"api/staff/movies/{id}");
                 SelectedGenres = Movie.Genres ?? new List<string>();
             }
+            else
+            {
+                var errorMsg = await response.Content.ReadAsStringAsync();
+                ModelState.AddModelError(string.Empty, errorMsg);
+            }
             // Lấy lại danh sách thể loại
             var genres = await client.GetFromJsonAsync<List<GenreDto>>("api/staff/genres");
             AllGenres = genres?.Select(g => g.Name).ToList() ?? new List<string>();
             return Page();
         }
     }
-} 
+}

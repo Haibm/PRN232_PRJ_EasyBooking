@@ -1,0 +1,75 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageTickets.ListModel
+@{
+    Layout = "_StaffLayout";
+}
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Danh sách vé</li>
+        </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <a class="btn btn-primary me-2" href="/Staff/ManageTickets/Create"><i class="bi bi-plus-lg"></i> Tạo vé</a>
+            <a class="btn btn-outline-secondary" href="/Staff/ManageTickets/List"><i class="bi bi-arrow-clockwise"></i> Refresh</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Mã vé</th>
+                    <th>Lịch chiếu</th>
+                    <th>Người đặt</th>
+                    <th>Ghế</th>
+                    <th>Thời gian đặt</th>
+                    <th>Trạng thái</th>
+                    <th>Thanh toán</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Tickets == null)
+                {
+                    <tr><td colspan="8" class="text-center">Loading...</td></tr>
+                }
+                else if (!Model.Tickets.Any())
+                {
+                    <tr><td colspan="8" class="text-center">Không có vé nào.</td></tr>
+                }
+                else
+                {
+                    foreach (var ticket in Model.Tickets)
+                    {
+                        <tr>
+                            <td>@ticket.TicketId</td>
+                            <td>@ticket.ShowtimeId</td>
+                            <td>@ticket.UserId</td>
+                            <td>@ticket.SeatNumber</td>
+                            <td>@ticket.BookingTime?.ToString("g")</td>
+                            <td>
+                                @if (ticket.Status == "Đã thanh toán")
+                                {
+                                    <span class="badge bg-success">Đã thanh toán</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@ticket.Status</span>
+                                }
+                            </td>
+                            <td>@ticket.PaymentMethod</td>
+                            <td>
+                                <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageTickets/Edit/@ticket.TicketId">Edit</a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@ticket.TicketId" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa vé này?');">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div> 
