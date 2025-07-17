@@ -1,7 +1,7 @@
 ﻿/* Modern Auth Form Styles */
 body.auth-bg {
     min-height: 100vh;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,7 @@ body.auth-bg {
     background: #fff;
     padding: 2.5rem 0.5rem 2rem 0.5rem;
     border-radius: 1.25rem;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(120, 120, 120, 0.10);
     max-width: 420px;
     width: 100%;
     margin: 2rem auto;
@@ -23,7 +23,7 @@ body.auth-bg {
 
 .auth-container h2 {
     margin-bottom: 1.5rem;
-    color: #2575fc;
+    color: #444;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -52,28 +52,32 @@ body.auth-bg {
     transition: border 0.2s;
     margin: 0 auto;
     display: block;
+    background: #f7f7f7;
+    color: #222;
 }
 
 .auth-container input.form-control:focus {
-    border-color: #2575fc;
+    border-color: #bdbdbd;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.15);
+    box-shadow: 0 0 0 2px rgba(180, 180, 180, 0.15);
 }
 
 .auth-container .btn-primary {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%);
+    color: #222;
     border: none;
     border-radius: 0.5rem;
     padding: 0.7rem 2rem;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 14px 0 rgba(37, 117, 252, 0.15);
+    box-shadow: 0 4px 14px 0 rgba(180, 180, 180, 0.10);
     transition: background 0.2s, transform 0.1s;
 }
 
 .auth-container .btn-primary:hover {
-    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+    background: linear-gradient(90deg, #bdbdbd 0%, #e0e0e0 100%);
+    color: #111;
     transform: translateY(-2px) scale(1.03);
 }
 

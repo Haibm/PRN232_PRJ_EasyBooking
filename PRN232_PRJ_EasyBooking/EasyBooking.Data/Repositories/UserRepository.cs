@@ -32,10 +32,27 @@ namespace EasyBooking.Data.Repositories
 
         public async Task UpdateAsync(User user)
         {
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
+            var existingUser = await _context.Users.FindAsync(user.UserId);
+            if (existingUser != null)
+            {
+                existingUser.FullName = user.FullName;
+                existingUser.Email = user.Email;
+                await _context.SaveChangesAsync();
+            }
         }
-
+        public async Task AdminUpdateAsync(User user)
+        {
+            var existingUser = await _context.Users.FindAsync(user.UserId);
+            if (existingUser != null)
+            {
+                existingUser.Email = user.Email;
+                existingUser.FullName = user.FullName;
+                existingUser.Username = user.Username;
+                existingUser.Role = user.Role;
+                existingUser.IsActive = user.IsActive;
+                await _context.SaveChangesAsync();
+            }
+        }
         public async Task DeleteAsync(int id)
         {
             var user = await _context.Users.FindAsync(id);

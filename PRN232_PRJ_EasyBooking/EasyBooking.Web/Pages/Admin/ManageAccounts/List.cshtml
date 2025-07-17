@@ -1,0 +1,61 @@
+﻿@page
+@model EasyBooking.Web.Pages.Admin.ManageAccounts.ListModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Danh sách tài khoản</li>
+        </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <a class="btn btn-primary me-2" href="/Admin/ManageAccounts/Create"><i class="bi bi-plus-lg"></i> Tạo tài khoản</a>
+            <a class="btn btn-outline-secondary" href="/Admin/ManageAccounts/List"><i class="bi bi-arrow-clockwise"></i> Refresh</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if (Model.Users == null)
+            {
+                <tr><td colspan="6" class="text-center">Loading...</td></tr>
+            }
+            else if (!Model.Users.Any())
+            {
+                <tr><td colspan="6" class="text-center">Không có tài khoản nào.</td></tr>
+            }
+            else
+            {
+                foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
+                        <td>@(user.IsActive == true ? "Yes" : "No")</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning me-1" href="/Admin/ManageAccounts/Edit?id=@user.UserId">Edit</a>
+                            <a class="btn btn-sm btn-danger" href="/Admin/ManageAccounts/Delete?id=@user.UserId" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này không?');">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

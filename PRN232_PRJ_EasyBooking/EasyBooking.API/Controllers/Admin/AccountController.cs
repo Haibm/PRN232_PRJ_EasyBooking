@@ -1,17 +1,15 @@
-using EasyBooking.Business.DTOs;
+﻿using EasyBooking.Business.DTOs;
 using EasyBooking.Business.Interfaces;
-using EasyBooking.Business.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
-namespace EasyBooking.API.Controllers.User
+namespace EasyBooking.API.Controllers.Admin
 {
-    [Route("api/users")]
+    [Route("api/admin/accounts")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
         }
@@ -40,25 +38,14 @@ namespace EasyBooking.API.Controllers.User
             return Ok();
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserDto loginDto)
-        {
-            if (string.IsNullOrEmpty(loginDto.Username) || string.IsNullOrEmpty(loginDto.PasswordHash))
-                return BadRequest("Username and password are required.");
-            var user = await _userService.GetByUsernamePass(loginDto.Username, loginDto.PasswordHash);
-            if (user == null) return Unauthorized();
-            if (user.IsActive.HasValue && !user.IsActive.Value)
-                return StatusCode(403, "Tài khoản đã bị khoá.");
-            return Ok(user);
-        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UserDto userDto)
         {
-            if (id != userDto.UserId) return BadRequest();
+            if (id != userDto.UserId) return BadRequest(new { error = "Id trên URL không khớp với UserId trong dữ liệu gửi lên." });
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            await _userService.UpdateAsync(userDto);
+            await _userService.AdminUpdateAsync(userDto);
             return NoContent();
         }
 
@@ -69,4 +56,4 @@ namespace EasyBooking.API.Controllers.User
             return NoContent();
         }
     }
-} 
+}

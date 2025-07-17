@@ -1,0 +1,27 @@
+﻿@page
+@model EasyBooking.Web.Pages.Admin.ManageAccounts.DeleteModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white px-0 mb-3">
+            <li class="breadcrumb-item"><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/Admin/ManageAccounts/List">Danh sách tài khoản</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Xóa tài khoản</li>
+        </ol>
+    </nav>
+    <h2>Xóa tài khoản</h2>
+    <form method="post">
+        <p>Bạn có chắc chắn muốn xóa tài khoản này không?</p>
+        <ul>
+            <li><strong>Username:</strong> @Model.User?.Username</li>
+            <li><strong>Full Name:</strong> @Model.User?.FullName</li>
+            <li><strong>Email:</strong> @Model.User?.Email</li>
+            <li><strong>Role:</strong> @Model.User?.Role</li>
+        </ul>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="/Admin/ManageAccounts/List" class="btn btn-secondary ms-2">Quay lại</a>
+    </form>
+</div>

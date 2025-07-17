@@ -10,6 +10,7 @@ namespace EasyBooking.Data.Repositories
         Task<User> GetByIdAsync(int id);
         Task AddAsync(User user);
         Task UpdateAsync(User user);
+        Task AdminUpdateAsync(User user);
         Task DeleteAsync(int id);
         Task<User> GetByUsernamePass(string username, string password);
     }

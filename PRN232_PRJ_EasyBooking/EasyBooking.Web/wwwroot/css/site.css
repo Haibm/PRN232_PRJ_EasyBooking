@@ -20,10 +20,10 @@ body {
 }
 
 header .navbar {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%) !important;
+    background: linear-gradient(90deg, #ece9e6 0%, #ffffff 100%) !important;
     box-shadow: none;
     border-radius: 0;
-    padding: 0.3rem 0 0.3rem 0;
+    padding: 0;
 }
 
 header .navbar .container {
@@ -36,26 +36,26 @@ header .navbar .container {
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 1.5rem;
-    color: #fff !important;
+    font-size: 1.1rem;
+    color: #222 !important;
     letter-spacing: 1px;
-    text-shadow: 0 2px 8px rgba(37,117,252,0.10);
+    text-shadow: none;
     margin-left: 0;
-    margin-right: 1.5rem;
+    margin-right: 0.7rem;
     display: block;
 }
 
 .navbar-nav .nav-link {
-    color: #f3f3f3 !important;
+    color: #333 !important;
     font-weight: 500;
-    margin: 0 0.3rem;
+    margin: 0 0.15rem;
     border-radius: 0.5rem;
     transition: background 0.2s, color 0.2s, transform 0.1s;
 }
 
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-    background: rgba(255,255,255,0.18);
-    color: #fff !important;
+    background: rgba(0,0,0,0.05);
+    color: #111 !important;
     transform: none;
 }
 
@@ -70,23 +70,23 @@ header .navbar .container {
 }
 
 footer.footer {
-    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    color: #fff;
+    background: linear-gradient(90deg, #ece9e6 0%, #ffffff 100%);
+    color: #222;
     border-radius: 0;
     box-shadow: none;
-    padding: 1.2rem 0;
+    padding: 0.5rem 0;
     margin-top: 2rem;
     font-size: 1.05rem;
 }
 
 footer.footer a {
-    color: #fff;
+    color: #2575fc;
     text-decoration: underline;
     transition: color 0.2s;
 }
 
 footer.footer a:hover {
-    color: #ffe082;
+    color: #6a11cb;
 }
 
 @media (max-width: 900px) {

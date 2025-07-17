@@ -46,3 +46,13 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.user-greeting {
+  font-weight: bold;
+  color: #fff !important;
+  text-shadow: 1px 1px 4px #333;
+  font-size: 1.1rem;
+  background-color: #0077cc !important;
+  border-radius: 6px;
+  padding: 6px 16px;
+}
