@@ -75,6 +75,20 @@ namespace EasyBooking.Business.Services
             };
             await _userRepository.UpdateAsync(user);
         }
+        public async Task AdminUpdateAsync(UserDto userDto)
+        {
+            var user = new User
+            {
+                UserId = userDto.UserId,
+                Username = userDto.Username,
+                PasswordHash = userDto.PasswordHash,
+                FullName = userDto.FullName,
+                Role = userDto.Role,
+                Email = userDto.Email,
+                IsActive = userDto.IsActive
+            };
+            await _userRepository.AdminUpdateAsync(user);
+        }
 
         public async Task DeleteAsync(int id)
         {
@@ -87,6 +101,7 @@ namespace EasyBooking.Business.Services
             if (u == null) return null;
             return new UserDto
             {
+                UserId = u.UserId,
                 Username = u.Username,
                 PasswordHash = u.PasswordHash,
                 FullName = u.FullName,
