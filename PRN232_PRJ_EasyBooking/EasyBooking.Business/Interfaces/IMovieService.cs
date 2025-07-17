@@ -8,6 +8,7 @@ namespace EasyBooking.Business.Interfaces
     {
         Task<IEnumerable<MovieDto>> GetAllAsync();
         Task<MovieDto> GetByIdAsync(int id);
+        Task<MovieDetailDto> GetDetailByIdAsync(int id);
         Task AddAsync(MovieDto movieDto);
         Task UpdateAsync(MovieDto movieDto);
         Task DeleteAsync(int id);

@@ -1,0 +1,57 @@
+﻿@page "{id:int}"
+@model EasyBooking.Web.Pages.User.DetailModel
+@{
+    var movie = Model.MovieDetail;
+}
+
+@if (movie == null)
+{
+    <div>Movie not found.</div>
+}
+else
+{
+    <div class="movie-detail">
+        <h1>@movie.Title</h1>
+        @if (!string.IsNullOrEmpty(movie.PosterUrl))
+        {
+            <img src="@movie.PosterUrl" alt="@movie.Title Poster" style="max-width:200px;" />
+        }
+        <p><strong>Description:</strong> @movie.Description</p>
+        <p><strong>Duration:</strong> @(movie.Duration.HasValue ? movie.Duration + " min" : "N/A")</p>
+        <p><strong>Status:</strong> @movie.Status</p>
+        <p><strong>Genres:</strong> @(movie.Genres != null && movie.Genres.Count > 0 ? string.Join(", ", movie.Genres) : "N/A")</p>
+        <h2>Showtimes</h2>
+        @if (movie.Showtimes != null && movie.Showtimes.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Start Time</th>
+                        <th>Price</th>
+                        <th>Room</th>
+                        <th>Cinema</th>
+                        <th></th> <!-- Cột cho nút Đặt vé -->
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var showtime in movie.Showtimes)
+                {
+                    <tr>
+                        <td>@showtime.StartTime.ToString("g")</td>
+                        <td>@showtime.Price.ToString("C")</td>
+                        <td>@showtime.RoomName</td>
+                        <td>@showtime.CinemaName</td>
+                        <td>
+                            <a class="btn btn-primary" href="/User/BookTicket/@showtime.ShowtimeId">Đặt vé</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No showtimes available.</p>
+        }
+    </div>
+}

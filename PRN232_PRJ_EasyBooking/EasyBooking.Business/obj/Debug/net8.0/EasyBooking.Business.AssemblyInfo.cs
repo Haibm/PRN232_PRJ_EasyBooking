@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasyBooking.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6110af2194bbf24c9448d65339eddfb0b0404978")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5b5ab1e9595195b1b416280436f903490c2944e")]
 [assembly: System.Reflection.AssemblyProductAttribute("EasyBooking.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasyBooking.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

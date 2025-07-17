@@ -1,20 +1,47 @@
-using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using EasyBooking.Business.DTOs;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EasyBooking.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        public List<MovieDto> Movies { get; set; } = new();
+        public string? CurrentStatus { get; set; }
+        public List<string> StatusList { get; set; } = new() { "All", "Sắp Chiếu", "Đang Chiếu" };
 
-        public IndexModel(ILogger<IndexModel> logger)
+        private string MapStatusToDb(string? status)
         {
-            _logger = logger;
+            return status switch
+            {
+                "Sắp Chiếu" => "Upcoming",
+                "Đang Chiếu" => "NowShowing",
+                _ => ""
+            };
         }
 
-        public void OnGet()
+        public async Task OnGetAsync(string? status)
         {
-
+            CurrentStatus = status;
+            using var client = new HttpClient();
+            client.BaseAddress = new System.Uri("https://localhost:7087/");
+            var movies = await client.GetFromJsonAsync<List<MovieDto>>("/api/user/movies");
+            if (movies != null)
+            {
+                if (!string.IsNullOrEmpty(status) && status != "All")
+                {
+                    var dbStatus = MapStatusToDb(status);
+                    Movies = movies.Where(m => m.Status == dbStatus).ToList();
+                }
+                else
+                {
+                    Movies = movies;
+                }
+            }
         }
     }
 }

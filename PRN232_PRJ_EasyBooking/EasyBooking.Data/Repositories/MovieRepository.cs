@@ -23,7 +23,15 @@ namespace EasyBooking.Data.Repositories
         {
             return await _context.Movies.FindAsync(id);
         }
-
+        public async Task<Movie> GetDetailByIdAsync(int id)
+        {
+            return await _context.Movies
+                .Include(m => m.Genres)
+                .Include(m => m.Showtimes)
+                    .ThenInclude(s => s.Room)
+                        .ThenInclude(r => r.Cinema)
+                .FirstOrDefaultAsync(m => m.MovieId == id);
+        }
         public async Task AddAsync(Movie movie)
         {
             await _context.Movies.AddAsync(movie);
