@@ -3,12 +3,9 @@
   "WorkspaceRootPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\",
   "Documents": [
     {
-<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-=======
->>>>>>> parent of a7474e6 (nothing)
       "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|g:\\ki_8\\prn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\staff\\managemovies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\staff\\managemovies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -120,11 +117,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
           "SelectedChildIndex": 214,
-=======
-          "SelectedChildIndex": 213,
->>>>>>> parent of a7474e6 (nothing)
           "Children": [
             {
               "$type": "Bookmark",
@@ -983,7 +976,6 @@
               "Name": "ST:8:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-<<<<<<< HEAD
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
@@ -992,53 +984,10 @@
               "ViewState": "AgIAANYBAAAAAAAAAAAcwOMBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2025-07-17T00:12:44.468Z",
-=======
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
-              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
-              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
-              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAcwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T22:08:30.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:34:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
-              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
-              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T21:53:34.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "List.cshtml",
-              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
-              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
-              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
-              "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\List.cshtml",
-              "ViewState": "AgIAACsAAAAAAAAAAAAcwGUAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T20:44:13.512Z",
->>>>>>> parent of a7474e6 (nothing)
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "Create.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Create.cshtml",
@@ -1077,9 +1026,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-=======
-              "DocumentIndex": 3,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Edit.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
@@ -1087,30 +1033,11 @@
               "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageMovies\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:42:44.385Z"
-=======
-              "WhenOpened": "2025-07-16T20:42:44.385Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MovieDto.cs",
-              "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DTOs\\MovieDto.cs",
-              "RelativeDocumentMoniker": "EasyBooking.Business\\DTOs\\MovieDto.cs",
-              "ToolTip": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DTOs\\MovieDto.cs",
-              "RelativeToolTip": "EasyBooking.Business\\DTOs\\MovieDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T20:37:11.583Z",
-              "EditorCaption": ""
->>>>>>> parent of a7474e6 (nothing)
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-<<<<<<< HEAD
               "Title": "MovieDto.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DTOs\\MovieDto.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\DTOs\\MovieDto.cs",
@@ -1123,8 +1050,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-=======
->>>>>>> parent of a7474e6 (nothing)
               "Title": "MovieController.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Staff\\MovieController.cs",
               "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\Staff\\MovieController.cs",
@@ -1132,20 +1057,11 @@
               "RelativeToolTip": "EasyBooking.API\\Controllers\\Staff\\MovieController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:35:56.447Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-=======
-              "WhenOpened": "2025-07-16T20:35:56.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Create.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
@@ -1153,20 +1069,11 @@
               "RelativeToolTip": "EasyBooking.Web\\Pages\\Staff\\ManageTickets\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:23:15.617Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-=======
-              "WhenOpened": "2025-07-16T20:23:15.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "TicketRepository.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\TicketRepository.cs",
               "RelativeDocumentMoniker": "EasyBooking.Data\\Repositories\\TicketRepository.cs",
@@ -1174,20 +1081,11 @@
               "RelativeToolTip": "EasyBooking.Data\\Repositories\\TicketRepository.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:11:52.894Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-=======
-              "WhenOpened": "2025-07-16T20:11:52.894Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "UserDto.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DTOs\\UserDto.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\DTOs\\UserDto.cs",
@@ -1195,20 +1093,11 @@
               "RelativeToolTip": "EasyBooking.Business\\DTOs\\UserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:11:29.523Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-=======
-              "WhenOpened": "2025-07-16T20:11:29.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "TicketController.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
               "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
@@ -1216,20 +1105,11 @@
               "RelativeToolTip": "EasyBooking.API\\Controllers\\Staff\\TicketController.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAQwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:10:23.324Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-=======
-              "WhenOpened": "2025-07-16T20:10:23.324Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "ITicketService.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Interfaces\\ITicketService.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\Interfaces\\ITicketService.cs",
@@ -1237,20 +1117,11 @@
               "RelativeToolTip": "EasyBooking.Business\\Interfaces\\ITicketService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:08:13.696Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-=======
-              "WhenOpened": "2025-07-16T20:08:13.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "ITicketRepository.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\ITicketRepository.cs",
               "RelativeDocumentMoniker": "EasyBooking.Data\\Repositories\\ITicketRepository.cs",
@@ -1258,20 +1129,11 @@
               "RelativeToolTip": "EasyBooking.Data\\Repositories\\ITicketRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T20:00:21.566Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-=======
-              "WhenOpened": "2025-07-16T20:00:21.566Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\DependencyInjection.cs",
@@ -1279,20 +1141,11 @@
               "RelativeToolTip": "EasyBooking.Business\\DependencyInjection.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAEwBoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T19:59:03.326Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-=======
-              "WhenOpened": "2025-07-16T19:59:03.326Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "TicketDto.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\DTOs\\TicketDto.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\DTOs\\TicketDto.cs",
@@ -1304,11 +1157,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 16,
-=======
-              "DocumentIndex": 15,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "EasyBooking.API\\WeatherForecast.cs",
@@ -1320,11 +1169,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 17,
-=======
-              "DocumentIndex": 16,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Create.cshtml.cs",
@@ -1336,11 +1181,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 19,
-=======
-              "DocumentIndex": 18,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "UserController.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Controllers\\User\\UserController.cs",
               "RelativeDocumentMoniker": "EasyBooking.API\\Controllers\\User\\UserController.cs",
@@ -1352,11 +1193,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 20,
-=======
-              "DocumentIndex": 19,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "appsettings.json",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\appsettings.json",
               "RelativeDocumentMoniker": "EasyBooking.API\\appsettings.json",
@@ -1368,11 +1205,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 21,
-=======
-              "DocumentIndex": 20,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.API\\Program.cs",
               "RelativeDocumentMoniker": "EasyBooking.API\\Program.cs",
@@ -1384,11 +1217,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 22,
-=======
-              "DocumentIndex": 21,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Edit.cshtml.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Edit.cshtml.cs",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Edit.cshtml.cs",
@@ -1400,11 +1229,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 18,
-=======
-              "DocumentIndex": 17,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Create.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Create.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Create.cshtml",
@@ -1416,11 +1241,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 23,
-=======
-              "DocumentIndex": 22,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Edit.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Edit.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Staff\\ManageGenres\\Edit.cshtml",
@@ -1432,11 +1253,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 25,
-=======
-              "DocumentIndex": 24,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "auth.css",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\wwwroot\\css\\auth.css",
               "RelativeDocumentMoniker": "EasyBooking.Web\\wwwroot\\css\\auth.css",
@@ -1448,11 +1265,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 24,
-=======
-              "DocumentIndex": 23,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\Shared\\_Layout.cshtml",
@@ -1464,11 +1277,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 26,
-=======
-              "DocumentIndex": 25,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "Login.cshtml",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Login.cshtml",
               "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\authen\\Login.cshtml",
@@ -1480,11 +1289,7 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 14,
-=======
-              "DocumentIndex": 13,
->>>>>>> parent of a7474e6 (nothing)
               "Title": "TicketService.cs",
               "DocumentMoniker": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\TicketService.cs",
               "RelativeDocumentMoniker": "EasyBooking.Business\\Services\\TicketService.cs",
@@ -1492,16 +1297,11 @@
               "RelativeToolTip": "EasyBooking.Business\\Services\\TicketService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< HEAD
               "WhenOpened": "2025-07-16T03:56:03.763Z"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:34:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-=======
-              "WhenOpened": "2025-07-16T03:56:03.763Z",
-              "EditorCaption": ""
->>>>>>> parent of a7474e6 (nothing)
             }
           ]
         },
