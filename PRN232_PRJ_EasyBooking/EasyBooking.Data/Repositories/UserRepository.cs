@@ -37,6 +37,7 @@ namespace EasyBooking.Data.Repositories
             {
                 existingUser.FullName = user.FullName;
                 existingUser.Email = user.Email;
+                existingUser.PasswordHash = user.PasswordHash;
                 await _context.SaveChangesAsync();
             }
         }

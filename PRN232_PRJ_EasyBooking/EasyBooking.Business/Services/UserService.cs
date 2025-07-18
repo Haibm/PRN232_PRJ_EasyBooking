@@ -5,6 +5,8 @@ using EasyBooking.Data.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Concurrent;
 
 namespace EasyBooking.Business.Services
 {
@@ -109,6 +111,59 @@ namespace EasyBooking.Business.Services
                 Email = u.Email,
                 IsActive = u.IsActive
             };
+        }
+
+        // Lưu code xác nhận và thông tin timeout, số lần nhập sai
+        private static ConcurrentDictionary<int, (string Code, DateTime Expiry, int FailCount)> _changePasswordCodes = new();
+
+        public async Task<string> SendChangePasswordCodeAsync(int userId)
+        {
+            var user = await _userRepository.GetByIdAsync(userId);
+            if (user == null) return null;
+
+            // Gửi email và nhận lại mã code từ bên trong hàm SendEmail
+            string code = EmailSender.SendEmail(user.Email, "Mã xác nhận đổi mật khẩu", null);
+
+            // Lưu code vào dictionary
+            _changePasswordCodes[userId] = (code, DateTime.UtcNow.AddMinutes(5), 0);
+
+            return code;
+        }
+
+        public async Task<bool> ChangePasswordAsync(ChangePasswordDto dto)
+        {
+            if (!_changePasswordCodes.TryGetValue(dto.UserId, out var info))
+                return false;
+            if (DateTime.UtcNow > info.Expiry)
+            {
+                _changePasswordCodes.TryRemove(dto.UserId, out _);
+                return false;
+            }
+            if (dto.VerificationCode != info.Code)
+            {
+                // Tăng số lần nhập sai
+                info.FailCount++;
+                if (info.FailCount >= 5)
+                {
+                    _changePasswordCodes.TryRemove(dto.UserId, out _);
+                }
+                else
+                {
+                    _changePasswordCodes[dto.UserId] = (info.Code, info.Expiry, info.FailCount);
+                }
+                return false;
+            }
+            // Đúng code, kiểm tra mật khẩu cũ
+            var user = await _userRepository.GetByIdAsync(dto.UserId);
+            if (user == null || user.PasswordHash != dto.OldPassword)
+                return false;
+            if (dto.NewPassword != dto.ConfirmPassword)
+                return false;
+            // Đổi mật khẩu
+            user.PasswordHash = dto.NewPassword;
+            await _userRepository.UpdateAsync(user);
+            _changePasswordCodes.TryRemove(dto.UserId, out _);
+            return true;
         }
     }
 } 

@@ -68,5 +68,22 @@ namespace EasyBooking.API.Controllers.User
             await _userService.DeleteAsync(id);
             return NoContent();
         }
+
+        [HttpPost("{id}/send-change-password-code")]
+        public async Task<IActionResult> SendChangePasswordCode(int id)
+        {
+            var code = await _userService.SendChangePasswordCodeAsync(id);
+            if (code == null) return NotFound();
+            return Ok(new { message = "Đã gửi mã xác nhận đến email của bạn." });
+        }
+
+        [HttpPost("{id}/change-password")]
+        public async Task<IActionResult> ChangePassword(int id, [FromBody] ChangePasswordDto dto)
+        {
+            if (id != dto.UserId) return BadRequest();
+            var result = await _userService.ChangePasswordAsync(dto);
+            if (!result) return BadRequest(new { message = "Đổi mật khẩu thất bại. Kiểm tra lại mã xác nhận, mật khẩu cũ hoặc số lần nhập." });
+            return Ok(new { message = "Đổi mật khẩu thành công." });
+        }
     }
 } 
