@@ -8,6 +8,7 @@ namespace EasyBooking.Data.Repositories
     {
         Task<IEnumerable<Movie>> GetAllAsync();
         Task<Movie> GetByIdAsync(int id);
+        Task<Movie> GetDetailByIdAsync(int id);
         Task AddAsync(Movie movie);
         Task UpdateAsync(Movie movie);
         Task DeleteAsync(int id);

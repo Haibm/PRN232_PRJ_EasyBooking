@@ -51,7 +51,29 @@ namespace EasyBooking.Business.Services
                 Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
             };
         }
-
+        public async Task<MovieDetailDto> GetDetailByIdAsync(int id)
+        {
+            var m = await _movieRepository.GetDetailByIdAsync(id);
+            if (m == null) return null;
+            return new MovieDetailDto
+            {
+                MovieId = m.MovieId,
+                Title = m.Title,
+                Description = m.Description,
+                Duration = m.Duration,
+                PosterUrl = m.PosterUrl,
+                Status = m.Status,
+                Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
+                Showtimes = m.Showtimes?.Select(s => new ShowtimeDetailDto
+                {
+                    ShowtimeId = s.ShowtimeId,
+                    StartTime = s.StartTime,
+                    Price = s.Price,
+                    RoomName = s.Room?.Name ?? string.Empty,
+                    CinemaName = s.Room?.Cinema?.Name ?? string.Empty
+                }).ToList() ?? new List<ShowtimeDetailDto>()
+            };
+        }
         public async Task AddAsync(MovieDto movieDto)
         {
             var movie = new Movie

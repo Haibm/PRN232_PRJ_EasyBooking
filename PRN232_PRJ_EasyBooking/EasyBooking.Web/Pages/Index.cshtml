@@ -1,10 +1,46 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Trang Chủ";
 }
+<link rel="stylesheet" href="~/css/style.css" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Banner -->
+<section class="banner">
+    <img src="~/images/1.jpg" alt="Banner Joker" class="banner-img" />
+    <div class="banner-overlay">
+        <h2>PHOENIX GAGA<br/>JOKER</h2>
+        <p>Suất chiếu đặc biệt<br/>Từ 19h, ngày 03.10</p>
+    </div>
+</section>
+
+<!-- Menu phim -->
+<nav class="movie-menu">
+    @foreach (var status in Model.StatusList)
+    {
+        <a asp-page="/Index" asp-route-status="@status" class="movie-menu-item @((string.IsNullOrEmpty(Model.CurrentStatus) && status == "All") || Model.CurrentStatus == status ? "active" : "")">@status</a>
+    }
+</nav>
+
+<!-- Danh sách phim -->
+<section class="movie-list">
+    @if (Model.Movies == null || !Model.Movies.Any())
+    {
+        <div>Không có phim nào.</div>
+    }
+    else
+    {
+        foreach (var movie in Model.Movies)
+        {
+            <a asp-page="User/Detail" asp-route-id="@movie.MovieId" style="text-decoration:none; color:inherit;">
+                <div class="movie-card">
+                    <img src="@(string.IsNullOrEmpty(movie.PosterUrl) ? "~/images/1.jpg" : movie.PosterUrl)" alt="@movie.Title" />
+                    <h3>@movie.Title</h3>
+                    <div>@movie.Description</div>
+                    <div><span class="badge bg-secondary">@movie.Status</span></div>
+                </div>
+            </a>
+        }
+    }
+</section>
+
