@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasyBooking.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4754a5319d152570c9651c2e9106853ff517bdc2")]
+=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5b5ab1e9595195b1b416280436f903490c2944e")]
+>>>>>>> origin/trung
 [assembly: System.Reflection.AssemblyProductAttribute("EasyBooking.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasyBooking.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

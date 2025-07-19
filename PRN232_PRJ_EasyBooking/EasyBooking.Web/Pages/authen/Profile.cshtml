@@ -1,19 +1,59 @@
-﻿@page "{userId:int}"
+﻿@page
 @model EasyBooking.Web.Pages.Authen.ProfileModel
-
+@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
 <h2>Thông tin cá nhân</h2>
-<form method="post">
-    <div>
-        <label>Username:</label>
-        <input asp-for="User.Username" readonly/>
+
+<div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3">
+        @await Html.PartialAsync("Shared/_UserSidebar")
     </div>
-    <div>
-        <label>Full Name:</label>
-        <input asp-for="User.FullName" />
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                Thông tin cá nhân
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="User.Username" class="form-label">Tên tài khoản:</label>
+                        <input asp-for="User.Username" class="form-control" readonly />
+                        <span asp-validation-for="User.Username" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="User.FullName" class="form-label">Họ tên:</label>
+                        <input asp-for="User.FullName" class="form-control" />
+                        <span asp-validation-for="User.FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="User.Email" class="form-label">Email:</label>
+                        <input asp-for="User.Email" class="form-control" />
+                        <span asp-validation-for="User.Email" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+
+                    @if (Model.Success)
+
+                    {
+                        <div class="mt-2 alert alert-success">Cập nhật thành công!</div>
+                    }
+
+                    else if (!ModelState.IsValid)
+
+                    {
+                        <div class="mt-2 alert alert-danger">Cập nhật thất bại!</div>
+                    }
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Email:</label>
-        <input asp-for="User.Email" />
-    </div>
-    <button type="submit">Cập nhật</button>
-</form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

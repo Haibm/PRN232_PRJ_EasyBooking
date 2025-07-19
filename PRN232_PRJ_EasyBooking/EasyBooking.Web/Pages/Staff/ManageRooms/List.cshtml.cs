@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -19,10 +20,25 @@ namespace EasyBooking.Web.Pages.Staff.ManageRooms
 
         public async Task OnGetAsync()
         {
+            await LoadDataAsync();
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
             using var client = new HttpClient();
-            client.BaseAddress = new System.Uri("https://localhost:7087/"); // Sửa lại nếu API chạy port khác
+            client.BaseAddress = new System.Uri("https://localhost:7087/");
+            await client.DeleteAsync($"api/staff/rooms/{id}");
+
+            // Reload lại dữ liệu sau khi xoá
+            await LoadDataAsync();
+            return Page();
+        }
+
+        private async Task LoadDataAsync()
+        {
+            using var client = new HttpClient();
+            client.BaseAddress = new System.Uri("https://localhost:7087/");
             var rooms = await client.GetFromJsonAsync<List<RoomDto>>("api/staff/rooms");
-            // Lấy danh sách rạp để map tên
             var cinemas = await client.GetFromJsonAsync<List<CinemaDto>>("api/staff/cinemas");
             Rooms = rooms.Select(r => new RoomViewModel
             {
@@ -35,4 +51,4 @@ namespace EasyBooking.Web.Pages.Staff.ManageRooms
             }).ToList();
         }
     }
-} 
+}

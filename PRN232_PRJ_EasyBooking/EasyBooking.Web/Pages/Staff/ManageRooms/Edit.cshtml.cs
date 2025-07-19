@@ -37,6 +37,7 @@ namespace EasyBooking.Web.Pages.Staff.ManageRooms
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new System.Uri("https://localhost:7087/");
+                Room.RoomId = id;
                 var response = await client.PutAsJsonAsync($"api/staff/rooms/{id}", Room);
                 Success = response.IsSuccessStatusCode;
                 if (Success)

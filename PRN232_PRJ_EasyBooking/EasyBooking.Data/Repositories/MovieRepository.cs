@@ -1,8 +1,9 @@
-using EasyBooking.Data.DbContexts;
+﻿using EasyBooking.Data.DbContexts;
 using EasyBooking.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace EasyBooking.Data.Repositories
 {
@@ -16,12 +17,18 @@ namespace EasyBooking.Data.Repositories
 
         public async Task<IEnumerable<Movie>> GetAllAsync()
         {
-            return await _context.Movies.ToListAsync();
+            return await _context.Movies
+                .Include(m => m.Genres)
+                .Include(m => m.Showtimes)
+                .ToListAsync();
         }
 
         public async Task<Movie> GetByIdAsync(int id)
         {
-            return await _context.Movies.FindAsync(id);
+            return await _context.Movies
+                .Include(m => m.Genres)
+                .Include(m => m.Showtimes)
+                .FirstOrDefaultAsync(m => m.MovieId == id);
         }
         public async Task<Movie> GetDetailByIdAsync(int id)
         {
@@ -40,8 +47,23 @@ namespace EasyBooking.Data.Repositories
 
         public async Task UpdateAsync(Movie movie)
         {
-            _context.Movies.Update(movie);
-            await _context.SaveChangesAsync();
+            // Cập nhật movie cơ bản bằng raw SQL
+            await _context.Database.ExecuteSqlRawAsync(
+                "UPDATE Movies SET Title = {0}, Description = {1}, Duration = {2}, PosterUrl = {3}, Status = {4} WHERE MovieId = {5}",
+                movie.Title, movie.Description, movie.Duration, movie.PosterUrl, movie.Status, movie.MovieId);
+
+            // Xóa tất cả genres cũ
+            await _context.Database.ExecuteSqlRawAsync(
+                "DELETE FROM MovieGenres WHERE MovieId = {0}",
+                movie.MovieId);
+
+            // Thêm genres mới
+            foreach (var genre in movie.Genres)
+            {
+                await _context.Database.ExecuteSqlRawAsync(
+                    "INSERT INTO MovieGenres (MovieId, GenreId) VALUES ({0}, {1})",
+                    movie.MovieId, genre.GenreId);
+            }
         }
 
         public async Task DeleteAsync(int id)
@@ -54,4 +76,4 @@ namespace EasyBooking.Data.Repositories
             }
         }
     }
-} 
+}

@@ -22,6 +22,8 @@ namespace EasyBooking.Business
             services.AddScoped<ICinemaService, CinemaService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITicketRepository, TicketRepository>();
+            services.AddScoped<ITicketService, TicketService>();
             return services;
         }
     }

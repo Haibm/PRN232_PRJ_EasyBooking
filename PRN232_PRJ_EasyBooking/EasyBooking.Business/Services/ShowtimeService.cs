@@ -25,7 +25,7 @@ namespace EasyBooking.Business.Services
                 MovieId = s.MovieId,
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
-                Price = s.Price
+                Price = s.Price,
             });
         }
 

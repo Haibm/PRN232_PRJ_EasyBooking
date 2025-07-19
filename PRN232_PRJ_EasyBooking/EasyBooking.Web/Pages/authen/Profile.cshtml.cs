@@ -16,13 +16,14 @@ namespace EasyBooking.Web.Pages.Authen
         public UserDto User { get; set; }
         public bool Success { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int userId)
+        public async Task<IActionResult> OnGetAsync()
         {
             Success = false;
 
             var username = HttpContext.Session.GetString("Username");
             var password = HttpContext.Session.GetString("Password");
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || userId == null)
                 return RedirectToPage("/Authen/Login");
 
             var handler = new HttpClientHandler();
@@ -42,16 +43,17 @@ namespace EasyBooking.Web.Pages.Authen
             }
         }
 
-        public async Task<IActionResult> OnPostAsync(int userId)
+        public async Task<IActionResult> OnPostAsync()
         {
             Success = false;
 
             var username = HttpContext.Session.GetString("Username");
             var password = HttpContext.Session.GetString("Password");
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || userId == null)
                 return RedirectToPage("/Authen/Login");
 
-            User.UserId = userId;
+            User.UserId = userId.Value;
 
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
@@ -65,7 +67,7 @@ namespace EasyBooking.Web.Pages.Authen
                 if (response.IsSuccessStatusCode)
                 {
                     Success = true;
-                    return RedirectToPage(new { userId = userId });
+                    return RedirectToPage();
                 }
                 else
                 {

@@ -1,4 +1,4 @@
-@page
+@page "{id:int}"
 @model EasyBooking.Web.Pages.Staff.ManageMovies.EditModel
 @{
     Layout = "_StaffLayout";
@@ -36,19 +36,29 @@
         </div>
         <div class="mb-3">
             <label asp-for="Movie.Status" class="form-label">Trạng thái</label>
-            <select asp-for="Movie.Status" class="form-select">
+            <select asp-for="Movie.Status" class="form-select" required>
                 <option value="">Chọn trạng thái</option>
                 <option value="Công khai">Công khai</option>
                 <option value="Nháp">Nháp</option>
+                <option value="NowShowing">Đang chiếu</option>
+                <option value="Upcoming">Sắp chiếu</option>
+                <option value="StopShowing">Ngừng chiếu</option>
             </select>
             <span asp-validation-for="Movie.Status" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label class="form-label">Thể loại</label>
-            <select asp-for="SelectedGenres" class="form-select" multiple>
+            <select id="genreSelect" name="SelectedGenres" class="form-select" multiple>
                 @foreach (var genre in Model.AllGenres)
                 {
-                    <option value="@genre" selected="@(Model.SelectedGenres.Contains(genre))">@genre</option>
+                    @if (Model.SelectedGenres != null && Model.SelectedGenres.Contains(genre))
+                    {
+                        <option value="@genre" selected>@genre</option>
+                    }
+                    else
+                    {
+                        <option value="@genre">@genre</option>
+                    }
                 }
             </select>
         </div>
@@ -71,8 +81,28 @@
         <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="/Staff/ManageMovies/List" class="btn btn-secondary ms-2">Quay lại</a>
     </form>
+    @if (!Model.Success && ModelState.ErrorCount > 0)
+    {
+        <div class="alert alert-danger mt-3">Có lỗi xảy ra: @string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage))</div>
+    }
     @if (Model.Success)
     {
         <div class="alert alert-success mt-3">Cập nhật thành công!</div>
     }
 </div> 
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+}
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+        new Choices('#genreSelect', {
+            removeItemButton: true,
+            searchEnabled: true,
+            placeholder: true,
+            placeholderValue: 'Chọn thể loại',
+            noResultsText: 'Không tìm thấy',
+            noChoicesText: 'Không có thể loại',
+        });
+    </script>
+} 

@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model EasyBooking.Web.Pages.Staff.ManageMovies.CreateModel
 @{
     Layout = "_StaffLayout";
@@ -29,13 +29,55 @@
     </div>
     <div class="mb-3">
         <label asp-for="Movie.Status" class="form-label">Status</label>
-        <input asp-for="Movie.Status" class="form-control" />
+        <select asp-for="Movie.Status" class="form-select" required>
+            <option value="">Chọn trạng thái</option>
+            <option value="NowShowing">Đang chiếu</option>
+            <option value="Upcoming">Sắp chiếu</option>
+            <option value="StopShowing">Ngừng chiếu</option>
+        </select>
         <span asp-validation-for="Movie.Status" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Thể loại</label>
+        <select id="genreSelect" asp-for="SelectedGenres" class="form-select" multiple>
+            @if (Model.AllGenres != null)
+            {
+
+                foreach (var genre in Model.AllGenres)
+
+                {
+                    <option value="@genre">@genre</option>
+                }
+            }
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Add Movie</button>
 </form>
 
+@if (!Model.Success && ModelState.ErrorCount > 0)
+
+{
+    <div class="alert alert-danger">Có lỗi xảy ra: @string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage))</div>
+}
 @if (Model.Success)
+
 {
     <div class="alert alert-success mt-3">Movie added successfully!</div>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+}
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+        new Choices('#genreSelect', {
+            removeItemButton: true,
+            searchEnabled: true,
+            placeholder: true,
+            placeholderValue: 'Chọn thể loại',
+            noResultsText: 'Không tìm thấy',
+            noChoicesText: 'Không có thể loại',
+        });
+    </script>
 } 
