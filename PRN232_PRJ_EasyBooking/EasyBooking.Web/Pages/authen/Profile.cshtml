@@ -18,36 +18,22 @@
                 Thông tin cá nhân
             </div>
             <div class="card-body">
-                <form method="post">
+                <form id="profileForm">
                     <div class="mb-3">
-                        <label asp-for="User.Username" class="form-label">Tên tài khoản:</label>
-                        <input asp-for="User.Username" class="form-control" readonly />
-                        <span asp-validation-for="User.Username" class="text-danger"></span>
+                        <label class="form-label">Tên tài khoản:</label>
+                        <input id="profileUsername" class="form-control" readonly />
                     </div>
                     <div class="mb-3">
-                        <label asp-for="User.FullName" class="form-label">Họ tên:</label>
-                        <input asp-for="User.FullName" class="form-control" />
-                        <span asp-validation-for="User.FullName" class="text-danger"></span>
+                        <label class="form-label">Họ tên:</label>
+                        <input id="profileFullName" class="form-control" />
                     </div>
                     <div class="mb-3">
-                        <label asp-for="User.Email" class="form-label">Email:</label>
-                        <input asp-for="User.Email" class="form-control" />
-                        <span asp-validation-for="User.Email" class="text-danger"></span>
+                        <label class="form-label">Email:</label>
+                        <input id="profileEmail" class="form-control" />
                     </div>
-
                     <button type="submit" class="btn btn-primary">Lưu thông tin</button>
-
-                    @if (Model.Success)
-
-                    {
-                        <div class="mt-2 alert alert-success">Cập nhật thành công!</div>
-                    }
-
-                    else if (!ModelState.IsValid)
-
-                    {
-                        <div class="mt-2 alert alert-danger">Cập nhật thất bại!</div>
-                    }
+                    <div id="profileSuccess" class="mt-2 alert alert-success" style="display:none">Cập nhật thành công!</div>
+                    <div id="profileError" class="mt-2 alert alert-danger" style="display:none"></div>
                 </form>
             </div>
         </div>
@@ -56,4 +42,63 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+function parseJwt (token) {
+    if (!token) return null;
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    } catch { return null; }
+}
+const token = localStorage.getItem('jwtToken');
+const payload = parseJwt(token);
+const userId = payload && payload.userId;
+if (!userId) {
+    window.location.href = '/authen/Login';
+}
+// Lấy thông tin user
+fetch(`https://localhost:7087/api/users/${userId}`, {
+    method: 'GET',
+    headers: {
+        'Authorization': 'Bearer ' + token
+    }
+})
+.then(res => res.json())
+.then(user => {
+    document.getElementById('profileUsername').value = user.username || '';
+    document.getElementById('profileFullName').value = user.fullName || '';
+    document.getElementById('profileEmail').value = user.email || '';
+});
+// Cập nhật thông tin
+const form = document.getElementById('profileForm');
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const userData = {
+        userId: userId,
+        username: document.getElementById('profileUsername').value,
+        fullName: document.getElementById('profileFullName').value,
+        email: document.getElementById('profileEmail').value
+    };
+    const res = await fetch(`https://localhost:7087/api/users/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(userData)
+    });
+    if (res.ok) {
+        document.getElementById('profileSuccess').style.display = 'block';
+        document.getElementById('profileError').style.display = 'none';
+    } else {
+        document.getElementById('profileSuccess').style.display = 'none';
+        document.getElementById('profileError').style.display = 'block';
+        document.getElementById('profileError').innerText = 'Cập nhật thông tin thất bại.';
+    }
+});
+</script>
 }

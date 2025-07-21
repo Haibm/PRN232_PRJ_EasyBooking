@@ -3,6 +3,11 @@ using EasyBooking.Business.Interfaces;
 using EasyBooking.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System;
 
 namespace EasyBooking.API.Controllers.User
 {
@@ -49,7 +54,41 @@ namespace EasyBooking.API.Controllers.User
             if (user == null) return Unauthorized();
             if (user.IsActive.HasValue && !user.IsActive.Value)
                 return StatusCode(403, "Tài khoản đã bị khoá.");
-            return Ok(user);
+
+            // Thêm log kiểm tra
+            if (user.UserId == 0 || string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Role))
+                return StatusCode(500, $"User info missing for JWT: UserId={user.UserId}, Username={user.Username}, Role={user.Role}");
+
+            try
+            {
+                var token = GenerateJwtToken(user.UserId, user.Username, user.Role);
+                return Ok(new { token });
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi ra console hoặc file
+                Console.WriteLine("JWT Error: " + ex.ToString());
+                return StatusCode(500, "JWT Error: " + ex.Message);
+            }
+        }
+
+        private string GenerateJwtToken(int userId, string username, string role)
+        {
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.Role, role ?? "User")
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super_secret_key_1234567890_easybooking_2024"));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                issuer: "easybooking",
+                audience: "easybooking_user",
+                claims: claims,
+                expires: DateTime.Now.AddHours(2),
+                signingCredentials: creds);
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         [HttpPut("{id}")]

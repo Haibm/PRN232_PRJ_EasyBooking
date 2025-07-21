@@ -1,0 +1,83 @@
+﻿@page
+@model EasyBooking.Web.Pages.User.OrderModel
+@{
+    ViewData["Title"] = "Xác nhận đơn vé";
+}
+<div class="container mt-4" style="max-width:500px;">
+    <div class="card shadow-lg">
+        <div class="card-header" style="background:#e91e63;color:#fff;font-weight:bold;font-size:20px;">
+            Mua vé xem phim
+        </div>
+        <div class="card-body">
+            <div class="mb-2">
+                <b>Phim:</b> <span id="order-movie"></span>
+            </div>
+            <div class="mb-2">
+                <b>Suất chiếu:</b> <span id="order-showtime"></span>
+            </div>
+            <div class="mb-2">
+                <b>Rạp:</b> <span id="order-cinema"></span>
+            </div>
+            <div class="mb-2">
+                <b>Phòng chiếu:</b> <span id="order-room"></span>
+            </div>
+            <div class="mb-2">
+                <b>Ghế:</b> <span id="order-seats"></span>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-between mb-1">
+                <span>Tạm tính:</span>
+                <span id="order-total"></span>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+                <span>Thành tiền:</span>
+                <span style="color:#e91e63;font-weight:bold;font-size:18px;" id="order-final"></span>
+            </div>
+            <form method="post">
+                <button type="submit" class="btn btn-lg w-100 mt-3" style="background:#e91e63;color:#fff;font-weight:bold;">Tiến hành thanh toán</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const orderData = JSON.parse(sessionStorage.getItem('orderData') || '{}');
+    if (!orderData || !orderData.movieTitle) return;
+    document.getElementById('order-movie').innerText = orderData.movieTitle;
+    document.getElementById('order-showtime').innerText = orderData.showtimeStr;
+    document.getElementById('order-cinema').innerText = orderData.cinemaName;
+    document.getElementById('order-room').innerText = orderData.roomName;
+    document.getElementById('order-seats').innerText = (orderData.seats || []).join(', ');
+    document.getElementById('order-total').innerText = (orderData.totalPrice || 0).toLocaleString() + 'đ';
+    document.getElementById('order-final').innerText = (orderData.totalPrice || 0).toLocaleString() + 'đ';
+
+    document.querySelector('form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const token = localStorage.getItem('jwtToken');
+        const res = await fetch('https://localhost:7087/api/user/orders/payment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(orderData)
+        });
+        let data;
+        try {
+            data = await res.json();
+        } catch {
+            const text = await res.text();
+            alert('Có lỗi khi tạo đơn hàng: ' + text);
+            return;
+        }
+        if (data.paymentUrl) {
+            window.location.href = data.paymentUrl;
+        } else {
+            alert('Có lỗi khi tạo đơn hàng: ' + (data.error || ''));
+        }
+    });
+});
+</script>
+}

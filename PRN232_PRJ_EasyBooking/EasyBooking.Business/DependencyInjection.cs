@@ -24,6 +24,11 @@ namespace EasyBooking.Business
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITicketRepository, TicketRepository>();
             services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<ISeatRepository, SeatRepository>();
+            services.AddScoped<ISeatService, SeatService>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IOrderService, OrderService>();
             return services;
         }
     }

@@ -15,11 +15,11 @@ namespace EasyBooking.Web.Pages.Staff.ManageRooms
         public bool Success { get; set; }
         public List<CinemaDto> AllCinemas { get; set; } = new();
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int roomId)
         {
             using var client = new HttpClient();
-            client.BaseAddress = new System.Uri("https://localhost:7087/");
-            Room = await client.GetFromJsonAsync<RoomDto>($"api/staff/rooms/{id}");
+            client.BaseAddress = new Uri("https://localhost:7087/");
+            Room = await client.GetFromJsonAsync<RoomDto>($"api/staff/rooms/{roomId}");
             if (Room == null) return RedirectToPage("/Staff/ManageRooms/List");
             AllCinemas = await client.GetFromJsonAsync<List<CinemaDto>>("api/staff/cinemas");
             return Page();
@@ -50,4 +50,4 @@ namespace EasyBooking.Web.Pages.Staff.ManageRooms
             }
         }
     }
-} 
+}

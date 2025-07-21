@@ -52,13 +52,21 @@
                                             }
                                         </div>
                                         <div class="d-flex flex-wrap" style="gap:8px;">
-                                            @foreach (var s in m.Showtimes ?? new List<string>())
+                                            @foreach (var s in m.Showtimes ?? new List<EasyBooking.Business.DTOs.OrderShowtimeDTO.Showtime>())
                                             {
-                                                DateTime? dt = DateTime.TryParse(s, out var parsed) ? parsed : (DateTime?)null;
-                                                if (dt != null)
-                                                {
-                                                    <button class="btn btn-outline-success btn-sm">@dt.Value.ToString("HH:mm dd-MM-yyyy")</button>
-                                                }
+                                                var roomName = Model.Rooms?.FirstOrDefault(r => r.RoomId == s.RoomId)?.Name ?? "";
+                                                var cinemaName = Model.Cinemas?.FirstOrDefault(c => c.CinemaId == Model.SelectedCinemaId)?.Name ?? "";
+                                                <button class="btn btn-outline-success btn-sm showtime-btn"
+                                                    data-movie="@m.Title"
+                                                    data-showtime="@s.StartTime.ToString("yyyy-MM-dd HH:mm")"
+                                                    data-room-id="@s.RoomId"
+                                                    data-showtime-id="@s.ShowtimeId"
+                                                    data-vip-percent="@s.VipPercent"
+                                                    data-price="@s.Price"
+                                                    data-cinema-name="@cinemaName"
+                                                    data-room-name="@roomName">
+                                                    @s.StartTime.ToString("HH:mm dd-MM-yyyy")
+                                                </button>
                                             }
                                         </div>
                                     </div>
@@ -76,6 +84,39 @@
     </div>
 </div>
 
+<!-- Modal chọn ghế -->
+<div class="modal fade" id="seatModal" tabindex="-1" aria-labelledby="seatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background:#e91e63;color:#fff;">
+        <h5 class="modal-title" id="seatModalLabel">Mua vé xem phim</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-2"><b>MÀN HÌNH</b></div>
+        <div id="seatGrid" class="d-flex flex-column align-items-center mb-3"></div>
+        <div class="mb-2">
+          <span class="badge bg-secondary">Ghế thường</span>
+          <span class="badge bg-warning text-dark">Ghế VIP</span>
+          <span class="badge bg-danger">Đã đặt</span>
+          <span class="badge bg-success">Ghế bạn chọn</span>
+        </div>
+        <div class="mt-3">
+          <b>Phim:</b> <span id="modalMovie"></span><br />
+          <b>Suất chiếu:</b> <span id="modalShowtime"></span><br />
+          <b>Chỗ ngồi:</b> <span id="selectedSeats"></span>
+        </div>
+        <div class="mt-2">
+          <b>Tạm tính:</b> <span id="totalPrice">0</span>đ
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="buyTicketBtn">Mua vé</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
     .list-group-item.active {
         background-color: #e91e63;
@@ -88,3 +129,165 @@
         color: #fff;
     }
 </style>
+
+@section Scripts {
+    <script>
+        var userId = @(Model.UserId ?? 0);
+        // Không dùng mock nữa
+        let seatRows = [];
+        let seatCols = 0;
+        let seats = [];
+        let bookedSeats = [];
+        let selectedSeats = [];
+        let currentMovie = "";
+        let currentShowtime = "";
+        let currentRoomId = null;
+        let currentShowtimeId = null;
+        let vipPercent;
+        let normalPrice;
+        const vipPrice = 120000;
+        let currentCinemaName = "";
+        let currentRoomName = "";
+
+        async function loadSeatsFromApi(roomId) {
+            const res = await fetch(`https://localhost:7087/api/staff/rooms/${roomId}/seats`);
+            if (!res.ok) return [];
+            return await res.json();
+        }
+        async function loadBookedSeats(showtimeId) {
+            const res = await fetch(`https://localhost:7087/api/staff/tickets`);
+            if (!res.ok) return [];
+            const allTickets = await res.json();
+            // Lấy seat theo showtimeId
+            return allTickets.filter(t => t.showtimeId == showtimeId).map(t => t.seatNumber);
+        }
+        function getSeatKey(row, num) {
+            return row + num;
+        }
+        function renderSeatGrid() {
+            const grid = document.getElementById('seatGrid');
+            grid.innerHTML = '';
+            seatRows.forEach(row => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'd-flex justify-content-center mb-1';
+                for(let i=1;i<=seatCols;i++){
+                    const seat = seats.find(s => s.rowLetter === row && s.seatNumber === i);
+                    if (!seat) {
+                        const span = document.createElement('span');
+                        span.style.width = '32px';
+                        span.style.height = '32px';
+                        rowDiv.appendChild(span);
+                        continue;
+                    }
+                    const seatKey = getSeatKey(row, i);
+                    const btn = document.createElement('button');
+                    btn.className = 'btn btn-sm seat-btn';
+                    btn.innerText = seatKey;
+                    btn.dataset.seat = seatKey;
+                    btn.dataset.seatId = seat.seatId;
+                    if(bookedSeats.includes(seat.seatNumber)){
+                        btn.classList.add('btn-danger');
+                        btn.disabled = true;
+                    } else if(seat.seatType === 'VIP'){
+                        btn.classList.add('btn-warning');
+                    } else {
+                        btn.classList.add('btn-secondary');
+                    }
+                    if(selectedSeats.includes(seatKey)){
+                        btn.classList.remove('btn-secondary','btn-warning');
+                        btn.classList.add('btn-success');
+                    }
+                    btn.onclick = function(){
+                        if(selectedSeats.includes(seatKey)){
+                            selectedSeats = selectedSeats.filter(s=>s!==seatKey);
+                        } else {
+                            selectedSeats.push(seatKey);
+                        }
+                        renderSeatGrid();
+                        updateSeatInfo();
+                    };
+                    rowDiv.appendChild(btn);
+                }
+                grid.appendChild(rowDiv);
+            });
+        }
+        function updateSeatInfo(){
+            document.getElementById('selectedSeats').innerText = selectedSeats.join(', ');
+            let total = 0;
+            selectedSeats.forEach(seatKey=>{
+                const seat = seats.find(s => getSeatKey(s.rowLetter, s.seatNumber) === seatKey);
+                if (seat && seat.seatType === 'VIP') {
+                    total += Math.round(normalPrice * (1 + vipPercent/100));
+                } else {
+                    total += normalPrice;
+                }
+            });
+            document.getElementById('totalPrice').innerText = total.toLocaleString();
+        }
+        // Sự kiện mở modal khi bấm suất chiếu
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('.showtime-btn').forEach(btn=>{
+                btn.addEventListener('click', async function(){
+                    currentMovie = btn.dataset.movie;
+                    currentShowtime = btn.dataset.showtime;
+                    // Cần truyền thêm data-room-id, data-showtime-id vào button
+                    currentRoomId = btn.dataset.roomId;
+                    currentShowtimeId = btn.dataset.showtimeId;
+                    vipPercent = parseInt(btn.dataset.vipPercent);
+                    normalPrice = parseInt(btn.dataset.price);
+                    currentCinemaName = btn.dataset.cinemaName || "";
+                    currentRoomName = btn.dataset.roomName || "";
+                    document.getElementById('modalMovie').innerText = currentMovie;
+                    document.getElementById('modalShowtime').innerText = currentShowtime;
+                    selectedSeats = [];
+                    // Lấy seats và bookedSeats từ API
+                    seats = await loadSeatsFromApi(currentRoomId);
+                    seatRows = [...new Set(seats.map(s => s.rowLetter))];
+                    seatRows.sort();
+                    seatCols = Math.max(...seats.map(s => s.seatNumber));
+                    bookedSeats = await loadBookedSeats(currentShowtimeId);
+                    renderSeatGrid();
+                    updateSeatInfo();
+                    var modal = new bootstrap.Modal(document.getElementById('seatModal'));
+                    modal.show();
+                });
+            });
+        });
+        document.getElementById('buyTicketBtn').onclick = async function(){
+    if (!selectedSeats || selectedSeats.length === 0) {
+        alert("Bạn phải chọn ít nhất 1 ghế!");
+        return;
+    }
+    const orderData = {
+        MovieTitle: currentMovie,
+        ShowtimeStr: document.getElementById('modalShowtime').innerText,
+        CinemaName: currentCinemaName,
+        RoomName: currentRoomName,
+        Seats: selectedSeats,
+        TotalPrice: parseInt(document.getElementById('totalPrice').innerText.replace(/\D/g, ''))
+    };
+    console.log('orderData:', orderData);
+    const token = localStorage.getItem('jwtToken');
+    // Gọi API init order
+    const res = await fetch('https://localhost:7087/api/user/orders/init', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(orderData)
+    });
+    if (!res.ok) {
+        alert('Có lỗi khi gửi order: ' + (await res.text()));
+        return;
+    }
+    const data = await res.json();
+    sessionStorage.setItem('orderData', JSON.stringify(data));
+    window.location.href = '/user/order';
+};
+    </script>
+    <style>
+        #seatGrid .seat-btn { width: 32px; height: 32px; padding: 0; font-size: 13px; margin: 2px; }
+        #seatGrid .btn-success { border: 2px solid #fff; }
+    </style>
+}

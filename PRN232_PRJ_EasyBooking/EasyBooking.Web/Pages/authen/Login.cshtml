@@ -11,22 +11,49 @@
 <div class="auth-bg">
     <div class="auth-container">
         <h2>Login</h2>
-        <form method="post">
+        <form id="loginForm">
             <div class="form-group">
-                <label asp-for="Username">Username</label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                <label for="username">Username</label>
+                <input id="username" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Password">Password</label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control" />
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-            {
-                <div class="alert alert-danger mt-2">@Model.ErrorMessage</div>
-            }
+            <div id="loginError" class="alert alert-danger mt-2" style="display:none"></div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const errorDiv = document.getElementById('loginError');
+    errorDiv.style.display = 'none';
+    errorDiv.innerText = '';
+
+    const res = await fetch('https://localhost:7087/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, passwordHash: password })
+    });
+    if (!res.ok) {
+        errorDiv.style.display = 'block';
+        errorDiv.innerText = 'Invalid username or password.';
+        return;
+    }
+    const data = await res.json();
+    if (data.token) {
+        localStorage.setItem('jwtToken', data.token);
+        window.location.href = '/';
+    } else {
+        errorDiv.style.display = 'block';
+        errorDiv.innerText = 'Login failed.';
+    }
+});
+</script>
+}

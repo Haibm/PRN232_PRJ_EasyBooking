@@ -15,6 +15,8 @@ public partial class Showtime
 
     public decimal Price { get; set; }
 
+    public int? VipPercent { get; set; } // Phụ thu % giá ghế VIP
+
     public virtual Movie Movie { get; set; } = null!;
 
     public virtual Room Room { get; set; } = null!;
