@@ -48,7 +48,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     }
     const data = await res.json();
     if (data.token) {
-        localStorage.setItem('jwtToken', data.token);
+        // Lưu vào cookie cho Razor Page và API dùng
+        document.cookie = "jwtToken=" + data.token + "; path=/";
         window.location.href = '/';
     } else {
         errorDiv.style.display = 'block';
