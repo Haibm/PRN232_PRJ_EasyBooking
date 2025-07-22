@@ -15,7 +15,23 @@ public partial class Movie
 
     public string? PosterUrl { get; set; }
 
-    public string? Status { get; set; }
+    public int? Status { get; set; }
+
+    public int? VipPercent { get; set; }
+
+    public string? CreateBy { get; set; }
+
+    public DateTime? CreateAt { get; set; }
+
+    public string? UpdateBy { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
+
+    public string? DeleteBy { get; set; }
+
+    public DateTime? DeleteAt { get; set; }
+
+    public bool? IsDelete { get; set; }
 
     public virtual ICollection<Showtime> Showtimes { get; set; } = new List<Showtime>();
 

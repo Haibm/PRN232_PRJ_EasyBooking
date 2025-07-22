@@ -46,4 +46,4 @@ namespace EasyBooking.Business.Services
             await _genreRepository.DeleteAsync(id);
         }
     }
-} 
+}

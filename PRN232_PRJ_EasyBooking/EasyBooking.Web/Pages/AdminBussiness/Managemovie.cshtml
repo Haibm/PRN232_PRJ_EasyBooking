@@ -1,0 +1,56 @@
+﻿@page
+@model EasyBooking.Web.Pages.AdminBussiness.ManagemovieModel
+@{
+    ViewData["Title"] = "Quản lý phim đã bán";
+}
+
+<h2>Quản lý phim đã bán</h2>
+
+<div>
+    <button class="btn btn-secondary" onclick="loadData()">Tất cả</button>
+    <button class="btn btn-primary" onclick="loadData('topspender')">Người mua nhiều tiền nhất</button>
+    <button class="btn btn-success" onclick="loadData('mostpurchased')">Phim nhiều người mua nhất</button>
+</div>
+<br />
+<div id="movieTable"></div>
+<div id="summary"></div>
+
+@section Scripts {
+    <script>
+        async function loadData(filter = '') {
+            let url = 'https://localhost:7087/api/admin/dashboard/moviebuyers';
+            if (filter) url += '?filter=' + filter;
+            const res = await fetch(url);
+            const data = await res.json();
+            renderTable(data.movieBuyers);
+            renderSummary(data.topSpender, data.mostPurchasedMovie);
+        }
+        function renderTable(movieBuyers) {
+            if (!movieBuyers || movieBuyers.length === 0) {
+                document.getElementById('movieTable').innerHTML = '<div>Không có dữ liệu.</div>';
+                return;
+            }
+            let html = '<table class="table table-bordered"><thead><tr><th>Phim</th><th>Người mua</th><th>Số tiền đã mua</th></tr></thead><tbody>';
+            movieBuyers.forEach(movie => {
+                movie.buyers.forEach((buyer, idx) => {
+                    html += '<tr>';
+                    if (idx === 0) html += `<td rowspan="${movie.buyers.length}">${movie.movieTitle}</td>`;
+                    html += `<td>${buyer.fullName}</td><td>${buyer.totalPaid.toLocaleString()} VNĐ</td></tr>`;
+                });
+            });
+            html += '</tbody></table>';
+            document.getElementById('movieTable').innerHTML = html;
+        }
+        function renderSummary(topSpender, mostPurchasedMovie) {
+            let html = '';
+            if (topSpender) {
+                html += `<div class='alert alert-info'><b>Người mua nhiều tiền nhất:</b> ${topSpender.fullName} (${topSpender.totalPaid.toLocaleString()} VNĐ)</div>`;
+            }
+            if (mostPurchasedMovie) {
+                html += `<div class='alert alert-success'><b>Phim có nhiều người mua nhất:</b> ${mostPurchasedMovie.movieTitle} (Số người mua: ${mostPurchasedMovie.buyers.length})</div>`;
+            }
+            document.getElementById('summary').innerHTML = html;
+        }
+        loadData();
+    </script>
+}

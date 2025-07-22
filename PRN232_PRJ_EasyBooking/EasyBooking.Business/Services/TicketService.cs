@@ -28,7 +28,6 @@ namespace EasyBooking.Business.Services
                 SeatNumber = t.SeatNumber,
                 BookingTime = t.BookingTime,
                 Status = t.Status,
-                PaymentMethod = t.PaymentMethod
             });
         }
 
@@ -44,22 +43,7 @@ namespace EasyBooking.Business.Services
                 SeatNumber = t.SeatNumber,
                 BookingTime = t.BookingTime,
                 Status = t.Status,
-                PaymentMethod = t.PaymentMethod
             };
-        }
-
-        public async Task AddAsync(TicketDto ticketDto)
-        {
-            var ticket = new Ticket
-            {
-                ShowtimeId = ticketDto.ShowtimeId,
-                UserId = ticketDto.UserId,
-                SeatNumber = ticketDto.SeatNumber,
-                BookingTime = ticketDto.BookingTime,
-                Status = ticketDto.Status,
-                PaymentMethod = ticketDto.PaymentMethod
-            };
-            await _ticketRepository.AddAsync(ticket);
         }
 
         public async Task UpdateAsync(TicketDto ticketDto)
@@ -72,7 +56,6 @@ namespace EasyBooking.Business.Services
                 SeatNumber = ticketDto.SeatNumber,
                 BookingTime = ticketDto.BookingTime,
                 Status = ticketDto.Status,
-                PaymentMethod = ticketDto.PaymentMethod
             };
             await _ticketRepository.UpdateAsync(ticket);
         }
@@ -80,6 +63,30 @@ namespace EasyBooking.Business.Services
         public async Task DeleteAsync(int id)
         {
             await _ticketRepository.DeleteAsync(id);
+        }
+
+        public TicketDto CreateTicket(TicketDto ticketDto)
+        {
+            var ticket = new Ticket
+            {
+                UserId = ticketDto.UserId,
+                ShowtimeId = ticketDto.ShowtimeId,
+                SeatNumber = ticketDto.SeatNumber,
+                BookingTime = ticketDto.BookingTime,
+                Status = ticketDto.Status,
+                OrderHistoryId = ticketDto.OrderHistoryId
+            };
+            _ticketRepository.Add(ticket);
+            return new TicketDto
+            {
+                TicketId = ticket.TicketId,
+                UserId = ticket.UserId,
+                ShowtimeId = ticket.ShowtimeId,
+                SeatNumber = ticket.SeatNumber,
+                BookingTime = ticket.BookingTime,
+                Status = ticket.Status,
+                OrderHistoryId = ticket.OrderHistoryId
+            };
         }
     }
 }

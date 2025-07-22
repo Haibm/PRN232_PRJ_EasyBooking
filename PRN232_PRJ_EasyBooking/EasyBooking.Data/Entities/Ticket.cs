@@ -15,11 +15,25 @@ public partial class Ticket
 
     public DateTime? BookingTime { get; set; }
 
-    public string? Status { get; set; }
+    public int? Status { get; set; }
 
-    public string? PaymentMethod { get; set; }
+    public int? OrderHistoryId { get; set; }
 
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+    public string? CreateBy { get; set; }
+
+    public DateTime? CreateAt { get; set; }
+
+    public string? UpdateBy { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
+
+    public string? DeleteBy { get; set; }
+
+    public DateTime? DeleteAt { get; set; }
+
+    public bool? IsDelete { get; set; }
+
+    public virtual OrderHistory? OrderHistory { get; set; }
 
     public virtual Showtime Showtime { get; set; } = null!;
 

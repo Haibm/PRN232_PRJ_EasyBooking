@@ -7,4 +7,4 @@ namespace EasyBooking.Business.Interfaces
     {
         string GenerateCodePayment();
     }
-} 
+}

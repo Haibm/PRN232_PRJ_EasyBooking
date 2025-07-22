@@ -28,7 +28,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/User/OrderShowtimes">OrderShowtimes</a>
                         </li>
                     </ul>
                     <!-- User navbar will be rendered here by JS -->
@@ -48,58 +48,27 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script>
-        function parseJwt(token) {
-            if (!token) return null;
-            try {
-                const base64Url = token.split('.')[1];
-                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-                return JSON.parse(jsonPayload);
-            } catch (e) {
-                console.error("Error decoding token:", e);
-                return null;
-            }
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
-        function isTokenExpired(token) {
-            const payload = parseJwt(token);
-            if (!payload || !payload.exp) return true;
-            return (Date.now() / 1000) > payload.exp;
+        function isLoggedIn() {
+            return !!getCookie('jwtToken');
         }
         function renderNavbarUser() {
-            const navbar = document.getElementById('navbarUser');
-            if (!navbar) return;
-            const token = localStorage.getItem('jwtToken');
-            if (!token || isTokenExpired(token)) {
-                localStorage.removeItem('jwtToken');
-                navbar.innerHTML = `
-                    <li class="nav-item"><a class="nav-link text-dark" href="/authen/Login">Login</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="/authen/Signup">Signup</a></li>
+            const navbarUser = document.getElementById('navbarUser');
+            if (!navbarUser) return;
+            navbarUser.innerHTML = '';
+            if (isLoggedIn()) {
+                navbarUser.innerHTML = `
+                    <li class="nav-item"><a class="nav-link" href="/authen/Profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/authen/Logout">Logout</a></li>
                 `;
-                return;
+            } else {
+                navbarUser.innerHTML = `<li class="nav-item"><a class="nav-link" href="/authen/Login">Login</a></li>
+                 <li class="nav-item"><a class="nav-link" href="/authen/Signup">Signup</a></li>`;
             }
-            const payload = parseJwt(token);
-            const nameClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name";
-            const username = payload[nameClaim] || 'User';
-            navbar.innerHTML = `
-                <li class="nav-item dropdown">
-                    <a class="btn btn-secondary dropdown-toggle user-greeting" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hello, ${username}!
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="/authen/Profile">View Profile</a></li>
-                        <li><a class="dropdown-item" href="/authen/Setting">Setting</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-dark" onclick="logout()">Logout</a>
-                </li>
-            `;
-        }
-        function logout() {
-            localStorage.removeItem('jwtToken');
-            window.location.href = '/authen/Login';
         }
         document.addEventListener('DOMContentLoaded', renderNavbarUser);
     </script>

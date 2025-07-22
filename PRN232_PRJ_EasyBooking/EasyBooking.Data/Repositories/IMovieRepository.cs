@@ -13,4 +13,4 @@ namespace EasyBooking.Data.Repositories
         Task UpdateAsync(Movie movie);
         Task DeleteAsync(int id);
     }
-} 
+}

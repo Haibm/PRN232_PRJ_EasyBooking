@@ -13,9 +13,13 @@ namespace EasyBooking.Business.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        private readonly ITicketRepository _ticketRepository;
+        private readonly IPaymentRepository _paymentRepository;
+        public UserService(IUserRepository userRepository, ITicketRepository ticketRepository, IPaymentRepository paymentRepository)
         {
             _userRepository = userRepository;
+            _ticketRepository = ticketRepository;
+            _paymentRepository = paymentRepository;
         }
 
         public async Task<IEnumerable<UserDto>> GetAllAsync()
@@ -161,6 +165,24 @@ namespace EasyBooking.Business.Services
             await _userRepository.UpdateAsync(user);
             _changePasswordCodes.TryRemove(dto.UserId, out _);
             return true;
+        }
+
+        public async Task<int> GetTotalUsersBookedAsync()
+        {
+            var tickets = await _ticketRepository.GetAllAsync();
+            return tickets.Select(t => t.UserId).Distinct().Count();
+        }
+
+        public async Task<UserDto> GetTopSpenderAsync()
+        {
+            var payments = _paymentRepository.GetAll().Where(p => p.Status == true);
+            var top = payments
+                .GroupBy(p => p.UserId)
+                .Select(g => new { UserId = g.Key, Total = g.Sum(x => x.Amount) })
+                .OrderByDescending(x => x.Total)
+                .FirstOrDefault();
+            if (top == null) return null;
+            return await GetByIdAsync(top.UserId ?? 0);
         }
     }
 }

@@ -130,12 +130,12 @@ namespace EasyBooking.Web.Pages.User
     class TempMovie
     {
         public int MovieId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
         public int Duration { get; set; }
-        public string PosterUrl { get; set; }
-        public string Status { get; set; }
-        public List<string> Genres { get; set; }
+        public string? PosterUrl { get; set; }
+        public int? Status { get; set; }
+        public List<string>? Genres { get; set; }
         // Không còn VipPercent ở đây
     }
 }

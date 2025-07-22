@@ -8,8 +8,8 @@ namespace EasyBooking.Business.Interfaces
     {
         Task<IEnumerable<TicketDto>> GetAllAsync();
         Task<TicketDto> GetByIdAsync(int id);
-        Task AddAsync(TicketDto ticketDto);
         Task UpdateAsync(TicketDto ticketDto);
         Task DeleteAsync(int id);
+        TicketDto CreateTicket(TicketDto ticket);
     }
 }

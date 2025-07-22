@@ -76,7 +76,7 @@ namespace EasyBooking.API.Controllers.User
             {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, role ?? "User")
+                new Claim(ClaimTypes.Role, role ?? "3")
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super_secret_key_1234567890_easybooking_2024"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -121,13 +121,6 @@ namespace EasyBooking.API.Controllers.User
             var result = await _userService.ChangePasswordAsync(dto);
             if (!result) return BadRequest(new { message = "Đổi mật khẩu thất bại. Kiểm tra lại mã xác nhận, mật khẩu cũ hoặc số lần nhập." });
             return Ok(new { message = "Đổi mật khẩu thành công." });
-        }
-
-        [HttpGet("check-username/{username}")]
-        public async Task<IActionResult> CheckUsername(string username)
-        {
-            var exists = await _userService.UsernameExistsAsync(username);
-            return Ok(new { exists });
         }
     }
 }

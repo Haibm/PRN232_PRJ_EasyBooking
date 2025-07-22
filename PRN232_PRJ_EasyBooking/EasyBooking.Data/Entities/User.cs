@@ -19,5 +19,25 @@ public partial class User
 
     public bool? IsActive { get; set; }
 
+    public string? CreateBy { get; set; }
+
+    public DateTime? CreateAt { get; set; }
+
+    public string? UpdateBy { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
+
+    public string? DeleteBy { get; set; }
+
+    public DateTime? DeleteAt { get; set; }
+
+    public bool? IsDelete { get; set; }
+
+    public virtual ICollection<AuditLog> AuditLogs { get; set; } = new List<AuditLog>();
+
+    public virtual ICollection<OrderHistory> OrderHistories { get; set; } = new List<OrderHistory>();
+
+    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

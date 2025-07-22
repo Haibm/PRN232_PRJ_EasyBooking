@@ -8,6 +8,6 @@ namespace EasyBooking.Business.DTOs
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 } 

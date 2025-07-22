@@ -15,6 +15,7 @@ namespace EasyBooking.Business.Interfaces
         Task<UserDto> GetByUsernamePass(string username, string pass);
         Task<string> SendChangePasswordCodeAsync(int userId);
         Task<bool> ChangePasswordAsync(ChangePasswordDto dto);
-        Task<bool> UsernameExistsAsync(string username);
+        Task<int> GetTotalUsersBookedAsync();
+        Task<UserDto> GetTopSpenderAsync();
     }
 }

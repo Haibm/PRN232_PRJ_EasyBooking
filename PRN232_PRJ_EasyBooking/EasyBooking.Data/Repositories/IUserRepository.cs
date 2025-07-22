@@ -15,4 +15,4 @@ namespace EasyBooking.Data.Repositories
         Task<User> GetByUsernamePass(string username, string password);
         Task<User> GetByUsername(string username);
     }
-} 
+}

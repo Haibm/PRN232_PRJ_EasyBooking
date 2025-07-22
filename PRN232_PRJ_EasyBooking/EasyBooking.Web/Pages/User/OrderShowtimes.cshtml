@@ -258,24 +258,25 @@
         alert("Bạn phải chọn ít nhất 1 ghế!");
         return;
     }
-    const orderData = {
-        MovieTitle: currentMovie,
-        ShowtimeStr: document.getElementById('modalShowtime').innerText,
-        CinemaName: currentCinemaName,
-        RoomName: currentRoomName,
-        Seats: selectedSeats,
-        TotalPrice: parseInt(document.getElementById('totalPrice').innerText.replace(/\D/g, ''))
-    };
-    console.log('orderData:', orderData);
+            const orderData = {
+                MovieTitle: currentMovie,
+                ShowtimeStr: document.getElementById('modalShowtime').innerText,
+                CinemaName: currentCinemaName,
+                RoomName: currentRoomName,
+                Seats: selectedSeats,
+                TotalPrice: parseInt(document.getElementById('totalPrice').innerText.replace(/\D/g, '')),
+                ShowtimeId: parseInt(currentShowtimeId)
+            };
+            console.log('orderData:', orderData);
     const token = localStorage.getItem('jwtToken');
     // Gọi API init order
     const res = await fetch('https://localhost:7087/api/user/orders/init', {
-        method: 'POST',
+                method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         },
-        body: JSON.stringify(orderData)
+                body: JSON.stringify(orderData)
     });
     if (!res.ok) {
         alert('Có lỗi khi gửi order: ' + (await res.text()));
@@ -283,8 +284,8 @@
     }
     const data = await res.json();
     sessionStorage.setItem('orderData', JSON.stringify(data));
-    window.location.href = '/user/order';
-};
+                    window.location.href = '/user/order';
+        };
     </script>
     <style>
         #seatGrid .seat-btn { width: 32px; height: 32px; padding: 0; font-size: 13px; margin: 2px; }

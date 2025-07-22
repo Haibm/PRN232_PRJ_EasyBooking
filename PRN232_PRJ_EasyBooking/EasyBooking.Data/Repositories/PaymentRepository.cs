@@ -28,6 +28,8 @@ namespace EasyBooking.Data.Repositories
             }
         }
 
+        // Đã xóa hàm UpdateTicketId vì không còn trường TicketId trong Payment
+
         public void GetById(int paymentId) => _context.Payments.Find(paymentId);
 
         public Payment GetByTransactionId(string transactionId)
@@ -35,5 +37,10 @@ namespace EasyBooking.Data.Repositories
             // So sánh transactionId là tiền tố của vnp_TxnRef
             return _context.Payments.FirstOrDefault(p => transactionId.StartsWith(p.TransactionId));
         }
+
+        public IEnumerable<Payment> GetAll()
+        {
+            return _context.Payments.ToList();
+        }
     }
-} 
+}

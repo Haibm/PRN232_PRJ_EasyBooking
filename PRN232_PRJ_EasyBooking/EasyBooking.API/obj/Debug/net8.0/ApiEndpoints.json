@@ -79,6 +79,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.Admin.DashboardController",
+    "Method": "GetMovieBuyers",
+    "RelativePath": "api/admin/dashboard/moviebuyers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Admin.DashboardController",
+    "Method": "GetStats",
+    "RelativePath": "api/admin/dashboard/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.Staff.CinemaController",
     "Method": "GetAll",
     "RelativePath": "api/staff/cinemas",
@@ -785,6 +811,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
+    "Method": "PaymentFail",
+    "RelativePath": "api/user/orders/PaymentFail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
+    "Method": "PaymentSuccess",
+    "RelativePath": "api/user/orders/PaymentSuccess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.User.UserController",
     "Method": "GetAll",
     "RelativePath": "api/users",
@@ -902,22 +948,6 @@
   },
   {
     "ContainingType": "EasyBooking.API.Controllers.User.UserController",
-    "Method": "CheckUsername",
-    "RelativePath": "api/users/check-username/{username}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.User.UserController",
     "Method": "Login",
     "RelativePath": "api/users/login",
     "HttpMethod": "POST",
@@ -930,26 +960,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
-    "Method": "PaymentFail",
-    "RelativePath": "payment-fail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
-    "Method": "PaymentSuccess",
-    "RelativePath": "payment-success",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

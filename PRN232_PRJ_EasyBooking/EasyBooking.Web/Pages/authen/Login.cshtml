@@ -27,33 +27,34 @@
 </div>
 
 @section Scripts {
-<script>
-document.getElementById('loginForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const errorDiv = document.getElementById('loginError');
-    errorDiv.style.display = 'none';
-    errorDiv.innerText = '';
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.style.display = 'none';
+            errorDiv.innerText = '';
 
-    const res = await fetch('https://localhost:7087/api/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, passwordHash: password })
-    });
-    if (!res.ok) {
-        errorDiv.style.display = 'block';
-        errorDiv.innerText = 'Invalid username or password.';
-        return;
-    }
-    const data = await res.json();
-    if (data.token) {
-        localStorage.setItem('jwtToken', data.token);
-        window.location.href = '/';
-    } else {
-        errorDiv.style.display = 'block';
-        errorDiv.innerText = 'Login failed.';
-    }
-});
-</script>
+            const res = await fetch('https://localhost:7087/api/users/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, passwordHash: password })
+            });
+            if (!res.ok) {
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = 'Invalid username or password.';
+                return;
+            }
+            const data = await res.json();
+            if (data.token) {
+                // Lưu vào cookie cho Razor Page và API dùng
+                document.cookie = "jwtToken=" + data.token + "; path=/";
+                window.location.href = '/';
+            } else {
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = 'Login failed.';
+            }
+        });
+    </script>
 }

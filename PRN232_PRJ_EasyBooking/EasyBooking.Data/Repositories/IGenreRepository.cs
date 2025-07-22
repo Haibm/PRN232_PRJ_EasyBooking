@@ -12,4 +12,4 @@ namespace EasyBooking.Data.Repositories
         Task UpdateAsync(Genre genre);
         Task DeleteAsync(int id);
     }
-} 
+}

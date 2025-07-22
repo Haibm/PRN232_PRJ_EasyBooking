@@ -12,5 +12,7 @@ namespace EasyBooking.Business.Interfaces
         Task AddAsync(MovieDto movieDto);
         Task UpdateAsync(MovieDto movieDto);
         Task DeleteAsync(int id);
+        Task<int> GetTotalMoviesAsync();
+        Task<MovieDto> GetTopMovieAsync();
     }
 }

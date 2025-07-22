@@ -12,4 +12,4 @@ namespace EasyBooking.Data.Repositories
         Task UpdateAsync(Room room);
         Task DeleteAsync(int id);
     }
-} 
+}

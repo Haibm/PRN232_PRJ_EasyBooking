@@ -20,7 +20,8 @@ namespace EasyBooking.Business.Services
                 UserId = paymentDto.UserId,
                 TransactionId = paymentDto.TransactionId,
                 Status = paymentDto.Status,
-                // ... các trường khác nếu có
+                SeatsJson = paymentDto.SeatsJson,
+                ShowtimeId = paymentDto.ShowtimeId
             };
             _paymentRepository.CreatePayment(payment);
             return payment.PaymentId;
@@ -40,9 +41,29 @@ namespace EasyBooking.Business.Services
                 Amount = payment.Amount,
                 PaymentTime = payment.PaymentTime,
                 UserId = payment.UserId,
-                Status = payment.Status
+                Status = payment.Status,
+                SeatsJson = payment.SeatsJson,
+                ShowtimeId = payment.ShowtimeId
                 // ... các trường khác nếu cần ...
             };
         }
+
+        public async Task<IEnumerable<PaymentDto>> GetAllAsync()
+        {
+            // Giả sử repository không async, dùng Task.Run để không block
+            return await Task.Run(() =>
+                _paymentRepository.GetAll().Select(payment => new PaymentDto
+                {
+                    PaymentId = payment.PaymentId,
+                    TransactionId = payment.TransactionId,
+                    Amount = payment.Amount,
+                    PaymentTime = payment.PaymentTime,
+                    UserId = payment.UserId,
+                    Status = payment.Status,
+                    SeatsJson = payment.SeatsJson,
+                    ShowtimeId = payment.ShowtimeId
+                })
+            );
+        }
     }
-} 
+}

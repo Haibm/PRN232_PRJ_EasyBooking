@@ -15,4 +15,4 @@ namespace EasyBooking.Data.Repositories
 
         Task<bool> ExistsAsync(int roomId, string rowLetter, int seatNumber);
     }
-} 
+}

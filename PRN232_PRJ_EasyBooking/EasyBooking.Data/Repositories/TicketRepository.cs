@@ -24,10 +24,10 @@ namespace EasyBooking.Data.Repositories
             return await _context.Tickets.FindAsync(id);
         }
 
-        public async Task AddAsync(Ticket ticket)
+        public void Add(Ticket ticket)
         {
-            await _context.Tickets.AddAsync(ticket);
-            await _context.SaveChangesAsync();
+            _context.Tickets.Add(ticket);
+            _context.SaveChanges();
         }
 
         public async Task UpdateAsync(Ticket ticket)

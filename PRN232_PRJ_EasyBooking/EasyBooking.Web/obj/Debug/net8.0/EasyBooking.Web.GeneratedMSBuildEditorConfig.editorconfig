@@ -20,6 +20,14 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/AdminBussiness/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5CdXNzaW5lc3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/AdminBussiness/Managemovie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5CdXNzaW5lc3NcTWFuYWdlbW92aWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,14 +92,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/payment-fail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGF5bWVudC1mYWlsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/payment-success.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNccGF5bWVudC1zdWNjZXNzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_AdminSidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_LayoutAdminBussiness.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRBZG1pbkJ1c3NpbmVzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_StaffLayout.cshtml]
@@ -218,6 +222,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/payment-callback.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxwYXltZW50LWNhbGxiYWNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/PaymentFail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxQYXltZW50RmFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/PaymentSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxQYXltZW50U3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/team project/projectPRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/_ViewImports.cshtml]

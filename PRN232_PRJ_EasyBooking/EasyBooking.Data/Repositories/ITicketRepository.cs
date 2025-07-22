@@ -8,8 +8,8 @@ namespace EasyBooking.Data.Repositories
     {
         Task<IEnumerable<Ticket>> GetAllAsync();
         Task<Ticket> GetByIdAsync(int id);
-        Task AddAsync(Ticket ticket);
+        void Add(Ticket ticket);
         Task UpdateAsync(Ticket ticket);
         Task DeleteAsync(int id);
     }
-} 
+}

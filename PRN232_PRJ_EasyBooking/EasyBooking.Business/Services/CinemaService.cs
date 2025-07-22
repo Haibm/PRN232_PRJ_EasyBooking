@@ -69,4 +69,4 @@ namespace EasyBooking.Business.Services
             await _cinemaRepository.DeleteAsync(id);
         }
     }
-} 
+}

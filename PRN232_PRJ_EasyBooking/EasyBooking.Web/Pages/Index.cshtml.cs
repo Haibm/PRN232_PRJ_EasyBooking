@@ -35,7 +35,7 @@ namespace EasyBooking.Web.Pages
                 if (!string.IsNullOrEmpty(status) && status != "All")
                 {
                     var dbStatus = MapStatusToDb(status);
-                    Movies = movies.Where(m => m.Status == dbStatus).ToList();
+                    Movies = movies.Where(m => m.Status?.ToString() == dbStatus).ToList();
                 }
                 else
                 {

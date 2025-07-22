@@ -9,11 +9,11 @@ namespace EasyBooking.Business.DTOs
     public class MovieDetailDto
     {
         public int MovieId { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public string? Description { get; set; }
         public int? Duration { get; set; }
         public string? PosterUrl { get; set; }
-        public string? Status { get; set; }
+        public int? Status { get; set; }
         public List<string> Genres { get; set; } = new();
         public List<ShowtimeDetailDto> Showtimes { get; set; } = new();
     }
