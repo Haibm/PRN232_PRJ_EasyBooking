@@ -31,11 +31,11 @@ namespace EasyBooking.API.Controllers.Staff
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] TicketDto ticketDto)
+        public IActionResult Create([FromBody] TicketDto ticketDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            await _ticketService.AddAsync(ticketDto);
+            _ticketService.CreateTicket(ticketDto);
             return Ok();
         }
 

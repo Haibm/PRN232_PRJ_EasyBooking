@@ -7,7 +7,7 @@ namespace EasyBooking.Business.DTOs
         public int UserId { get; set; }
         [Required]
         [StringLength(100)]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         [StringLength(256)]
         public string? PasswordHash { get; set; }

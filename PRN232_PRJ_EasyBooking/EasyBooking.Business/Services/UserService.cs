@@ -97,9 +97,9 @@ namespace EasyBooking.Business.Services
             await _userRepository.DeleteAsync(id);
         }
 
-        public async Task<UserDto> GetByUsernamePass(string username,string pass)
+        public async Task<UserDto> GetByUsernamePass(string username, string pass)
         {
-            var u =await _userRepository.GetByUsernamePass(username, pass);
+            var u = await _userRepository.GetByUsernamePass(username, pass);
             if (u == null) return null;
             return new UserDto
             {
@@ -166,4 +166,4 @@ namespace EasyBooking.Business.Services
             return true;
         }
     }
-} 
+}

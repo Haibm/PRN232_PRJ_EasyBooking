@@ -78,7 +78,7 @@ namespace EasyBooking.API.Controllers.User
             {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role, role ?? "User")
+                new Claim(ClaimTypes.Role, role ?? "3")
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super_secret_key_1234567890_easybooking_2024"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

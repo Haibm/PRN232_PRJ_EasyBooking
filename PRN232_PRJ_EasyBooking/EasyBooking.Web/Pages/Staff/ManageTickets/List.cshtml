@@ -49,7 +49,7 @@
                             <td>@ticket.UserId</td>
                             <td>@ticket.SeatNumber</td>
                             <td>@ticket.BookingTime?.ToString("g")</td>
-                            <td>
+@*                             <td>
                                 @if (ticket.Status == "Đã thanh toán")
                                 {
                                     <span class="badge bg-success">Đã thanh toán</span>
@@ -58,8 +58,7 @@
                                 {
                                     <span class="badge bg-secondary">@ticket.Status</span>
                                 }
-                            </td>
-                            <td>@ticket.PaymentMethod</td>
+                            </td> *@
                             <td>
                                 <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageTickets/Edit/@ticket.TicketId">Edit</a>
                                 <form method="post" asp-page-handler="Delete" asp-route-id="@ticket.TicketId" style="display:inline;">

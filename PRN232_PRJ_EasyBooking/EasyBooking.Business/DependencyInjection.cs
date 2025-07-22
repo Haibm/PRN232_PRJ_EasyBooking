@@ -28,6 +28,8 @@ namespace EasyBooking.Business
             services.AddScoped<ISeatService, SeatService>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IOrderHistoryRepository, OrderHistoryRepository>();
+            services.AddScoped<IOrderHistoryService, OrderHistoryService>();
             services.AddScoped<IOrderService, OrderService>();
             return services;
         }

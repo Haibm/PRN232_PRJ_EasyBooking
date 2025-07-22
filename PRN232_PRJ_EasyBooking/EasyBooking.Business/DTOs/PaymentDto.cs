@@ -16,5 +16,9 @@ namespace EasyBooking.Business.DTOs
         public string? TransactionId { get; set; }
 
         public bool? Status { get; set; }
+
+        public string? SeatsJson { get; set; }
+
+        public int? ShowtimeId { get; set; }
     }
 } 

@@ -64,9 +64,9 @@ namespace EasyBooking.Data.Repositories
             }
         }
 
-        public async Task<User> GetByUsernamePass(string username,string password)
+        public async Task<User> GetByUsernamePass(string username, string password)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Username == username && u.PasswordHash == password);
         }
     }
-} 
+}

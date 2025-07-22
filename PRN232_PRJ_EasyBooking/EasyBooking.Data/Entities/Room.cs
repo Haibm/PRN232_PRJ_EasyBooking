@@ -15,6 +15,20 @@ public partial class Room
 
     public int CinemaId { get; set; }
 
+    public string? CreateBy { get; set; }
+
+    public DateTime? CreateAt { get; set; }
+
+    public string? UpdateBy { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
+
+    public string? DeleteBy { get; set; }
+
+    public DateTime? DeleteAt { get; set; }
+
+    public bool? IsDelete { get; set; }
+
     public virtual Cinema Cinema { get; set; } = null!;
 
     public virtual ICollection<Seat> Seats { get; set; } = new List<Seat>();

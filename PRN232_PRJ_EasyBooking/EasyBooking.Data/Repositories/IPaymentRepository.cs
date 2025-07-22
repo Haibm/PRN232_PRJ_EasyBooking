@@ -9,4 +9,4 @@ namespace EasyBooking.Business.Interfaces
         void GetById(int paymentId);
         Payment GetByTransactionId(string transactionId);
     }
-} 
+}

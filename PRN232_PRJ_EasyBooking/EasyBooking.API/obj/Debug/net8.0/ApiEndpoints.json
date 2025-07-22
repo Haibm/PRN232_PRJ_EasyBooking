@@ -785,6 +785,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
+    "Method": "PaymentFail",
+    "RelativePath": "api/user/orders/PaymentFail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
+    "Method": "PaymentSuccess",
+    "RelativePath": "api/user/orders/PaymentSuccess",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.User.UserController",
     "Method": "GetAll",
     "RelativePath": "api/users",
@@ -914,26 +934,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
-    "Method": "PaymentFail",
-    "RelativePath": "payment-fail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
-    "Method": "PaymentSuccess",
-    "RelativePath": "payment-success",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

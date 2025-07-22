@@ -46,4 +46,4 @@ namespace EasyBooking.Data.Repositories
             }
         }
     }
-} 
+}

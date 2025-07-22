@@ -1,0 +1,2 @@
+builder.Services.AddScoped<EasyBooking.Data.Repositories.IOrderHistoryRepository, EasyBooking.Data.Repositories.OrderHistoryRepository>();
+builder.Services.AddScoped<EasyBooking.Business.Interfaces.IOrderHistoryService, EasyBooking.Business.Services.OrderHistoryService>(); 

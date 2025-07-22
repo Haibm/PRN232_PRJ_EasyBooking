@@ -11,7 +11,7 @@ namespace EasyBooking.Business.DTOs
        public int ShowtimeId { get; set; }
         public DateTime StartTime { get; set; }
         public decimal Price { get; set; }
-        public string RoomName { get; set; }
-        public string CinemaName { get; set; }
+        public string? RoomName { get; set; }
+        public string? CinemaName { get; set; }
     }
 }

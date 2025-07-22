@@ -15,14 +15,13 @@ namespace EasyBooking.Business.DTOs
 
         [Required]
         [StringLength(10)]
-        public string SeatNumber { get; set; }
+        public string? SeatNumber { get; set; }
 
         public DateTime? BookingTime { get; set; }
 
-        [StringLength(20)]
-        public string? Status { get; set; }
+        public int? Status { get; set; }
 
-        [StringLength(20)]
-        public string? PaymentMethod { get; set; }
+        public int? OrderHistoryId { get; set; }
+
     }
 } 

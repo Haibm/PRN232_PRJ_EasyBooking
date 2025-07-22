@@ -11,7 +11,7 @@ namespace EasyBooking.Business.Services
             return "DE" + GenerateUniqueId();
         }
 
-        public  string GenerateUniqueId()
+        public string GenerateUniqueId()
         {
             // You can customize this function according to your requirements
             // For simplicity, this example generates a random 8-character string
@@ -28,4 +28,4 @@ namespace EasyBooking.Business.Services
             return uniqueId;
         }
     }
-} 
+}

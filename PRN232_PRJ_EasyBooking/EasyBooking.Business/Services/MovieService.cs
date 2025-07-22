@@ -46,7 +46,7 @@ namespace EasyBooking.Business.Services
                 Description = m.Description,
                 Duration = m.Duration,
                 PosterUrl = m.PosterUrl,
-                Status = m.Status,
+                //Status = m.Status,
                 Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
                 Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
             };

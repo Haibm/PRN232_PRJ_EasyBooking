@@ -15,7 +15,21 @@ public partial class Showtime
 
     public decimal Price { get; set; }
 
-    public int? VipPercent { get; set; } // Phụ thu % giá ghế VIP
+    public int? VipPercent { get; set; }
+
+    public string? CreateBy { get; set; }
+
+    public DateTime? CreateAt { get; set; }
+
+    public string? UpdateBy { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
+
+    public string? DeleteBy { get; set; }
+
+    public DateTime? DeleteAt { get; set; }
+
+    public bool? IsDelete { get; set; }
 
     public virtual Movie Movie { get; set; } = null!;
 
