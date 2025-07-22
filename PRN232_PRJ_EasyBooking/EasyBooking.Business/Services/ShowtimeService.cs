@@ -26,6 +26,7 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
                 Price = s.Price,
+                VipPercent = s.VipPercent
             });
         }
 
@@ -39,7 +40,8 @@ namespace EasyBooking.Business.Services
                 MovieId = s.MovieId,
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
-                Price = s.Price
+                Price = s.Price,
+                VipPercent = s.VipPercent
             };
         }
 
@@ -50,7 +52,8 @@ namespace EasyBooking.Business.Services
                 MovieId = showtimeDto.MovieId,
                 RoomId = showtimeDto.RoomId,
                 StartTime = showtimeDto.StartTime,
-                Price = showtimeDto.Price
+                Price = showtimeDto.Price,
+                VipPercent = showtimeDto.VipPercent
             };
             await _showtimeRepository.AddAsync(showtime);
         }
@@ -63,7 +66,8 @@ namespace EasyBooking.Business.Services
                 MovieId = showtimeDto.MovieId,
                 RoomId = showtimeDto.RoomId,
                 StartTime = showtimeDto.StartTime,
-                Price = showtimeDto.Price
+                Price = showtimeDto.Price,
+                VipPercent = showtimeDto.VipPercent
             };
             await _showtimeRepository.UpdateAsync(showtime);
         }

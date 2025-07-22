@@ -18,5 +18,8 @@ namespace EasyBooking.Business.DTOs
 
         [Range(0, 10000000)]
         public decimal Price { get; set; }
+
+        [Range(0, 100)]
+        public int? VipPercent { get; set; } // Phụ thu % giá ghế VIP
     }
 } 

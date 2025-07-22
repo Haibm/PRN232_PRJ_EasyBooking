@@ -25,6 +25,7 @@
                     <th>Phòng chiếu</th>
                     <th>Ngày chiếu</th>
                     <th>Giá vé</th>
+                    <th>% VIP</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -46,6 +47,7 @@
                         <td>@showtime.RoomName</td>
                         <td>@showtime.StartTime.ToString("dd-MM-yyyy HH:mm")</td>
                         <td>@showtime.Price.ToString("N0")</td>
+                        <td>@(showtime.VipPercent ?? 0)%</td>
                         <td>
                             <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageShowtimes/Edit?id=@showtime.ShowtimeId">Edit</a>
                             <form method="post" asp-page-handler="Delete" asp-route-id="@showtime.ShowtimeId" style="display:inline;">

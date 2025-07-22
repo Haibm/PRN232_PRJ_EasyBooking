@@ -97,9 +97,9 @@ namespace EasyBooking.Business.Services
             await _userRepository.DeleteAsync(id);
         }
 
-        public async Task<UserDto> GetByUsernamePass(string username,string pass)
+        public async Task<UserDto> GetByUsernamePass(string username, string pass)
         {
-            var u =await _userRepository.GetByUsernamePass(username, pass);
+            var u = await _userRepository.GetByUsernamePass(username, pass);
             if (u == null) return null;
             return new UserDto
             {
@@ -113,15 +113,12 @@ namespace EasyBooking.Business.Services
             };
         }
 
-        // Lưu code xác nhận và thông tin timeout, số lần nhập sai
         private static ConcurrentDictionary<int, (string Code, DateTime Expiry, int FailCount)> _changePasswordCodes = new();
 
         public async Task<string> SendChangePasswordCodeAsync(int userId)
         {
             var user = await _userRepository.GetByIdAsync(userId);
             if (user == null) return null;
-
-            // Gửi email và nhận lại mã code từ bên trong hàm SendEmail
             string code = EmailSender.SendEmail(user.Email, "Mã xác nhận đổi mật khẩu", null);
 
             // Lưu code vào dictionary
@@ -166,4 +163,4 @@ namespace EasyBooking.Business.Services
             return true;
         }
     }
-} 
+}

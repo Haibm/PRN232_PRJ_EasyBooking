@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|d:\\team project\\projectprn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.data\\repositories\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|solutionrelative:easybooking.data\\repositories\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|d:\\team project\\projectprn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\authen\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\authen\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|d:\\team project\\projectprn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.business\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0748BDAF-6B7C-4ED6-AD3F-E87DCFC58509}|EasyBooking.Business\\EasyBooking.Business.csproj|solutionrelative:easybooking.business\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|d:\\team project\\projectprn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\authen\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\authen\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|d:\\team project\\projectprn232\\prn232_prj_easybooking\\prn232_prj_easybooking\\easybooking.web\\pages\\authen\\signup.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{636A5F7A-A42D-40E9-98EB-EFC79713666B}|EasyBooking.Web\\EasyBooking.Web.csproj|solutionrelative:easybooking.web\\pages\\authen\\signup.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 194,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Profile.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\authen\\Profile.cshtml",
+              "ToolTip": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Profile.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\authen\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-21T17:59:50.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Signup.cshtml",
+              "DocumentMoniker": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Signup.cshtml",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\authen\\Signup.cshtml",
+              "ToolTip": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Signup.cshtml",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\authen\\Signup.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-21T17:56:11.134Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
@@ -797,35 +827,106 @@
               "Name": "ST:8:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MovieRepository.cs",
-              "DocumentMoniker": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\MovieRepository.cs",
-              "RelativeDocumentMoniker": "EasyBooking.Data\\Repositories\\MovieRepository.cs",
-              "ToolTip": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Data\\Repositories\\MovieRepository.cs",
-              "RelativeToolTip": "EasyBooking.Data\\Repositories\\MovieRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T19:22:44.399Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0504ff91-9d61-11d0-a794-00a0c9110051}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:74:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:75:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:76:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:77:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:78:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:44:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{6bf11835-8a31-496c-b01e-94f731afc7ce}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{6bf11835-8a31-496c-b01e-94f731afc7ce}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:48:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:62:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:81:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MovieService.cs",
-              "DocumentMoniker": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\MovieService.cs",
-              "RelativeDocumentMoniker": "EasyBooking.Business\\Services\\MovieService.cs",
-              "ToolTip": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Business\\Services\\MovieService.cs",
-              "RelativeToolTip": "EasyBooking.Business\\Services\\MovieService.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA3wEAAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Signup.cshtml.cs",
+              "DocumentMoniker": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Signup.cshtml.cs",
+              "RelativeDocumentMoniker": "EasyBooking.Web\\Pages\\authen\\Signup.cshtml.cs",
+              "ToolTip": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\EasyBooking.Web\\Pages\\authen\\Signup.cshtml.cs",
+              "RelativeToolTip": "EasyBooking.Web\\Pages\\authen\\Signup.cshtml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T19:21:25.909Z",
+              "WhenOpened": "2025-07-21T17:47:02.253Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 373,
+          "DockedWidth": 1304,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -851,6 +952,30 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:53:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:67:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:68:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:73:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:78:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:81:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         },
@@ -969,6 +1094,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:14:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }

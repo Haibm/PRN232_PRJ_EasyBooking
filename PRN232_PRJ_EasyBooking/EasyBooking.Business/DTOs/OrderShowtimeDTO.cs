@@ -18,7 +18,7 @@ namespace EasyBooking.Business.DTOs
             public string PosterUrl { get; set; }
             public string Status { get; set; }
             public List<string> Genres { get; set; }
-            public List<string> Showtimes { get; set; } // ISO string
+            public List<Showtime> Showtimes { get; set; } // <-- Sửa lại kiểu này
         }
         public class Showtime
         {
@@ -27,6 +27,7 @@ namespace EasyBooking.Business.DTOs
             public int RoomId { get; set; }
             public DateTime StartTime { get; set; }
             public decimal? Price { get; set; }
+            public int? VipPercent { get; set; } // Phụ thu % giá ghế VIP
         }
         public class Room
         {

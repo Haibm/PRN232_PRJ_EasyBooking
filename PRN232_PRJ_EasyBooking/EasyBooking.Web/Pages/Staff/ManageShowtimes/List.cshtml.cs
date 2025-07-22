@@ -32,6 +32,7 @@ namespace EasyBooking.Web.Pages.Staff.ManageShowtimes
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
                 Price = s.Price,
+                VipPercent = s.VipPercent,
                 MovieTitle = movies.FirstOrDefault(m => m.MovieId == s.MovieId)?.Title ?? "",
                 RoomName = rooms.FirstOrDefault(r => r.RoomId == s.RoomId)?.Name ?? ""
             }).ToList();

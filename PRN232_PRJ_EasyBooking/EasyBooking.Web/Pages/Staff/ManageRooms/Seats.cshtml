@@ -1,0 +1,45 @@
+@page "{roomId:int}"
+@model EasyBooking.Web.Pages.Staff.ManageRooms.SeatsModel
+@{
+    ViewData["Title"] = "Quản lý ghế phòng chiếu";
+}
+<h2>Quản lý ghế phòng chiếu</h2>
+<div>
+    <b>Phòng chiếu:</b> @Model.RoomName
+</div>
+<div id="seatGrid"></div>
+<button class="btn btn-primary" id="addSeatBtn">Thêm ghế</button>
+<!-- Modal thêm/sửa ghế sẽ bổ sung sau -->
+@section Scripts {
+    <script>
+        async function loadSeats() {
+            const res = await fetch(`/api/staff/rooms/@Model.RoomId/seats`);
+            const seats = await res.json();
+            // Render lưới ghế từ seats
+            let html = '<div class="d-flex flex-wrap" style="gap:4px;">';
+            seats.forEach(seat => {
+                html += `<span style='position:relative;display:inline-block;'>
+                    <button class='btn btn-sm ${seat.seatType === 'VIP' ? 'btn-warning' : 'btn-secondary'} m-1'>${seat.rowLetter}${seat.seatNumber}</button>
+                    <button class='btn btn-success btn-xs edit-seat-btn' data-seat-id='${seat.seatId}' style='position:absolute;top:-8px;right:-8px;padding:2px 4px;font-size:12px;'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
+                          <path d='M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 3 10.707V13h2.293l7.5-7.5z'/>
+                        </svg>
+                    </button>
+                </span>`;
+            });
+            html += '</div>';
+            document.getElementById('seatGrid').innerHTML = html;
+        }
+        loadSeats();
+        document.getElementById('addSeatBtn').onclick = function(){
+            alert('Chức năng thêm ghế sẽ bổ sung sau!');
+        };
+        // Sự kiện click nút Edit ghế
+        document.addEventListener('click', function(e){
+            if(e.target.closest('.edit-seat-btn')){
+                const seatId = e.target.closest('.edit-seat-btn').dataset.seatId;
+                alert('Sửa ghế: ' + seatId + ' (mock)');
+            }
+        });
+    </script>
+} 

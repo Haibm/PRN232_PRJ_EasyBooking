@@ -1,5 +1,6 @@
-﻿using EasyBooking.Business.DTOs;
-using EasyBooking.Data.Entities;
+﻿
+using EasyBooking.Business.DTOs;
+//using EasyBooking.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -76,6 +77,6 @@ namespace EasyBooking.Web.Pages.Authen
                 }
             }
         }
-        
+
     }
 }

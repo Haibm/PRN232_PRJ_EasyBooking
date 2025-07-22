@@ -18,5 +18,11 @@ namespace EasyBooking.Business.DTOs
 
         [Required(ErrorMessage = "Phải chọn rạp")]
         public int CinemaId { get; set; }
+
+        // Trường mới đồng bộ với DB
+        public int RowCount { get; set; }
+        public int ColCount { get; set; }
+        public string RoomType { get; set; }
+        public string? CinemaName { get; set; } // chỉ để hiển thị, không lưu DB
     }
 } 

@@ -20,16 +20,6 @@
             <span asp-validation-for="Room.Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Room.Capacity" class="form-label">Sức chứa</label>
-            <input asp-for="Room.Capacity" class="form-control" />
-            <span asp-validation-for="Room.Capacity" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Room.Location" class="form-label">Vị trí</label>
-            <input asp-for="Room.Location" class="form-control" />
-            <span asp-validation-for="Room.Location" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
             <label asp-for="Room.CinemaId" class="form-label">Rạp</label>
             <select asp-for="Room.CinemaId" class="form-select">
                 <option value="">Chọn rạp</option>
@@ -40,6 +30,30 @@
             </select>
             <span asp-validation-for="Room.CinemaId" class="text-danger"></span>
         </div>
+        <div class="mb-3">
+            <label asp-for="Room.RoomType" class="form-label">Loại phòng chiếu</label>
+            <select asp-for="Room.RoomType" class="form-select">
+                <option value="Tiêu chuẩn">Phòng chiếu tiêu chuẩn</option>
+                <option value="VIP">Phòng chiếu VIP</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.RowCount" class="form-label">Số hàng</label>
+            <input asp-for="Room.RowCount" type="number" min="1" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.ColCount" class="form-label">Số cột</label>
+            <input asp-for="Room.ColCount" type="number" min="1" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.Capacity" class="form-label">Sức chứa</label>
+            <input asp-for="Room.Capacity" type="number" class="form-control" readonly />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Room.Location" class="form-label">Vị trí</label>
+            <input asp-for="Room.Location" class="form-control" />
+            <span asp-validation-for="Room.Location" class="text-danger"></span>
+        </div>
         <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="/Staff/ManageRooms/List" class="btn btn-secondary ms-2">Quay lại</a>
     </form>
@@ -47,4 +61,14 @@
     {
         <div class="alert alert-success mt-3">Cập nhật thành công!</div>
     }
-</div> 
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('Room_RowCount').oninput = document.getElementById('Room_ColCount').oninput = function() {
+            const row = parseInt(document.getElementById('Room_RowCount').value) || 0;
+            const col = parseInt(document.getElementById('Room_ColCount').value) || 0;
+            document.getElementById('Room_Capacity').value = row * col;
+        };
+    </script>
+} 
