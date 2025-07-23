@@ -1,0 +1,34 @@
+@{
+    var currentPage = Context.Request.Path.Value.ToLower();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EasyBooking AdminBussiness</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/AdminBussiness/Index">AdminBussiness</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item @(currentPage.Contains("/adminbussiness/index") ? "active" : "")">
+                    <a class="nav-link" href="/AdminBussiness/Index">Dashboard</a>
+                </li>
+                <li class="nav-item @(currentPage.Contains("/adminbussiness/managemovie") ? "active" : "")">
+                    <a class="nav-link" href="/AdminBussiness/Managemovie">Quản lý phim đã bán</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html> 

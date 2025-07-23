@@ -70,7 +70,8 @@
                     <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
                 `;
             } else {
-                navbarUser.innerHTML = `<li class="nav-item"><a class="nav-link" href="/authen/Login">Login</a></li>`;
+                navbarUser.innerHTML = `<li class="nav-item"><a class="nav-link" href="/authen/Login">Login</a></li>
+                 <li class="nav-item"><a class="nav-link" href="/authen/Signup">Signup</a></li>`;
             }
         }
         document.addEventListener('DOMContentLoaded', renderNavbarUser);

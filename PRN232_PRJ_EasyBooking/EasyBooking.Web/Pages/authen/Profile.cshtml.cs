@@ -1,4 +1,4 @@
-﻿using EasyBooking.Business.DTOs;
+using EasyBooking.Business.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http;

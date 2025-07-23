@@ -1,0 +1,29 @@
+﻿@page
+@model EasyBooking.Web.Pages.AdminBussiness.IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard">
+    <div class="row">
+        <div class="col card">Tổng số phim: <span>@Model.TotalMovies</span></div>
+        <div class="col card">Người đã đặt vé: <span>@Model.TotalUsersBooked</span></div>
+        <div class="col card">Tổng tiền đã trả: <span>@Model.TotalPaid VNĐ</span></div>
+        <div class="col card">Người tiêu nhiều nhất: <span>@Model.TopSpender</span></div>
+        <div class="col card">Phim được trả nhiều nhất: <span>@Model.TopMovie</span></div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        async function loadDashboard() {
+            const res = await fetch('/api/admin/dashboard/stats');
+            const data = await res.json();
+            document.getElementById('totalMovies').innerText = data.totalMovies;
+            document.getElementById('totalUsersBooked').innerText = data.totalUsersBooked;
+            document.getElementById('totalPaid').innerText = data.totalPaid + ' VNĐ';
+            document.getElementById('topSpender').innerText = data.topSpender ? (data.topSpender.fullName + ' (ID: ' + data.topSpender.userId + ')') : 'N/A';
+            document.getElementById('topMovie').innerText = data.topMovie ? (data.topMovie.title + ' (ID: ' + data.topMovie.movieId + ')') : 'N/A';
+        }
+        loadDashboard();
+    </script>
+}

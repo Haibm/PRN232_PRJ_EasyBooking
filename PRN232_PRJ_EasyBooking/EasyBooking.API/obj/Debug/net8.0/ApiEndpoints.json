@@ -79,6 +79,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.Admin.DashboardController",
+    "Method": "GetMovieBuyers",
+    "RelativePath": "api/admin/dashboard/moviebuyers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filter",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Admin.DashboardController",
+    "Method": "GetStats",
+    "RelativePath": "api/admin/dashboard/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.Staff.CinemaController",
     "Method": "GetAll",
     "RelativePath": "api/staff/cinemas",

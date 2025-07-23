@@ -1,4 +1,4 @@
-using EasyBooking.Business.DTOs;
+﻿using EasyBooking.Business.DTOs;
 using EasyBooking.Business.Interfaces;
 using EasyBooking.Business.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -55,10 +55,8 @@ namespace EasyBooking.API.Controllers.User
             if (user.IsActive.HasValue && !user.IsActive.Value)
                 return StatusCode(403, "Tài khoản đã bị khoá.");
 
-            // Thêm log kiểm tra
             if (user.UserId == 0 || string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Role))
                 return StatusCode(500, $"User info missing for JWT: UserId={user.UserId}, Username={user.Username}, Role={user.Role}");
-
             try
             {
                 var token = GenerateJwtToken(user.UserId, user.Username, user.Role);
@@ -66,7 +64,7 @@ namespace EasyBooking.API.Controllers.User
             }
             catch (Exception ex)
             {
-                // Log lỗi ra console hoặc file
+                
                 Console.WriteLine("JWT Error: " + ex.ToString());
                 return StatusCode(500, "JWT Error: " + ex.Message);
             }
@@ -125,4 +123,4 @@ namespace EasyBooking.API.Controllers.User
             return Ok(new { message = "Đổi mật khẩu thành công." });
         }
     }
-} 
+}

@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasyBooking.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+837b62bb61a53add36c075a60f8ea0064ff78d50")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55224f906816a7b77fa784c1468470f9297776bc")]
+>>>>>>> origin/trung
 [assembly: System.Reflection.AssemblyProductAttribute("EasyBooking.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasyBooking.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

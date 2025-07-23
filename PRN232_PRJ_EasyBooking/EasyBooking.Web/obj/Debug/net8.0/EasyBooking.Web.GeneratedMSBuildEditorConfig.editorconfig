@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Ki_8\PRN232\PRN232_PRJ_EasyBooking\PRN232_PRJ_EasyBooking\EasyBooking.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/AdminBussiness/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5CdXNzaW5lc3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/AdminBussiness/Managemovie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5CdXNzaW5lc3NcTWFuYWdlbW92aWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,6 +104,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_AdminSidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pblNpZGViYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_LayoutAdminBussiness.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRBZG1pbkJ1c3NpbmVzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Shared/_StaffLayout.cshtml]

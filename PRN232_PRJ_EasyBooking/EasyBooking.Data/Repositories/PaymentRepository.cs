@@ -37,5 +37,10 @@ namespace EasyBooking.Data.Repositories
             // So sánh transactionId là tiền tố của vnp_TxnRef
             return _context.Payments.FirstOrDefault(p => transactionId.StartsWith(p.TransactionId));
         }
+
+        public IEnumerable<Payment> GetAll()
+        {
+            return _context.Payments.ToList();
+        }
     }
 }

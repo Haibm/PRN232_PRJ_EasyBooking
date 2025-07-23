@@ -37,7 +37,6 @@ namespace EasyBooking.API
                 });
             });
 
-            // Thêm cấu hình JWT Authentication
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

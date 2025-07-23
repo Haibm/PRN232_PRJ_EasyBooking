@@ -13,10 +13,14 @@ namespace EasyBooking.Business.Services
     {
         private readonly IMovieRepository _movieRepository;
         private readonly IGenreRepository _genreRepository;
-        public MovieService(IMovieRepository movieRepository, IGenreRepository genreRepository)
+        private readonly IPaymentRepository _paymentRepository;
+        private readonly IShowtimeRepository _showtimeRepository;
+        public MovieService(IMovieRepository movieRepository, IGenreRepository genreRepository, IPaymentRepository paymentRepository, IShowtimeRepository showtimeRepository)
         {
             _movieRepository = movieRepository;
             _genreRepository = genreRepository;
+            _paymentRepository = paymentRepository;
+            _showtimeRepository = showtimeRepository;
         }
 
         public async Task<IEnumerable<MovieDto>> GetAllAsync()
@@ -114,6 +118,26 @@ namespace EasyBooking.Business.Services
         public async Task DeleteAsync(int id)
         {
             await _movieRepository.DeleteAsync(id);
+        }
+
+        public async Task<int> GetTotalMoviesAsync()
+        {
+            var movies = await _movieRepository.GetAllAsync();
+            return movies.Count();
+        }
+
+        public async Task<MovieDto> GetTopMovieAsync()
+        {
+            var payments = _paymentRepository.GetAll().Where(p => p.Status == true);
+            var showtimeGroups = payments
+                .GroupBy(p => p.ShowtimeId)
+                .Select(g => new { ShowtimeId = g.Key, Total = g.Sum(x => x.Amount) })
+                .OrderByDescending(x => x.Total)
+                .FirstOrDefault();
+            if (showtimeGroups == null) return null;
+            var showtime = await _showtimeRepository.GetByIdAsync(showtimeGroups.ShowtimeId ?? 0);
+            if (showtime == null) return null;
+            return await GetByIdAsync(showtime.MovieId);
         }
     }
 }
