@@ -55,9 +55,9 @@ namespace EasyBooking.Web.Pages.Authen
                     HttpContext.Session.SetString("Role", role);
                     HttpContext.Session.SetInt32("UserId", userId);
 
-                    if (role == "Admin")
+                    if (role == "1")
                         return RedirectToPage("/Admin/Dashboard");
-                    else if (role == "Staff")
+                    else if (role == "2")
                         return RedirectToPage("/Staff/ManageCinemas/List");
                     else
                         return RedirectToPage("/Index");

@@ -21,4 +21,10 @@
     </div>
 
 </body>
+@section Scripts {
+    <script>
+        // Xóa cookie jwtToken khi logout
+        document.cookie = "jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    </script>
+}
 </html>

@@ -13,18 +13,17 @@ namespace EasyBooking.API.Controllers.Admin
         private readonly IMovieService _movieService;
         private readonly IUserService _userService;
         private readonly IPaymentService _paymentService;
-        private readonly IShowtimeService _showtimeService; // Added for GetAllAsync
-
+        private readonly IShowtimeService _showtimeService; 
         public DashboardController(
             IMovieService movieService,
             IUserService userService,
             IPaymentService paymentService,
-            IShowtimeService showtimeService) // Added showtimeService to constructor
+            IShowtimeService showtimeService) 
         {
             _movieService = movieService;
             _userService = userService;
             _paymentService = paymentService;
-            _showtimeService = showtimeService; // Initialize showtimeService
+            _showtimeService = showtimeService; 
         }
 
         [HttpGet("stats")]
