@@ -1,0 +1,116 @@
+﻿@page
+@model EasyBooking.Web.Pages.authen.OrderHistoryModel
+@{
+    ViewData["Title"] = "Lịch sử đặt vé";
+}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            @await Html.PartialAsync("Shared/_UserSidebar")
+        </div>
+        <div class="col-md-9">
+            <h2 class="mb-4">Lịch sử đặt vé</h2>
+            <table class="table table-bordered table-hover bg-white shadow-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Thời gian</th>
+                        <th>Trạng thái</th>
+                        <th>Ghi chú</th>
+                        <th>Vé đã mua</th>
+                    </tr>
+                </thead>
+                <tbody id="orderHistoryTableBody">
+                    <tr>
+                        <td colspan="5" class="text-center text-secondary">Đang tải dữ liệu...</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Modal hiển thị vé đã mua -->
+            <div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ticketModalLabel">Chi tiết vé đã mua</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered" id="ticketTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã vé</th>
+                                        <th>Phim</th>
+                                        <th>Rạp</th>
+                                        <th>Phòng</th>
+                                        <th>Suất chiếu</th>
+                                        <th>Ghế</th>
+                                        <th>Thời gian đặt</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+<script>
+async function loadOrderHistory() {
+    const res = await fetch('https://localhost:7087/api/user/orders/history', {
+        headers: { 'Authorization': 'Bearer ' + getCookie('jwtToken') }
+    });
+    const tbody = document.getElementById('orderHistoryTableBody');
+    tbody.innerHTML = '';
+    if (!res.ok) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-danger">Không thể tải dữ liệu.</td></tr>';
+        return;
+    }
+    const data = await res.json();
+    if (!data || data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary">Không có lịch sử đặt vé.</td></tr>';
+        return;
+    }
+    data.forEach(h => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${h.orderHistoryId}</td>
+                        <td>${h.timestamp ? new Date(h.timestamp).toLocaleString() : ''}</td>
+                        <td>${h.orderStatus || ''}</td>
+                        <td>${h.orderNote || ''}</td>
+                        <td><button class='btn btn-sm btn-info' onclick='showTickets(${h.orderHistoryId})'>Chi tiết</button></td>`;
+        tbody.appendChild(tr);
+    });
+}
+async function showTickets(orderHistoryId) {
+    const res = await fetch(`https://localhost:7087/api/user/tickets/by-order/${orderHistoryId}`, {
+        headers: { 'Authorization': 'Bearer ' + getCookie('jwtToken') }
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    const tbody = document.querySelector('#ticketTable tbody');
+    tbody.innerHTML = '';
+    data.forEach(t => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${t.ticketId}</td>
+                        <td>${t.movieTitle || ''}</td>
+                        <td>${t.cinemaName || ''}</td>
+                        <td>${t.roomName || ''}</td>
+                        <td>${t.showtimeStart ? new Date(t.showtimeStart).toLocaleString() : ''}</td>
+                        <td>${t.seatNumber}</td>
+                        <td>${t.bookingTime ? new Date(t.bookingTime).toLocaleString() : ''}</td>`;
+        tbody.appendChild(tr);
+    });
+    var modal = new bootstrap.Modal(document.getElementById('ticketModal'));
+    modal.show();
+}
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+document.addEventListener('DOMContentLoaded', loadOrderHistory);
+</script>
+}

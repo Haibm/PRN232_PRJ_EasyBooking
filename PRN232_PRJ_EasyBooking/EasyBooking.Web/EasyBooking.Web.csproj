@@ -19,4 +19,8 @@
     <ProjectReference Include="..\EasyBooking.Data\EasyBooking.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\AdminBussiness\" />
+  </ItemGroup>
+
 </Project>

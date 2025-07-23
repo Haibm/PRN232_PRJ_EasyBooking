@@ -6,5 +6,6 @@ namespace EasyBooking.Data.Repositories
     {
         void Add(OrderHistory orderHistory);
         int GetLatestIdByPaymentAndUser(int paymentId, int userId);
+        IEnumerable<OrderHistory> GetByUserId(int userId);
     }
 } 

@@ -146,5 +146,16 @@ namespace EasyBooking.API.Controllers.User
 
         [HttpGet("PaymentSuccess")]
         public IActionResult PaymentSuccess() => Content("Thanh toán thành công! Cảm ơn bạn đã sử dụng dịch vụ.");
+
+        [HttpGet("history")]
+        public IActionResult GetOrderHistory()
+        {
+            var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null) return Unauthorized();
+            int userId = int.Parse(userIdClaim.Value);
+            var histories = _orderHistoryService.GetByUserId(userId);
+            return Ok(histories);
+        }
+
     }
 }

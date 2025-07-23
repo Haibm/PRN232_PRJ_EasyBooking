@@ -88,5 +88,23 @@ namespace EasyBooking.Business.Services
                 OrderHistoryId = ticket.OrderHistoryId
             };
         }
+        public IEnumerable<TicketDetailDto> GetByOrderHistoryIdWithDetails(int orderHistoryId)
+        {
+            var tickets = _ticketRepository.GetByOrderHistoryIdWithDetails(orderHistoryId);
+            return tickets.Select(t => new TicketDetailDto
+            {
+                TicketId = t.TicketId,
+                UserId = t.UserId,
+                ShowtimeId = t.ShowtimeId,
+                SeatNumber = t.SeatNumber,
+                BookingTime = t.BookingTime,
+                Status = t.Status,
+                OrderHistoryId = t.OrderHistoryId,
+                MovieTitle = t.Showtime.Movie.Title,
+                RoomName = t.Showtime.Room.Name,
+                CinemaName = t.Showtime.Room.Cinema.Name,
+                ShowtimeStart = t.Showtime.StartTime
+            });
+        }
     }
 }

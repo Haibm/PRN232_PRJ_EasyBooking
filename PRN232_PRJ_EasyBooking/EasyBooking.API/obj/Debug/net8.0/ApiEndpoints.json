@@ -744,6 +744,16 @@
   },
   {
     "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
+    "Method": "GetOrderHistory",
+    "RelativePath": "api/user/orders/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.OrderController",
     "Method": "InitOrder",
     "RelativePath": "api/user/orders/init",
     "HttpMethod": "POST",
@@ -802,6 +812,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.TicketController",
+    "Method": "GetTicketsByOrder",
+    "RelativePath": "api/user/tickets/by-order/{orderHistoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderHistoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -12,5 +12,6 @@ namespace EasyBooking.Business.Interfaces
     {
         void Add(OrderHistoryDto orderHistoryDto);
         int GetLatestIdByPaymentAndUser(int paymentId, int userId);
+        IEnumerable<OrderHistoryDto> GetByUserId(int userId);
     }
 }

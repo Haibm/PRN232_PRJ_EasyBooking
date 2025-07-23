@@ -11,5 +11,6 @@ namespace EasyBooking.Data.Repositories
         void Add(Ticket ticket);
         Task UpdateAsync(Ticket ticket);
         Task DeleteAsync(int id);
+        IEnumerable<Ticket> GetByOrderHistoryIdWithDetails(int orderHistoryId);
     }
 }

@@ -11,5 +11,6 @@ namespace EasyBooking.Business.Interfaces
         Task UpdateAsync(TicketDto ticketDto);
         Task DeleteAsync(int id);
         TicketDto CreateTicket(TicketDto ticket);
+        IEnumerable<TicketDetailDto> GetByOrderHistoryIdWithDetails(int orderHistoryId);
     }
 }

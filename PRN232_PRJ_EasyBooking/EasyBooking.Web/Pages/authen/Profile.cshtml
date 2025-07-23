@@ -5,55 +5,53 @@
 }
 
 <h2>Thông tin cá nhân</h2>
-<div>
-    <p>Tên đăng nhập: <span>@Model.User?.Username</span></p>
-    <p>Email: <span>@Model.User?.Email</span></p>
-</div>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            @await Html.PartialAsync("Shared/_UserSidebar")
+        </div>
 
-<div class="row">
-    <!-- Sidebar -->
-    <div class="col-md-3">
-        @await Html.PartialAsync("Shared/_UserSidebar")
-    </div>
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    Thông tin cá nhân
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Tên tài khoản:</label>
+                            <input class="form-control" value="@Model.User?.Username" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Họ tên:</label>
+                            <input asp-for="User.FullName" class="form-control" />
+                            <span asp-validation-for="User.FullName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email:</label>
+                            <input asp-for="User.Email" class="form-control" />
+                            <span asp-validation-for="User.Email" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
 
-    <!-- Main Content -->
-    <div class="col-md-9">
-        <div class="card">
-            <div class="card-header bg-dark text-white">
-                Thông tin cá nhân
-            </div>
-            <div class="card-body">
-                <form method="post">
-                    <div class="mb-3">
-                        <label class="form-label">Tên tài khoản:</label>
-                        <input class="form-control" value="@Model.User?.Username" readonly />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Họ tên:</label>
-                        <input asp-for="User.FullName" class="form-control" />
-                        <span asp-validation-for="User.FullName" class="text-danger"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email:</label>
-                        <input asp-for="User.Email" class="form-control" />
-                        <span asp-validation-for="User.Email" class="text-danger"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                        @if (Model.Success)
 
-                    @if (Model.Success)
-                    {
-                        <div class="mt-2 alert alert-success">Cập nhật thành công!</div>
-                    }
-                    else if (!ViewData.ModelState.IsValid)
-                    {
-                        <div class="mt-2 alert alert-danger">Vui lòng kiểm tra thông tin nhập.</div>
-                    }
-                </form>
+                        {
+                            <div class="mt-2 alert alert-success">Cập nhật thành công!</div>
+                        }
+
+                        else if (!ViewData.ModelState.IsValid)
+
+                        {
+                            <div class="mt-2 alert alert-danger">Vui lòng kiểm tra thông tin nhập.</div>
+                        }
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+

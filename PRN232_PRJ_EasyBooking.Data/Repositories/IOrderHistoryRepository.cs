@@ -1,4 +1,5 @@
 using EasyBooking.Data.Entities;
+using System.Collections.Generic;
 
 namespace EasyBooking.Data.Repositories
 {
@@ -6,5 +7,6 @@ namespace EasyBooking.Data.Repositories
     {
         void Add(OrderHistory orderHistory);
         int GetLatestIdByPaymentAndUser(int paymentId, int userId);
+        IEnumerable<OrderHistory> GetByUserId(int userId);
     }
 } 

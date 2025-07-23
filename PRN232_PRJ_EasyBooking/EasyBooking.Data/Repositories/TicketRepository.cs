@@ -45,5 +45,16 @@ namespace EasyBooking.Data.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+        public IEnumerable<Ticket> GetByOrderHistoryIdWithDetails(int orderHistoryId)
+        {
+            return _context.Tickets
+                .Where(t => t.OrderHistoryId == orderHistoryId)
+                .Include(t => t.Showtime)
+                    .ThenInclude(s => s.Room)
+                        .ThenInclude(r => r.Cinema)
+                .Include(t => t.Showtime)
+                    .ThenInclude(s => s.Movie)
+                .ToList();
+        }
     }
 }

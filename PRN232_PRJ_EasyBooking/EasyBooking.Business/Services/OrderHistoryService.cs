@@ -32,5 +32,19 @@ namespace EasyBooking.Business.Services
         {
             return _repo.GetLatestIdByPaymentAndUser(paymentId, userId);
         }
+
+        public IEnumerable<OrderHistoryDto> GetByUserId(int userId)
+        {
+            var entities = _repo.GetByUserId(userId);
+            return entities.Select(e => new OrderHistoryDto
+            {
+                OrderHistoryId = e.OrderHistoryId,
+                PaymentId = e.PaymentId,
+                UserId = e.UserId,
+                Timestamp = e.Timestamp,
+                OrderNote = e.OrderNote,
+                OrderStatus = e.OrderStatus
+            });
+        }
     }
 }

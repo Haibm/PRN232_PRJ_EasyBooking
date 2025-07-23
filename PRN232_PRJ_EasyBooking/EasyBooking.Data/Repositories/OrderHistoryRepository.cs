@@ -20,5 +20,9 @@ namespace EasyBooking.Data.Repositories
                 .FirstOrDefault();
             return entity?.OrderHistoryId ?? 0;
         }
+        public IEnumerable<OrderHistory> GetByUserId(int userId)
+        {
+            return _context.OrderHistories.Where(x => x.UserId == userId).OrderByDescending(x => x.OrderHistoryId).ToList();
+        }
     }
 } 

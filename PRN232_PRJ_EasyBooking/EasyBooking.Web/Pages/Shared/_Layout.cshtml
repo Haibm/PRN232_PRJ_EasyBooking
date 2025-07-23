@@ -56,6 +56,10 @@
         function isLoggedIn() {
             return !!getCookie('jwtToken');
         }
+        function logout() {
+            document.cookie = "jwtToken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            window.location.href = '/authen/Login';
+        }
         function renderNavbarUser() {
             const navbarUser = document.getElementById('navbarUser');
             if (!navbarUser) return;
@@ -63,7 +67,7 @@
             if (isLoggedIn()) {
                 navbarUser.innerHTML = `
                     <li class="nav-item"><a class="nav-link" href="/authen/Profile">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/authen/Logout">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
                 `;
             } else {
                 navbarUser.innerHTML = `<li class="nav-item"><a class="nav-link" href="/authen/Login">Login</a></li>`;
