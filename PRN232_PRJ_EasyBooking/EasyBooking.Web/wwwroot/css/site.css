@@ -132,3 +132,27 @@ footer.footer a:hover {
     background-color: #dc3545;
     border-color: #dc3545;
 }
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.main-content {
+    min-width: 0;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: static;
+    }
+
+    .main-content {
+        padding-left: 0;
+    }
+}

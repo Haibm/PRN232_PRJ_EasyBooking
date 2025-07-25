@@ -1,0 +1,23 @@
+@{
+    var currentPath = Context.Request.Path.Value?.ToLower() ?? "";
+}
+<div class="bg-dark text-white min-vh-100 p-3" style="width: 250px;">
+    <h5 class="text-uppercase text-center mb-4">ADMIN BUSINESS</h5>
+    <ul class="nav nav-pills flex-column" id="sidebarMenu">
+        <!-- Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link @(currentPath.StartsWith("/adminbussiness/index") ? "active" : "text-white")"
+               href="/AdminBussiness/Index">
+                <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+        </li>
+        <!-- Quản lý phim đã bán -->
+        <li class="nav-item">
+            <a class="nav-link @(currentPath.StartsWith("/adminbussiness/managemovie") ? "active" : "text-white")"
+               href="/AdminBussiness/Managemovie">
+                <i class="bi bi-film"></i> Quản lý phim đã bán
+            </a>
+        </li>
+        <!-- Thêm các mục khác nếu cần -->
+    </ul>
+</div> 
