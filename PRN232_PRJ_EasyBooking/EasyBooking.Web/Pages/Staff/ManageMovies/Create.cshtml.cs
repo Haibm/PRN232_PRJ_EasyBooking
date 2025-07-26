@@ -34,6 +34,32 @@ namespace EasyBooking.Web.Pages.Staff.ManageMovies
             if (!ModelState.IsValid)
                 return Page();
 
+            // Validation cho Status
+            if (Movie.Status.HasValue && (Movie.Status.Value < 1 || Movie.Status.Value > 3))
+            {
+                ModelState.AddModelError("Movie.Status", "Status phải là 1 (Đang chiếu), 2 (Sắp chiếu), hoặc 3 (Ngừng chiếu)");
+                return Page();
+            }
+
+            // Validation cho PosterUrl
+            if (!string.IsNullOrEmpty(Movie.PosterUrl))
+            {
+                if (Movie.PosterUrl.StartsWith("data:image"))
+                {
+                    // Kiểm tra độ dài base64 string
+                    if (Movie.PosterUrl.Length > 3500) // Để lại buffer cho database
+                    {
+                        ModelState.AddModelError("Movie.PosterUrl", "Base64 string quá dài. Vui lòng sử dụng hình ảnh nhỏ hơn hoặc URL thay vì base64.");
+                        return Page();
+                    }
+                }
+                else if (Movie.PosterUrl.Length > 500)
+                {
+                    ModelState.AddModelError("Movie.PosterUrl", "URL quá dài. Vui lòng sử dụng URL ngắn hơn.");
+                    return Page();
+                }
+            }
+
             Movie.Genres = SelectedGenres;
             using var client = new HttpClient();
             client.BaseAddress = new System.Uri("https://localhost:7087/"); // Sửa lại nếu API chạy port khác

@@ -25,7 +25,14 @@ namespace EasyBooking.Business.Services
                 Name = r.Name,
                 Capacity = r.Capacity,
                 Location = r.Location,
-                CinemaId = r.CinemaId
+                CinemaId = r.CinemaId,
+                IsDelete = r.IsDelete,
+                CreateBy = r.CreateBy,
+                CreateAt = r.CreateAt,
+                UpdateBy = r.UpdateBy,
+                UpdateAt = r.UpdateAt,
+                DeleteBy = r.DeleteBy,
+                DeleteAt = r.DeleteAt
             });
         }
 
@@ -39,7 +46,14 @@ namespace EasyBooking.Business.Services
                 Name = r.Name,
                 Capacity = r.Capacity,
                 Location = r.Location,
-                CinemaId = r.CinemaId
+                CinemaId = r.CinemaId,
+                IsDelete = r.IsDelete,
+                CreateBy = r.CreateBy,
+                CreateAt = r.CreateAt,
+                UpdateBy = r.UpdateBy,
+                UpdateAt = r.UpdateAt,
+                DeleteBy = r.DeleteBy,
+                DeleteAt = r.DeleteAt
             };
         }
 
@@ -50,7 +64,14 @@ namespace EasyBooking.Business.Services
                 Name = roomDto.Name,
                 Capacity = roomDto.Capacity,
                 Location = roomDto.Location,
-                CinemaId = roomDto.CinemaId
+                CinemaId = roomDto.CinemaId,
+                IsDelete = roomDto.IsDelete,
+                CreateBy = roomDto.CreateBy,
+                CreateAt = roomDto.CreateAt,
+                UpdateBy = roomDto.UpdateBy,
+                UpdateAt = roomDto.UpdateAt,
+                DeleteBy = roomDto.DeleteBy,
+                DeleteAt = roomDto.DeleteAt
             };
             await _roomRepository.AddAsync(room);
         }
@@ -63,7 +84,14 @@ namespace EasyBooking.Business.Services
                 Name = roomDto.Name,
                 Capacity = roomDto.Capacity,
                 Location = roomDto.Location,
-                CinemaId = roomDto.CinemaId
+                CinemaId = roomDto.CinemaId,
+                IsDelete = roomDto.IsDelete,
+                CreateBy = roomDto.CreateBy,
+                CreateAt = roomDto.CreateAt,
+                UpdateBy = roomDto.UpdateBy,
+                UpdateAt = roomDto.UpdateAt,
+                DeleteBy = roomDto.DeleteBy,
+                DeleteAt = roomDto.DeleteAt
             };
             await _roomRepository.UpdateAsync(room);
         }

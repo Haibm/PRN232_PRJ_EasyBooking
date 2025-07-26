@@ -33,7 +33,15 @@ public partial class Ticket
 
     public bool? IsDelete { get; set; }
 
+    public decimal? RefundAmount { get; set; }
+
+    public DateTime? RefundTime { get; set; }
+
+    public string? RefundReason { get; set; }
+
     public virtual OrderHistory? OrderHistory { get; set; }
+
+    public virtual ICollection<RefundHistory> RefundHistories { get; set; } = new List<RefundHistory>();
 
     public virtual Showtime Showtime { get; set; } = null!;
 

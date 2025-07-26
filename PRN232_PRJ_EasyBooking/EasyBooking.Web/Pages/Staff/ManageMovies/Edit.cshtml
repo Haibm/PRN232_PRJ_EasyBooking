@@ -31,18 +31,23 @@
         </div>
         <div class="mb-3">
             <label asp-for="Movie.PosterUrl" class="form-label">Poster URL</label>
-            <input asp-for="Movie.PosterUrl" class="form-control" />
+            <input asp-for="Movie.PosterUrl" class="form-control" id="posterUrl" />
+            <div class="form-text">
+                <small class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Hỗ trợ URL hình ảnh hoặc base64 string. 
+                    Nếu sử dụng base64, hãy đảm bảo hình ảnh có kích thước nhỏ (dưới 500KB).
+                </small>
+            </div>
             <span asp-validation-for="Movie.PosterUrl" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Movie.Status" class="form-label">Trạng thái</label>
             <select asp-for="Movie.Status" class="form-select" required>
                 <option value="">Chọn trạng thái</option>
-                <option value="Công khai">Công khai</option>
-                <option value="Nháp">Nháp</option>
-                <option value="NowShowing">Đang chiếu</option>
-                <option value="Upcoming">Sắp chiếu</option>
-                <option value="StopShowing">Ngừng chiếu</option>
+                <option value="1">Đang chiếu</option>
+                <option value="2">Sắp chiếu</option>
+                <option value="3">Ngừng chiếu</option>
             </select>
             <span asp-validation-for="Movie.Status" class="text-danger"></span>
         </div>

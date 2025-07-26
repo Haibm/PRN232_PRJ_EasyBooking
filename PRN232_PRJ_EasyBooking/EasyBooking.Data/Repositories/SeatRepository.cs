@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace EasyBooking.Data.Repositories
 {
@@ -16,7 +17,7 @@ namespace EasyBooking.Data.Repositories
         }
         public async Task<IEnumerable<Seat>> GetAllAsync()
         {
-            return await _context.Seats.ToListAsync();
+            return await _context.Seats.Where(s => s.IsDelete != true).ToListAsync();
         }
         public async Task<Seat> GetByIdAsync(int id)
         {
@@ -24,7 +25,7 @@ namespace EasyBooking.Data.Repositories
         }
         public async Task<IEnumerable<Seat>> GetByRoomIdAsync(int roomId)
         {
-            return await _context.Seats.Where(s => s.RoomId == roomId).ToListAsync();
+            return await _context.Seats.Where(s => s.RoomId == roomId && s.IsDelete != true).ToListAsync();
         }
         public async Task AddAsync(Seat seat)
         {
@@ -41,7 +42,11 @@ namespace EasyBooking.Data.Repositories
             var seat = await _context.Seats.FindAsync(id);
             if (seat != null)
             {
-                _context.Seats.Remove(seat);
+                // Soft delete: chỉ gán cờ, không xóa cứng
+                seat.IsDelete = true;
+                seat.DeleteAt = DateTime.Now;
+                // DeleteBy, UpdateBy sẽ được truyền từ tầng trên nếu cần
+                seat.UpdateAt = DateTime.Now;
                 await _context.SaveChangesAsync();
             }
         }
@@ -50,7 +55,8 @@ namespace EasyBooking.Data.Repositories
             return await _context.Seats.AnyAsync(s =>
                 s.RoomId == roomId &&
                 s.RowLetter == rowLetter &&
-                s.SeatNumber == seatNumber
+                s.SeatNumber == seatNumber &&
+                s.IsDelete != true
             );
         }
     }

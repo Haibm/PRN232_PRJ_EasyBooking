@@ -35,7 +35,14 @@ namespace EasyBooking.Business.Services
                 PosterUrl = m.PosterUrl,
                 Status = m.Status,
                 Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
-                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
+                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>(),
+                IsDelete = m.IsDelete,
+                CreateBy = m.CreateBy,
+                CreateAt = m.CreateAt,
+                UpdateBy = m.UpdateBy,
+                UpdateAt = m.UpdateAt,
+                DeleteBy = m.DeleteBy,
+                DeleteAt = m.DeleteAt
             });
         }
 
@@ -50,9 +57,16 @@ namespace EasyBooking.Business.Services
                 Description = m.Description,
                 Duration = m.Duration,
                 PosterUrl = m.PosterUrl,
-                //Status = m.Status,
+                Status = m.Status,
                 Genres = m.Genres?.Select(g => g.Name).ToList() ?? new List<string>(),
-                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>()
+                Showtimes = m.Showtimes?.Select(s => s.StartTime).ToList() ?? new List<DateTime>(),
+                IsDelete = m.IsDelete,
+                CreateBy = m.CreateBy,
+                CreateAt = m.CreateAt,
+                UpdateBy = m.UpdateBy,
+                UpdateAt = m.UpdateAt,
+                DeleteBy = m.DeleteBy,
+                DeleteAt = m.DeleteAt
             };
         }
         public async Task<MovieDetailDto> GetDetailByIdAsync(int id)
@@ -86,7 +100,14 @@ namespace EasyBooking.Business.Services
                 Description = movieDto.Description,
                 Duration = movieDto.Duration,
                 PosterUrl = movieDto.PosterUrl,
-                Status = movieDto.Status
+                Status = movieDto.Status,
+                IsDelete = movieDto.IsDelete,
+                CreateBy = movieDto.CreateBy,
+                CreateAt = movieDto.CreateAt,
+                UpdateBy = movieDto.UpdateBy,
+                UpdateAt = movieDto.UpdateAt,
+                DeleteBy = movieDto.DeleteBy,
+                DeleteAt = movieDto.DeleteAt
             };
             // Lấy danh sách genre từ DB theo tên
             var allGenres = await _genreRepository.GetAllAsync();
@@ -106,6 +127,13 @@ namespace EasyBooking.Business.Services
             movie.Duration = movieDto.Duration;
             movie.PosterUrl = movieDto.PosterUrl;
             movie.Status = movieDto.Status;
+            movie.IsDelete = movieDto.IsDelete;
+            movie.CreateBy = movieDto.CreateBy;
+            movie.CreateAt = movieDto.CreateAt;
+            movie.UpdateBy = movieDto.UpdateBy;
+            movie.UpdateAt = movieDto.UpdateAt;
+            movie.DeleteBy = movieDto.DeleteBy;
+            movie.DeleteAt = movieDto.DeleteAt;
 
             // Chuẩn bị genres để cập nhật
             var allGenres = await _genreRepository.GetAllAsync();

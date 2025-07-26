@@ -26,7 +26,14 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
                 Price = s.Price,
-                VipPercent = s.VipPercent
+                VipPercent = s.VipPercent,
+                IsDelete = s.IsDelete,
+                CreateBy = s.CreateBy,
+                CreateAt = s.CreateAt,
+                UpdateBy = s.UpdateBy,
+                UpdateAt = s.UpdateAt,
+                DeleteBy = s.DeleteBy,
+                DeleteAt = s.DeleteAt
             });
         }
 
@@ -41,7 +48,14 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 StartTime = s.StartTime,
                 Price = s.Price,
-                VipPercent = s.VipPercent
+                VipPercent = s.VipPercent,
+                IsDelete = s.IsDelete,
+                CreateBy = s.CreateBy,
+                CreateAt = s.CreateAt,
+                UpdateBy = s.UpdateBy,
+                UpdateAt = s.UpdateAt,
+                DeleteBy = s.DeleteBy,
+                DeleteAt = s.DeleteAt
             };
         }
 
@@ -53,7 +67,14 @@ namespace EasyBooking.Business.Services
                 RoomId = showtimeDto.RoomId,
                 StartTime = showtimeDto.StartTime,
                 Price = showtimeDto.Price,
-                VipPercent = showtimeDto.VipPercent
+                VipPercent = showtimeDto.VipPercent,
+                IsDelete = showtimeDto.IsDelete,
+                CreateBy = showtimeDto.CreateBy,
+                CreateAt = showtimeDto.CreateAt,
+                UpdateBy = showtimeDto.UpdateBy,
+                UpdateAt = showtimeDto.UpdateAt,
+                DeleteBy = showtimeDto.DeleteBy,
+                DeleteAt = showtimeDto.DeleteAt
             };
             await _showtimeRepository.AddAsync(showtime);
         }
@@ -67,7 +88,14 @@ namespace EasyBooking.Business.Services
                 RoomId = showtimeDto.RoomId,
                 StartTime = showtimeDto.StartTime,
                 Price = showtimeDto.Price,
-                VipPercent = showtimeDto.VipPercent
+                VipPercent = showtimeDto.VipPercent,
+                IsDelete = showtimeDto.IsDelete,
+                CreateBy = showtimeDto.CreateBy,
+                CreateAt = showtimeDto.CreateAt,
+                UpdateBy = showtimeDto.UpdateBy,
+                UpdateAt = showtimeDto.UpdateAt,
+                DeleteBy = showtimeDto.DeleteBy,
+                DeleteAt = showtimeDto.DeleteAt
             };
             await _showtimeRepository.UpdateAsync(showtime);
         }

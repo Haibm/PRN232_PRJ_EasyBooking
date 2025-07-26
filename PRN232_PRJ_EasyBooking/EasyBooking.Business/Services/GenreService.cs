@@ -19,25 +19,64 @@ namespace EasyBooking.Business.Services
         public async Task<IEnumerable<GenreDto>> GetAllAsync()
         {
             var genres = await _genreRepository.GetAllAsync();
-            return genres.Select(g => new GenreDto { GenreId = g.GenreId, Name = g.Name });
+            return genres.Select(g => new GenreDto {
+                GenreId = g.GenreId,
+                Name = g.Name,
+                IsDelete = g.IsDelete,
+                CreateBy = g.CreateBy,
+                CreateAt = g.CreateAt,
+                UpdateBy = g.UpdateBy,
+                UpdateAt = g.UpdateAt,
+                DeleteBy = g.DeleteBy,
+                DeleteAt = g.DeleteAt
+            });
         }
 
         public async Task<GenreDto> GetByIdAsync(int id)
         {
             var g = await _genreRepository.GetByIdAsync(id);
             if (g == null) return null;
-            return new GenreDto { GenreId = g.GenreId, Name = g.Name };
+            return new GenreDto {
+                GenreId = g.GenreId,
+                Name = g.Name,
+                IsDelete = g.IsDelete,
+                CreateBy = g.CreateBy,
+                CreateAt = g.CreateAt,
+                UpdateBy = g.UpdateBy,
+                UpdateAt = g.UpdateAt,
+                DeleteBy = g.DeleteBy,
+                DeleteAt = g.DeleteAt
+            };
         }
 
         public async Task AddAsync(GenreDto genreDto)
         {
-            var genre = new Genre { Name = genreDto.Name };
+            var genre = new Genre {
+                Name = genreDto.Name,
+                IsDelete = genreDto.IsDelete,
+                CreateBy = genreDto.CreateBy,
+                CreateAt = genreDto.CreateAt,
+                UpdateBy = genreDto.UpdateBy,
+                UpdateAt = genreDto.UpdateAt,
+                DeleteBy = genreDto.DeleteBy,
+                DeleteAt = genreDto.DeleteAt
+            };
             await _genreRepository.AddAsync(genre);
         }
 
         public async Task UpdateAsync(GenreDto genreDto)
         {
-            var genre = new Genre { GenreId = genreDto.GenreId, Name = genreDto.Name };
+            var genre = new Genre {
+                GenreId = genreDto.GenreId,
+                Name = genreDto.Name,
+                IsDelete = genreDto.IsDelete,
+                CreateBy = genreDto.CreateBy,
+                CreateAt = genreDto.CreateAt,
+                UpdateBy = genreDto.UpdateBy,
+                UpdateAt = genreDto.UpdateAt,
+                DeleteBy = genreDto.DeleteBy,
+                DeleteAt = genreDto.DeleteAt
+            };
             await _genreRepository.UpdateAsync(genre);
         }
 

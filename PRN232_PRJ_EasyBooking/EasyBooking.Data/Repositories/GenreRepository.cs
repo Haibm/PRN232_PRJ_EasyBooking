@@ -3,6 +3,7 @@ using EasyBooking.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace EasyBooking.Data.Repositories
 {
@@ -16,7 +17,7 @@ namespace EasyBooking.Data.Repositories
 
         public async Task<IEnumerable<Genre>> GetAllAsync()
         {
-            return await _context.Genres.ToListAsync();
+            return await _context.Genres.Where(g => g.IsDelete != true).ToListAsync();
         }
 
         public async Task<Genre> GetByIdAsync(int id)
@@ -41,7 +42,11 @@ namespace EasyBooking.Data.Repositories
             var genre = await _context.Genres.FindAsync(id);
             if (genre != null)
             {
-                _context.Genres.Remove(genre);
+                // Soft delete: chỉ gán cờ, không xóa cứng
+                genre.IsDelete = true;
+                genre.DeleteAt = DateTime.Now;
+                // DeleteBy, UpdateBy sẽ được truyền từ tầng trên nếu cần
+                genre.UpdateAt = DateTime.Now;
                 await _context.SaveChangesAsync();
             }
         }

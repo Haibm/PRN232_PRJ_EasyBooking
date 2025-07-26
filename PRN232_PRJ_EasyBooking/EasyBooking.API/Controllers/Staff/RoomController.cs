@@ -2,6 +2,8 @@ using EasyBooking.Business.DTOs;
 using EasyBooking.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System;
+using System.Linq;
 
 namespace EasyBooking.API.Controllers.Staff
 {
@@ -19,7 +21,9 @@ namespace EasyBooking.API.Controllers.Staff
         public async Task<IActionResult> GetAll()
         {
             var rooms = await _roomService.GetAllAsync();
-            return Ok(rooms);
+            // Lọc chỉ lấy phòng chưa bị xóa
+            var activeRooms = rooms.Where(r => r.IsDelete != true);
+            return Ok(activeRooms);
         }
 
         [HttpGet("{id}")]
@@ -35,6 +39,11 @@ namespace EasyBooking.API.Controllers.Staff
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            // Gán thông tin tạo
+            var username = User.Identity?.Name ?? "system";
+            roomDto.CreateBy = username;
+            roomDto.CreateAt = DateTime.Now;
+            roomDto.IsDelete = false;
             await _roomService.AddAsync(roomDto);
             return Ok();
         }
@@ -45,6 +54,10 @@ namespace EasyBooking.API.Controllers.Staff
             if (id != roomDto.RoomId) return BadRequest();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            // Gán thông tin cập nhật
+            var username = User.Identity?.Name ?? "system";
+            roomDto.UpdateBy = username;
+            roomDto.UpdateAt = DateTime.Now;
             await _roomService.UpdateAsync(roomDto);
             return NoContent();
         }
@@ -52,7 +65,16 @@ namespace EasyBooking.API.Controllers.Staff
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _roomService.DeleteAsync(id);
+            // Soft delete
+            var room = await _roomService.GetByIdAsync(id);
+            if (room == null) return NotFound();
+            var username = User.Identity?.Name ?? "system";
+            room.IsDelete = true;
+            room.DeleteBy = username;
+            room.DeleteAt = DateTime.Now;
+            room.UpdateBy = username;
+            room.UpdateAt = DateTime.Now;
+            await _roomService.UpdateAsync(room);
             return NoContent();
         }
     }

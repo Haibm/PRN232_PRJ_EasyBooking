@@ -30,6 +30,13 @@ namespace EasyBooking.API.Controllers.Staff
             return Ok(ticket);
         }
 
+        [HttpGet("/api/staff/showtimes/{showtimeId}/tickets")]
+        public async Task<IActionResult> GetByShowtimeId(int showtimeId)
+        {
+            var tickets = await _ticketService.GetByShowtimeIdAsync(showtimeId);
+            return Ok(tickets);
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] TicketDto ticketDto)
         {

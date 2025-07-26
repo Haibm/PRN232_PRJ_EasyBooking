@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
+using System.Linq;
 
 namespace EasyBooking.Data.Repositories
 {
@@ -20,6 +22,7 @@ namespace EasyBooking.Data.Repositories
             return await _context.Movies
                 .Include(m => m.Genres)
                 .Include(m => m.Showtimes)
+                .Where(m => m.IsDelete != true)
                 .ToListAsync();
         }
 
@@ -71,7 +74,11 @@ namespace EasyBooking.Data.Repositories
             var movie = await _context.Movies.FindAsync(id);
             if (movie != null)
             {
-                _context.Movies.Remove(movie);
+                // Soft delete: chỉ gán cờ, không xóa cứng
+                movie.IsDelete = true;
+                movie.DeleteAt = DateTime.Now;
+                // DeleteBy, UpdateBy sẽ được truyền từ tầng trên nếu cần
+                movie.UpdateAt = DateTime.Now;
                 await _context.SaveChangesAsync();
             }
         }

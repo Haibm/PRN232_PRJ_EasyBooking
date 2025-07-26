@@ -83,24 +83,24 @@
                                         <span class="text-muted">Chưa có lịch chiếu</span>
                                     }
                             </td>
-@*                             <td>
-                                    @if (movie.Status == "NowShowing")
-                                    {
-                                        <span class="badge bg-success">Đang chiếu</span>
-                                    }
-                                    else if (movie.Status == "Upcoming")
-                                    {
-                                        <span class="badge bg-warning text-dark">Sắp chiếu</span>
-                                    }
-                                    else if (movie.Status == "StopShowing")
-                                    {
-                                        <span class="badge bg-secondary">Ngừng chiếu</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-secondary">@movie.Status</span>
-                                    }
-                            </td> *@
+                            <td>
+                                @if (movie.Status == 1)
+                                {
+                                    <span class="badge bg-success">Đang chiếu</span>
+                                }
+                                else if (movie.Status == 2)
+                                {
+                                    <span class="badge bg-warning text-dark">Sắp chiếu</span>
+                                }
+                                else if (movie.Status == 3)
+                                {
+                                    <span class="badge bg-secondary">Ngừng chiếu</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@movie.Status</span>
+                                }
+                            </td>
                             <td>
                                 <a class="btn btn-sm btn-warning me-1" href="/Staff/ManageMovies/Edit/@movie.MovieId">Edit</a>
                                 <form method="post" asp-page-handler="Delete" asp-route-id="@movie.MovieId" style="display:inline;">

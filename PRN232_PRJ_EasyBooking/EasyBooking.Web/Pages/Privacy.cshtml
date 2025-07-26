@@ -1,8 +1,120 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Chính sách hoàn vé";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="mb-0"><i class="fas fa-undo-alt"></i> Chính sách hoàn vé</h1>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Thông báo:</strong> Chính sách hoàn vé có thể thay đổi theo quy định của rạp chiếu phim.
+                    </div>
+
+                    <h3><i class="fas fa-percentage"></i> Tỷ lệ hoàn vé</h3>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body text-center">
+                                    @if (Model.ActiveRefundPolicy != null)
+                                    {
+                                        <h4 class="text-success">@Model.ActiveRefundPolicy.RefundPercentage%</h4>
+                                        <p class="mb-0">@Model.ActiveRefundPolicy.PolicyName</p>
+                                        <small class="text-muted">@Model.ActiveRefundPolicy.Description</small>
+                                    }
+                                    else
+                                    {
+                                        <h4 class="text-success">80%</h4>
+                                        <p class="mb-0">Tỷ lệ hoàn vé mặc định</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-warning">
+                                <div class="card-body text-center">
+                                    <h4 class="text-warning">Có thể thay đổi</h4>
+                                    <p class="mb-0">Tùy theo chính sách hiện tại</p>
+                                    @if (Model.ActiveRefundPolicy != null)
+                                    {
+                                        <small class="text-muted">Cập nhật lần cuối: @Model.ActiveRefundPolicy.UpdateAt?.ToString("dd/MM/yyyy HH:mm")</small>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3><i class="fas fa-clock"></i> Điều kiện hoàn vé</h3>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item">
+                            <i class="fas fa-check text-success"></i>
+                            <strong>Trước giờ chiếu:</strong> Hoàn vé được thực hiện trước giờ chiếu ít nhất 2 giờ
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-check text-success"></i>
+                            <strong>Lý do chính đáng:</strong> Bệnh tật, tai nạn, hoặc lý do bất khả kháng
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-check text-success"></i>
+                            <strong>Giấy tờ hợp lệ:</strong> Cung cấp giấy tờ chứng minh khi yêu cầu
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-times text-danger"></i>
+                            <strong>Không hoàn vé:</strong> Sau giờ chiếu hoặc lý do không chính đáng
+                        </li>
+                    </ul>
+
+                    <h3><i class="fas fa-credit-card"></i> Phương thức hoàn tiền</h3>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-credit-card fa-2x text-primary mb-2"></i>
+                                <h5>Thẻ tín dụng</h5>
+                                <p class="text-muted">Hoàn tiền vào thẻ trong 3-5 ngày làm việc</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-university fa-2x text-success mb-2"></i>
+                                <h5>Chuyển khoản</h5>
+                                <p class="text-muted">Hoàn tiền vào tài khoản ngân hàng</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-wallet fa-2x text-warning mb-2"></i>
+                                <h5>Ví điện tử</h5>
+                                <p class="text-muted">Hoàn tiền vào ví điện tử đã thanh toán</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3><i class="fas fa-phone"></i> Liên hệ hỗ trợ</h3>
+                    <div class="alert alert-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><i class="fas fa-phone text-primary"></i> <strong>Hotline:</strong> 1900-xxxx</p>
+                                <p><i class="fas fa-envelope text-primary"></i> <strong>Email:</strong> support@easybooking.com</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><i class="fas fa-clock text-primary"></i> <strong>Giờ làm việc:</strong> 8:00 - 22:00</p>
+                                <p><i class="fas fa-map-marker-alt text-primary"></i> <strong>Địa chỉ:</strong> 123 Đường ABC, Quận 1, TP.HCM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Lưu ý:</strong> Chính sách hoàn vé có thể được cập nhật theo thời gian. Vui lòng kiểm tra thông tin mới nhất trước khi đặt vé.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,5 +16,14 @@ namespace EasyBooking.Business.DTOs
 
         [StringLength(20)]
         public string? Phone { get; set; }
+
+        // Thêm các trường quản lý
+        public bool? IsDelete { get; set; }
+        public string? CreateBy { get; set; }
+        public DateTime? CreateAt { get; set; }
+        public string? UpdateBy { get; set; }
+        public DateTime? UpdateAt { get; set; }
+        public string? DeleteBy { get; set; }
+        public DateTime? DeleteAt { get; set; }
     }
 } 

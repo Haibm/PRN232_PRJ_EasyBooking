@@ -31,6 +31,10 @@ namespace EasyBooking.Business
             services.AddScoped<IOrderHistoryRepository, OrderHistoryRepository>();
             services.AddScoped<IOrderHistoryService, OrderHistoryService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IRefundHistoryRepository, RefundHistoryRepository>();
+            services.AddScoped<IRefundHistoryService, RefundHistoryService>();
+            services.AddScoped<IRefundPolicyRepository, RefundPolicyRepository>();
+            services.AddScoped<IRefundPolicyService, RefundPolicyService>();
             return services;
         }
     }

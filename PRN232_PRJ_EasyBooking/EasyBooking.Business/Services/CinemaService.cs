@@ -24,7 +24,14 @@ namespace EasyBooking.Business.Services
                 CinemaId = c.CinemaId,
                 Name = c.Name,
                 Address = c.Address,
-                Phone = c.Phone
+                Phone = c.Phone,
+                IsDelete = c.IsDelete,
+                CreateBy = c.CreateBy,
+                CreateAt = c.CreateAt,
+                UpdateBy = c.UpdateBy,
+                UpdateAt = c.UpdateAt,
+                DeleteBy = c.DeleteBy,
+                DeleteAt = c.DeleteAt
             });
         }
 
@@ -37,7 +44,14 @@ namespace EasyBooking.Business.Services
                 CinemaId = c.CinemaId,
                 Name = c.Name,
                 Address = c.Address,
-                Phone = c.Phone
+                Phone = c.Phone,
+                IsDelete = c.IsDelete,
+                CreateBy = c.CreateBy,
+                CreateAt = c.CreateAt,
+                UpdateBy = c.UpdateBy,
+                UpdateAt = c.UpdateAt,
+                DeleteBy = c.DeleteBy,
+                DeleteAt = c.DeleteAt
             };
         }
 
@@ -47,7 +61,14 @@ namespace EasyBooking.Business.Services
             {
                 Name = cinemaDto.Name,
                 Address = cinemaDto.Address,
-                Phone = cinemaDto.Phone
+                Phone = cinemaDto.Phone,
+                IsDelete = cinemaDto.IsDelete,
+                CreateBy = cinemaDto.CreateBy,
+                CreateAt = cinemaDto.CreateAt,
+                UpdateBy = cinemaDto.UpdateBy,
+                UpdateAt = cinemaDto.UpdateAt,
+                DeleteBy = cinemaDto.DeleteBy,
+                DeleteAt = cinemaDto.DeleteAt
             };
             await _cinemaRepository.AddAsync(cinema);
         }
@@ -59,7 +80,14 @@ namespace EasyBooking.Business.Services
                 CinemaId = cinemaDto.CinemaId,
                 Name = cinemaDto.Name,
                 Address = cinemaDto.Address,
-                Phone = cinemaDto.Phone
+                Phone = cinemaDto.Phone,
+                IsDelete = cinemaDto.IsDelete,
+                CreateBy = cinemaDto.CreateBy,
+                CreateAt = cinemaDto.CreateAt,
+                UpdateBy = cinemaDto.UpdateBy,
+                UpdateAt = cinemaDto.UpdateAt,
+                DeleteBy = cinemaDto.DeleteBy,
+                DeleteAt = cinemaDto.DeleteAt
             };
             await _cinemaRepository.UpdateAsync(cinema);
         }

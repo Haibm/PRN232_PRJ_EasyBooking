@@ -24,7 +24,14 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 RowLetter = s.RowLetter,
                 SeatNumber = s.SeatNumber,
-                SeatType = s.SeatType
+                SeatType = s.SeatType,
+                IsDelete = s.IsDelete,
+                CreateBy = s.CreateBy,
+                CreateAt = s.CreateAt,
+                UpdateBy = s.UpdateBy,
+                UpdateAt = s.UpdateAt,
+                DeleteBy = s.DeleteBy,
+                DeleteAt = s.DeleteAt
             });
         }
         public async Task<SeatDto> GetByIdAsync(int id)
@@ -37,7 +44,14 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 RowLetter = s.RowLetter,
                 SeatNumber = s.SeatNumber,
-                SeatType = s.SeatType
+                SeatType = s.SeatType,
+                IsDelete = s.IsDelete,
+                CreateBy = s.CreateBy,
+                CreateAt = s.CreateAt,
+                UpdateBy = s.UpdateBy,
+                UpdateAt = s.UpdateAt,
+                DeleteBy = s.DeleteBy,
+                DeleteAt = s.DeleteAt
             };
         }
         public async Task<IEnumerable<SeatDto>> GetByRoomIdAsync(int roomId)
@@ -49,7 +63,14 @@ namespace EasyBooking.Business.Services
                 RoomId = s.RoomId,
                 RowLetter = s.RowLetter,
                 SeatNumber = s.SeatNumber,
-                SeatType = s.SeatType
+                SeatType = s.SeatType,
+                IsDelete = s.IsDelete,
+                CreateBy = s.CreateBy,
+                CreateAt = s.CreateAt,
+                UpdateBy = s.UpdateBy,
+                UpdateAt = s.UpdateAt,
+                DeleteBy = s.DeleteBy,
+                DeleteAt = s.DeleteAt
             });
         }
         public async Task AddAsync(SeatDto seatDto)
@@ -64,7 +85,14 @@ namespace EasyBooking.Business.Services
                 RoomId = seatDto.RoomId,
                 RowLetter = seatDto.RowLetter,
                 SeatNumber = seatDto.SeatNumber,
-                SeatType = seatDto.SeatType
+                SeatType = seatDto.SeatType,
+                IsDelete = seatDto.IsDelete,
+                CreateBy = seatDto.CreateBy,
+                CreateAt = seatDto.CreateAt,
+                UpdateBy = seatDto.UpdateBy,
+                UpdateAt = seatDto.UpdateAt,
+                DeleteBy = seatDto.DeleteBy,
+                DeleteAt = seatDto.DeleteAt
             };
             await _seatRepository.AddAsync(seat);
         }
@@ -77,7 +105,14 @@ namespace EasyBooking.Business.Services
                 RoomId = seatDto.RoomId,
                 RowLetter = seatDto.RowLetter,
                 SeatNumber = seatDto.SeatNumber,
-                SeatType = seatDto.SeatType
+                SeatType = seatDto.SeatType,
+                IsDelete = seatDto.IsDelete,
+                CreateBy = seatDto.CreateBy,
+                CreateAt = seatDto.CreateAt,
+                UpdateBy = seatDto.UpdateBy,
+                UpdateAt = seatDto.UpdateAt,
+                DeleteBy = seatDto.DeleteBy,
+                DeleteAt = seatDto.DeleteAt
             };
             await _seatRepository.UpdateAsync(seat);
         }

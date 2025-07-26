@@ -12,9 +12,13 @@ namespace EasyBooking.Business.Services
     public class TicketService : ITicketService
     {
         private readonly ITicketRepository _ticketRepository;
-        public TicketService(ITicketRepository ticketRepository)
+        private readonly IRefundHistoryService _refundHistoryService;
+        private readonly IRefundPolicyService _refundPolicyService;
+        public TicketService(ITicketRepository ticketRepository, IRefundHistoryService refundHistoryService, IRefundPolicyService refundPolicyService)
         {
             _ticketRepository = ticketRepository;
+            _refundHistoryService = refundHistoryService;
+            _refundPolicyService = refundPolicyService;
         }
 
         public async Task<IEnumerable<TicketDto>> GetAllAsync()
@@ -28,6 +32,14 @@ namespace EasyBooking.Business.Services
                 SeatNumber = t.SeatNumber,
                 BookingTime = t.BookingTime,
                 Status = t.Status,
+                OrderHistoryId = t.OrderHistoryId,
+                IsDelete = t.IsDelete,
+                CreateBy = t.CreateBy,
+                CreateAt = t.CreateAt,
+                UpdateBy = t.UpdateBy,
+                UpdateAt = t.UpdateAt,
+                DeleteBy = t.DeleteBy,
+                DeleteAt = t.DeleteAt
             });
         }
 
@@ -43,6 +55,14 @@ namespace EasyBooking.Business.Services
                 SeatNumber = t.SeatNumber,
                 BookingTime = t.BookingTime,
                 Status = t.Status,
+                OrderHistoryId = t.OrderHistoryId,
+                IsDelete = t.IsDelete,
+                CreateBy = t.CreateBy,
+                CreateAt = t.CreateAt,
+                UpdateBy = t.UpdateBy,
+                UpdateAt = t.UpdateAt,
+                DeleteBy = t.DeleteBy,
+                DeleteAt = t.DeleteAt
             };
         }
 
@@ -56,6 +76,14 @@ namespace EasyBooking.Business.Services
                 SeatNumber = ticketDto.SeatNumber,
                 BookingTime = ticketDto.BookingTime,
                 Status = ticketDto.Status,
+                OrderHistoryId = ticketDto.OrderHistoryId,
+                IsDelete = ticketDto.IsDelete,
+                CreateBy = ticketDto.CreateBy,
+                CreateAt = ticketDto.CreateAt,
+                UpdateBy = ticketDto.UpdateBy,
+                UpdateAt = ticketDto.UpdateAt,
+                DeleteBy = ticketDto.DeleteBy,
+                DeleteAt = ticketDto.DeleteAt
             };
             await _ticketRepository.UpdateAsync(ticket);
         }
@@ -74,7 +102,14 @@ namespace EasyBooking.Business.Services
                 SeatNumber = ticketDto.SeatNumber,
                 BookingTime = ticketDto.BookingTime,
                 Status = ticketDto.Status,
-                OrderHistoryId = ticketDto.OrderHistoryId
+                OrderHistoryId = ticketDto.OrderHistoryId,
+                IsDelete = ticketDto.IsDelete,
+                CreateBy = ticketDto.CreateBy,
+                CreateAt = ticketDto.CreateAt,
+                UpdateBy = ticketDto.UpdateBy,
+                UpdateAt = ticketDto.UpdateAt,
+                DeleteBy = ticketDto.DeleteBy,
+                DeleteAt = ticketDto.DeleteAt
             };
             _ticketRepository.Add(ticket);
             return new TicketDto
@@ -85,7 +120,14 @@ namespace EasyBooking.Business.Services
                 SeatNumber = ticket.SeatNumber,
                 BookingTime = ticket.BookingTime,
                 Status = ticket.Status,
-                OrderHistoryId = ticket.OrderHistoryId
+                OrderHistoryId = ticket.OrderHistoryId,
+                IsDelete = ticket.IsDelete,
+                CreateBy = ticket.CreateBy,
+                CreateAt = ticket.CreateAt,
+                UpdateBy = ticket.UpdateBy,
+                UpdateAt = ticket.UpdateAt,
+                DeleteBy = ticket.DeleteBy,
+                DeleteAt = ticket.DeleteAt
             };
         }
         public IEnumerable<TicketDetailDto> GetByOrderHistoryIdWithDetails(int orderHistoryId)
@@ -105,6 +147,99 @@ namespace EasyBooking.Business.Services
                 CinemaName = t.Showtime.Room.Cinema.Name,
                 ShowtimeStart = t.Showtime.StartTime
             });
+        }
+
+        public IEnumerable<TicketDetailDto> GetAllByOrderHistoryIdWithDetails(int orderHistoryId)
+        {
+            var tickets = _ticketRepository.GetAllByOrderHistoryIdWithDetails(orderHistoryId);
+            return tickets.Select(t => new TicketDetailDto
+            {
+                TicketId = t.TicketId,
+                UserId = t.UserId,
+                ShowtimeId = t.ShowtimeId,
+                SeatNumber = t.SeatNumber,
+                BookingTime = t.BookingTime,
+                Status = t.Status,
+                OrderHistoryId = t.OrderHistoryId,
+                MovieTitle = t.Showtime.Movie.Title,
+                RoomName = t.Showtime.Room.Name,
+                CinemaName = t.Showtime.Room.Cinema.Name,
+                ShowtimeStart = t.Showtime.StartTime
+            });
+        }
+
+        public async Task<IEnumerable<TicketDto>> GetByShowtimeIdAsync(int showtimeId)
+        {
+            var tickets = await _ticketRepository.GetByShowtimeIdAsync(showtimeId);
+            return tickets.Select(t => new TicketDto
+            {
+                TicketId = t.TicketId,
+                ShowtimeId = t.ShowtimeId,
+                UserId = t.UserId,
+                SeatNumber = t.SeatNumber,
+                BookingTime = t.BookingTime,
+                Status = t.Status,
+                OrderHistoryId = t.OrderHistoryId,
+                IsDelete = t.IsDelete,
+                CreateBy = t.CreateBy,
+                CreateAt = t.CreateAt,
+                UpdateBy = t.UpdateBy,
+                UpdateAt = t.UpdateAt,
+                DeleteBy = t.DeleteBy,
+                DeleteAt = t.DeleteAt
+            });
+        }
+
+        public async Task<bool> RefundTicketAsync(int ticketId, decimal refundAmount, string refundReason, int userId)
+        {
+            var ticket = await _ticketRepository.GetByIdAsync(ticketId);
+            if (ticket == null) return false;
+            // Kiểm tra quyền sở hữu
+            if (ticket.UserId != userId) return false;
+            // Kiểm tra điều kiện hoàn vé (ví dụ: chưa quá giờ chiếu, chưa hoàn)
+            if (ticket.Status == 2) return false; // Đã hoàn
+            
+            // Kiểm tra thời gian showtime để đảm bảo chưa quá giờ chiếu
+            var showtime = ticket.Showtime;
+            if (showtime != null && showtime.StartTime <= DateTime.Now)
+            {
+                return false; // Không thể hoàn vé sau khi đã chiếu
+            }
+            
+            // Tính giá hoàn vé theo chính sách hiện tại
+            var refundPercentage = await _refundPolicyService.GetCurrentRefundPercentageAsync();
+            var originalPrice = showtime?.Price ?? 0;
+            var calculatedRefundAmount = originalPrice * (refundPercentage / 100m);
+            
+            // Cập nhật trạng thái hoàn vé và thông tin hoàn vé
+            ticket.Status = 2; // Đã hoàn
+            ticket.RefundAmount = calculatedRefundAmount;
+            ticket.RefundTime = DateTime.Now;
+            ticket.RefundReason = refundReason;
+            ticket.UpdateBy = userId.ToString();
+            ticket.UpdateAt = DateTime.Now;
+            
+            // Xóa ticket để mở khóa ghế (hoặc có thể soft delete)
+            ticket.IsDelete = true;
+            ticket.DeleteAt = DateTime.Now;
+            ticket.DeleteBy = userId.ToString();
+            
+            await _ticketRepository.UpdateAsync(ticket);
+            
+            // Lưu vào RefundHistory
+            var refundHistoryDto = new RefundHistoryDto
+            {
+                TicketId = ticketId,
+                RefundAmount = calculatedRefundAmount,
+                RefundTime = DateTime.Now,
+                Reason = refundReason,
+                UserId = userId,
+                CreateBy = userId.ToString(),
+                CreateAt = DateTime.Now
+            };
+            await _refundHistoryService.AddAsync(refundHistoryDto);
+            
+            return true;
         }
     }
 }

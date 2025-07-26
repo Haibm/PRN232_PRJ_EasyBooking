@@ -1,0 +1,356 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageRefunds.PolicyModel
+@{
+    ViewData["Title"] = "Quản lý chính sách hoàn vé";
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-percentage"></i> Quản lý chính sách hoàn vé</h2>
+        <div>
+            <button class="btn btn-info me-2" onclick="testAPI()">
+                <i class="fas fa-test"></i> Test API
+            </button>
+            <button class="btn btn-warning me-2" onclick="debugAPI()">
+                <i class="fas fa-bug"></i> Debug DB
+            </button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#policyModal">
+                <i class="fas fa-plus"></i> Thêm chính sách
+            </button>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            <i class="fas fa-check-circle"></i> @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle"></i> @TempData["Error"]
+        </div>
+    }
+
+    <!-- Current Active Policy -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0"><i class="fas fa-star"></i> Chính sách hiện tại</h5>
+        </div>
+        <div class="card-body">
+            @if (Model.ActivePolicy != null)
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Thông tin chính sách</h6>
+                        <p><strong>Tên chính sách:</strong> @Model.ActivePolicy.PolicyName</p>
+                        <p><strong>Phần trăm hoàn:</strong> <span class="badge bg-primary">@Model.ActivePolicy.RefundPercentage%</span></p>
+                        <p><strong>Mô tả:</strong> @Model.ActivePolicy.Description</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Thông tin cập nhật</h6>
+                        <p><strong>Người tạo:</strong> @Model.ActivePolicy.CreateBy</p>
+                        <p><strong>Ngày tạo:</strong> @Model.ActivePolicy.CreateAt?.ToString("dd/MM/yyyy HH:mm")</p>
+                        <p><strong>Người cập nhật:</strong> @Model.ActivePolicy.UpdateBy</p>
+                        <p><strong>Ngày cập nhật:</strong> @Model.ActivePolicy.UpdateAt?.ToString("dd/MM/yyyy HH:mm")</p>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-3">
+                    <i class="fas fa-exclamation-triangle fa-2x text-warning mb-2"></i>
+                    <h6 class="text-muted">Chưa có chính sách hoàn vé nào được kích hoạt</h6>
+                    <p class="text-muted">Vui lòng tạo và kích hoạt một chính sách hoàn vé.</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Policies List -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-list"></i> Danh sách chính sách hoàn vé</h5>
+        </div>
+        <div class="card-body">
+            @if (Model.Policies != null && Model.Policies.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên chính sách</th>
+                                <th>Phần trăm hoàn</th>
+                                <th>Mô tả</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày tạo</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var policy in Model.Policies)
+                            {
+                                <tr>
+                                    <td><span class="badge bg-secondary">@policy.RefundPolicyId</span></td>
+                                    <td><strong>@policy.PolicyName</strong></td>
+                                    <td><span class="badge bg-primary">@policy.RefundPercentage%</span></td>
+                                    <td>@policy.Description</td>
+                                    <td>
+                                        @if (policy.IsActive)
+                                        {
+                                            <span class="badge bg-success">Đang hoạt động</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Không hoạt động</span>
+                                        }
+                                    </td>
+                                    <td>@policy.CreateAt?.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" onclick="editPolicy(@policy.RefundPolicyId)">
+                                            <i class="fas fa-edit"></i> Sửa
+                                        </button>
+                                        @if (!policy.IsActive)
+                                        {
+                                            <button class="btn btn-sm btn-success" onclick="activatePolicy(@policy.RefundPolicyId)">
+                                                <i class="fas fa-check"></i> Kích hoạt
+                                            </button>
+                                        }
+                                        <button class="btn btn-sm btn-danger" onclick="deletePolicy(@policy.RefundPolicyId)">
+                                            <i class="fas fa-trash"></i> Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-4">
+                    <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">Không có chính sách nào</h5>
+                    <p class="text-muted">Chưa có chính sách hoàn vé nào được tạo.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal Thêm/Sửa chính sách -->
+<div class="modal fade" id="policyModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="policyModalTitle">Thêm chính sách hoàn vé</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" asp-page-handler="SavePolicy">
+                <div class="modal-body">
+                    <input type="hidden" id="policyId" name="RefundPolicyId" value="0" />
+                    <div class="mb-3">
+                        <label class="form-label">Tên chính sách *</label>
+                        <input type="text" class="form-control" id="policyName" name="PolicyName" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phần trăm hoàn (%) *</label>
+                        <input type="number" class="form-control" id="refundPercentage" name="RefundPercentage" 
+                               min="0" max="100" step="0.1" required />
+                        <div class="form-text">Nhập phần trăm hoàn vé (0-100%)</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="isActive" name="IsActive" />
+                            <label class="form-check-label" for="isActive">
+                                Kích hoạt chính sách này
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const API_BASE_URL = 'https://localhost:7087';
+
+        function getAuthHeaders() {
+            const token = document.cookie.split('; ').find(row => row.startsWith('jwtToken='));
+            const jwtToken = token ? token.split('=')[1] : '';
+            return {
+                'Authorization': 'Bearer ' + jwtToken,
+                'Content-Type': 'application/json'
+            };
+        }
+
+        function editPolicy(policyId) {
+            console.log('editPolicy called with ID:', policyId);
+            fetch(`${API_BASE_URL}/api/staff/refund-policies/${policyId}`, {
+                headers: getAuthHeaders()
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        console.log('Error response text:', text);
+                        throw new Error(`HTTP ${response.status}: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Policy data:', data);
+                if (!data || !data.refundPolicyId) {
+                    throw new Error('Invalid policy data received');
+                }
+                document.getElementById('policyId').value = data.refundPolicyId;
+                document.getElementById('policyName').value = data.policyName || '';
+                document.getElementById('refundPercentage').value = data.refundPercentage || '';
+                document.getElementById('description').value = data.description || '';
+                document.getElementById('isActive').checked = data.isActive || false;
+                document.getElementById('policyModalTitle').innerText = 'Sửa chính sách hoàn vé';
+                new bootstrap.Modal(document.getElementById('policyModal')).show();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Không thể tải thông tin chính sách: ' + error.message);
+            });
+        }
+
+        function activatePolicy(policyId) {
+            console.log('activatePolicy called with ID:', policyId);
+            if (confirm('Bạn có chắc muốn kích hoạt chính sách này?')) {
+                fetch(`${API_BASE_URL}/api/staff/refund-policies/${policyId}/activate`, { 
+                    method: 'POST',
+                    headers: getAuthHeaders()
+                })
+                .then(response => {
+                    console.log('Activate response status:', response.status);
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            console.log('Activate error response text:', text);
+                            throw new Error(`HTTP ${response.status}: ${text}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Activate response data:', data);
+                    alert('Kích hoạt chính sách thành công!');
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Không thể kích hoạt chính sách: ' + error.message);
+                });
+            }
+        }
+
+        function deletePolicy(policyId) {
+            console.log('deletePolicy called with ID:', policyId);
+            if (confirm('Bạn có chắc muốn xóa chính sách này?')) {
+                fetch(`${API_BASE_URL}/api/staff/refund-policies/${policyId}`, { 
+                    method: 'DELETE',
+                    headers: getAuthHeaders()
+                })
+                .then(response => {
+                    console.log('Delete response status:', response.status);
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            console.log('Delete error response text:', text);
+                            throw new Error(`HTTP ${response.status}: ${text}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Delete response data:', data);
+                    alert('Xóa chính sách thành công!');
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Không thể xóa chính sách: ' + error.message);
+                });
+            }
+        }
+
+        // Reset form when adding new policy
+        document.getElementById('policyModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('policyId').value = '0';
+            document.getElementById('policyName').value = '';
+            document.getElementById('refundPercentage').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('isActive').checked = false;
+            document.getElementById('policyModalTitle').innerText = 'Thêm chính sách hoàn vé';
+        });
+
+        function testAPI() {
+            console.log('Testing API...');
+            fetch(`${API_BASE_URL}/api/staff/refund-policies/test`, {
+                headers: getAuthHeaders()
+            })
+            .then(response => {
+                console.log('Test response status:', response.status);
+                console.log('Test response headers:', response.headers);
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        console.log('Test error response text:', text);
+                        throw new Error(`HTTP ${response.status}: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Test response:', data);
+                alert('API Test thành công: ' + JSON.stringify(data, null, 2));
+            })
+            .catch(error => {
+                console.error('Test API Error:', error);
+                alert('API Test thất bại: ' + error.message);
+            });
+        }
+
+        function debugAPI() {
+            console.log('Debugging API...');
+            fetch(`${API_BASE_URL}/api/staff/refund-policies/debug`, {
+                headers: getAuthHeaders()
+            })
+            .then(response => {
+                console.log('Debug response status:', response.status);
+                console.log('Debug response headers:', response.headers);
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        console.log('Debug error response text:', text);
+                        throw new Error(`HTTP ${response.status}: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Debug response:', data);
+                alert('API Debug thành công: ' + JSON.stringify(data, null, 2));
+            })
+            .catch(error => {
+                console.error('Debug API Error:', error);
+                alert('API Debug thất bại: ' + error.message);
+            });
+        }
+    </script>
+} 

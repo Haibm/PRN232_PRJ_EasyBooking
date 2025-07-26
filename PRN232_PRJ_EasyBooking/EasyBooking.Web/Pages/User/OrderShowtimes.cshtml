@@ -133,7 +133,6 @@
 @section Scripts {
     <script>
         var userId = @(Model.UserId ?? 0);
-        // Không dùng mock nữa
         let seatRows = [];
         let seatCols = 0;
         let seats = [];
@@ -158,8 +157,10 @@
             const res = await fetch(`https://localhost:7087/api/staff/tickets`);
             if (!res.ok) return [];
             const allTickets = await res.json();
-            // Lấy seat theo showtimeId
-            return allTickets.filter(t => t.showtimeId == showtimeId).map(t => t.seatNumber);
+            // Lấy seatKey (rowLetter + seatNumber) theo showtimeId
+            return allTickets
+                .filter(t => t.showtimeId == showtimeId)
+                .map(t => (t.rowLetter ? t.rowLetter + t.seatNumber : t.seatNumber));
         }
         function getSeatKey(row, num) {
             return row + num;
@@ -185,7 +186,7 @@
                     btn.innerText = seatKey;
                     btn.dataset.seat = seatKey;
                     btn.dataset.seatId = seat.seatId;
-                    if(bookedSeats.includes(seat.seatNumber)){
+                    if(bookedSeats.includes(seatKey)){
                         btn.classList.add('btn-danger');
                         btn.disabled = true;
                     } else if(seat.seatType === 'VIP'){
@@ -230,7 +231,6 @@
                 btn.addEventListener('click', async function(){
                     currentMovie = btn.dataset.movie;
                     currentShowtime = btn.dataset.showtime;
-                    // Cần truyền thêm data-room-id, data-showtime-id vào button
                     currentRoomId = btn.dataset.roomId;
                     currentShowtimeId = btn.dataset.showtimeId;
                     vipPercent = parseInt(btn.dataset.vipPercent);
@@ -240,7 +240,6 @@
                     document.getElementById('modalMovie').innerText = currentMovie;
                     document.getElementById('modalShowtime').innerText = currentShowtime;
                     selectedSeats = [];
-                    // Lấy seats và bookedSeats từ API
                     seats = await loadSeatsFromApi(currentRoomId);
                     seatRows = [...new Set(seats.map(s => s.rowLetter))];
                     seatRows.sort();

@@ -39,5 +39,7 @@ public partial class User
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
+    public virtual ICollection<RefundHistory> RefundHistories { get; set; } = new List<RefundHistory>();
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

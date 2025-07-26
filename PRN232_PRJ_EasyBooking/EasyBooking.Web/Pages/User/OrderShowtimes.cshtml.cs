@@ -111,7 +111,7 @@ namespace EasyBooking.Web.Pages.User
                         PosterUrl = m.PosterUrl,
                         Status = m.Status,
                         Genres = m.Genres,
-                        Showtimes = new List<OrderShowtimeDTO.Showtime>() // sẽ gán sau
+                        Showtimes = new List<OrderShowtimeDTO.Showtime>() 
                     }).ToList();
                 }
             }
@@ -136,6 +136,6 @@ namespace EasyBooking.Web.Pages.User
         public string? PosterUrl { get; set; }
         public int? Status { get; set; }
         public List<string>? Genres { get; set; }
-        // Không còn VipPercent ở đây
+
     }
 }
