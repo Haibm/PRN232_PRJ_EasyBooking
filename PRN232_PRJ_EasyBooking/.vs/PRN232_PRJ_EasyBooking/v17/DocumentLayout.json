@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "G:\\Ki_8\\PRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\",
   "Documents": [
     {
@@ -210,14 +211,23 @@
       "RelativeMoniker": "D:0:0:{5EE0583B-4394-41E1-A857-73F9208E68C3}|EasyBooking.Data\\EasyBooking.Data.csproj|solutionrelative:easybooking.data\\repositories\\irefundhistoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
+=======
+  "WorkspaceRootPath": "D:\\team project\\projectPRN232\\PRN232_PRJ_EasyBooking\\PRN232_PRJ_EasyBooking\\",
+  "Documents": [],
+>>>>>>> origin/trung
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
+<<<<<<< HEAD
           "DockedHeight": 651,
           "SelectedChildIndex": 194,
+=======
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+>>>>>>> origin/trung
           "Children": [
             {
               "$type": "Bookmark",
@@ -1627,10 +1637,13 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+<<<<<<< HEAD
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+=======
+>>>>>>> origin/trung
             }
           ]
         },

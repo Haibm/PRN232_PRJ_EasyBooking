@@ -60,11 +60,16 @@ namespace EasyBooking.API.Controllers.User
             try
             {
                 var token = GenerateJwtToken(user.UserId, user.Username, user.Role);
-                return Ok(new { token });
+                return Ok(new {
+                    token,
+                    role = user.Role,
+                    username = user.Username,
+                    passwordHash = user.PasswordHash,
+                    userId = user.UserId
+                });
             }
             catch (Exception ex)
             {
-                
                 Console.WriteLine("JWT Error: " + ex.ToString());
                 return StatusCode(500, "JWT Error: " + ex.Message);
             }

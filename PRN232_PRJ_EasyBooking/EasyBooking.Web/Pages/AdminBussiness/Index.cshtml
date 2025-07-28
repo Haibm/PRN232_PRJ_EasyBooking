@@ -1,29 +1,236 @@
 ﻿@page
 @model EasyBooking.Web.Pages.AdminBussiness.IndexModel
 @{
+    Layout = "../Shared/_LayoutAdminBussiness.cshtml";
     ViewData["Title"] = "Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin-dashboard.css" />
 }
 
 <div class="dashboard">
     <div class="row">
-        <div class="col card">Tổng số phim: <span>@Model.TotalMovies</span></div>
-        <div class="col card">Người đã đặt vé: <span>@Model.TotalUsersBooked</span></div>
-        <div class="col card">Tổng tiền đã trả: <span>@Model.TotalPaid VNĐ</span></div>
-        <div class="col card">Người tiêu nhiều nhất: <span>@Model.TopSpender</span></div>
-        <div class="col card">Phim được trả nhiều nhất: <span>@Model.TopMovie</span></div>
+        <div class="col card">
+            <div class="card-icon">🎬</div>
+            <div class="card-title">Tổng số phim</div>
+            <span>@Model.TotalMovies</span>
+        </div>
+        <div class="col card">
+            <div class="card-icon">👥</div>
+            <div class="card-title">Người đã đặt vé</div>
+            <span>@Model.TotalUsersBooked</span>
+        </div>
+        <div class="col card">
+            <div class="card-icon">💰</div>
+            <div class="card-title">Tổng tiền đã trả</div>
+            <span>@Model.TotalPaid VNĐ</span>
+        </div>
+        <div class="col card">
+            <div class="card-icon">👑</div>
+            <div class="card-title">Người tiêu nhiều nhất</div>
+            <span>@Model.TopSpender</span>
+        </div>
+        <div class="col card">
+            <div class="card-icon">🏆</div>
+            <div class="card-title">Phim được trả nhiều nhất</div>
+            <span>@Model.TopMovie</span>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <h5>Biểu đồ doanh thu & số vé theo phim</h5>
+            <canvas id="movieChart" height="100"></canvas>
+            <div class="mt-3">
+                <label for="movieSelect">Chọn phim:</label>
+                <select id="movieSelect" class="form-select" style="width:auto; display:inline-block;">
+                    <option value="all">Tất cả</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <label for="sortCriteria">Sắp xếp theo:</label>
+                <select id="sortCriteria" class="form-select" style="width:auto; display:inline-block;">
+                    <option value="totalPaid">Tổng tiền</option>
+                    <option value="totalTickets">Tổng số vé</option>
+                </select>
+                <button id="sortOrderBtn" class="btn btn-secondary btn-sm ms-2">Giảm dần</button>
+            </div>
+            <div class="mt-3">
+                <table class="table table-bordered table-striped" id="userTable">
+                    <thead>
+                        <tr>
+                            <th>Họ tên</th>
+                            <th>Tổng số vé</th>
+                            <th>Tổng tiền (VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu user sẽ được render bằng JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        async function loadDashboard() {
-            const res = await fetch('/api/admin/dashboard/stats');
-            const data = await res.json();
-            document.getElementById('totalMovies').innerText = data.totalMovies;
-            document.getElementById('totalUsersBooked').innerText = data.totalUsersBooked;
-            document.getElementById('totalPaid').innerText = data.totalPaid + ' VNĐ';
-            document.getElementById('topSpender').innerText = data.topSpender ? (data.topSpender.fullName + ' (ID: ' + data.topSpender.userId + ')') : 'N/A';
-            document.getElementById('topMovie').innerText = data.topMovie ? (data.topMovie.title + ' (ID: ' + data.topMovie.movieId + ')') : 'N/A';
+        let allMovieBuyers = [];
+        let chartInstance = null;
+        let currentUserList = [];
+        let currentSortCriteria = 'totalPaid';
+        let currentSortOrder = 'desc';
+        async function loadMovieChart() {
+            try {
+                const res = await fetch('https://localhost:7087/api/admin/dashboard/moviebuyers'); // Sửa lại đúng port API
+                if (!res.ok) {
+                    console.error('API error:', res.status, res.statusText);
+                    return;
+                }
+                const data = await res.json();
+                const movieBuyers = data.movieBuyers;
+                allMovieBuyers = movieBuyers;
+                // Populate dropdown
+                const select = document.getElementById('movieSelect');
+                select.innerHTML = '<option value="all">Tất cả</option>';
+                movieBuyers.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m.movieId;
+                    opt.textContent = m.movieTitle;
+                    select.appendChild(opt);
+                });
+                // Draw chart for all movies by default
+                drawMovieChart(movieBuyers);
+                // Render user table for all movies by default
+                renderUserTable(mergeAllBuyers(movieBuyers));
+                // Handle change event
+                select.onchange = function() {
+                    let filtered = [];
+                    if (this.value === 'all') {
+                        filtered = allMovieBuyers;
+                    } else {
+                        filtered = allMovieBuyers.filter(m => m.movieId == this.value);
+                    }
+                    drawMovieChart(filtered);
+                    renderUserTable(mergeAllBuyers(filtered));
+                };
+                // Handle sort
+                document.getElementById('sortCriteria').onchange = function() {
+                    currentSortCriteria = this.value;
+                    renderUserTable(currentUserList);
+                };
+                document.getElementById('sortOrderBtn').onclick = function() {
+                    currentSortOrder = currentSortOrder === 'desc' ? 'asc' : 'desc';
+                    this.textContent = currentSortOrder === 'desc' ? 'Giảm dần' : 'Tăng dần';
+                    renderUserTable(currentUserList);
+                };
+            } catch (err) {
+                console.error('Lỗi khi fetch hoặc vẽ biểu đồ:', err);
+            }
         }
-        loadDashboard();
+        function drawMovieChart(movieBuyers) {
+            const labels = [];
+            const totalTickets = [];
+            const totalRevenue = [];
+            movieBuyers.forEach(m => {
+                labels.push(m.movieTitle);
+                let ticketCount = 0;
+                let revenue = 0;
+                m.buyers.forEach(b => {
+                    ticketCount += 1;
+                    revenue += b.totalPaid;
+                });
+                totalTickets.push(ticketCount);
+                totalRevenue.push(revenue);
+            });
+            const ctx = document.getElementById('movieChart').getContext('2d');
+            if (chartInstance) chartInstance.destroy();
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Tổng số vé bán ra',
+                            data: totalTickets,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Tổng doanh thu (VNĐ)',
+                            data: totalRevenue,
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Số vé' }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            title: { display: true, text: 'Doanh thu (VNĐ)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: { display: false }
+                    }
+                }
+            });
+        }
+        // Gộp buyers từ nhiều movie thành 1 list user, tính tổng vé và tổng tiền
+        function mergeAllBuyers(movieBuyers) {
+            const userMap = {};
+            movieBuyers.forEach(m => {
+                m.buyers.forEach(b => {
+                    if (!userMap[b.userId]) {
+                        userMap[b.userId] = {
+                            fullName: b.fullName,
+                            totalPaid: 0,
+                            totalTickets: 0
+                        };
+                    }
+                    userMap[b.userId].totalPaid += b.totalPaid;
+                    userMap[b.userId].totalTickets += 1;
+                });
+            });
+            const userList = Object.entries(userMap).map(([userId, info]) => ({
+                userId,
+                ...info
+            }));
+            currentUserList = userList;
+            return userList;
+        }
+        function renderUserTable(userList) {
+            // Sắp xếp
+            const sorted = [...userList].sort((a, b) => {
+                let cmp = 0;
+                if (currentSortCriteria === 'totalPaid') {
+                    cmp = a.totalPaid - b.totalPaid;
+                } else {
+                    cmp = a.totalTickets - b.totalTickets;
+                }
+                return currentSortOrder === 'desc' ? -cmp : cmp;
+            });
+            const tbody = document.querySelector('#userTable tbody');
+            tbody.innerHTML = '';
+            sorted.forEach(u => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${u.fullName}</td><td>${u.totalTickets}</td><td>${u.totalPaid.toLocaleString()}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+        loadMovieChart();
     </script>
 }

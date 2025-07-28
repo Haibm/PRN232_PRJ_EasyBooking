@@ -142,7 +142,7 @@ namespace EasyBooking.Business.Services
             }
             if (dto.VerificationCode != info.Code)
             {
-                // Tăng số lần nhập sai
+                
                 info.FailCount++;
                 if (info.FailCount >= 5)
                 {
@@ -154,13 +154,13 @@ namespace EasyBooking.Business.Services
                 }
                 return false;
             }
-            // Đúng code, kiểm tra mật khẩu cũ
+            
             var user = await _userRepository.GetByIdAsync(dto.UserId);
             if (user == null || user.PasswordHash != dto.OldPassword)
                 return false;
             if (dto.NewPassword != dto.ConfirmPassword)
                 return false;
-            // Đổi mật khẩu
+            
             user.PasswordHash = dto.NewPassword;
             await _userRepository.UpdateAsync(user);
             _changePasswordCodes.TryRemove(dto.UserId, out _);

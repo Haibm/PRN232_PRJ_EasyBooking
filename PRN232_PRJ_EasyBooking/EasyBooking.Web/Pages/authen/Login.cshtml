@@ -48,9 +48,15 @@
             }
             const data = await res.json();
             if (data.token) {
-                // Lưu vào cookie cho Razor Page và API dùng
                 document.cookie = "jwtToken=" + data.token + "; path=/";
-                window.location.href = '/';
+                
+                if (data.role === "1") {
+                    window.location.href = "/Admin/Dashboard";
+                } else if (data.role === "2") {
+                    window.location.href = "/Staff/ManageCinemas/List";
+                } else {
+                    window.location.href = "/";
+                }
             } else {
                 errorDiv.style.display = 'block';
                 errorDiv.innerText = 'Login failed.';
