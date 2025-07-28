@@ -25,42 +25,6 @@ namespace EasyBooking.API.Controllers.Staff
             _refundPolicyService = refundPolicyService;
         }
 
-        [HttpGet("test")]
-        public IActionResult Test()
-        {
-            Console.WriteLine("Test endpoint called");
-            return Ok(new { message = "RefundPolicy API is working!", timestamp = DateTime.Now });
-        }
-
-        [HttpGet("debug")]
-        public async Task<IActionResult> Debug()
-        {
-            try
-            {
-                Console.WriteLine("Debug endpoint called");
-                var policies = await _refundPolicyService.GetAllAsync();
-                var count = policies.Count();
-                Console.WriteLine($"Found {count} policies in database");
-                
-                var activePolicy = await _refundPolicyService.GetActivePolicyAsync();
-                var activePolicyInfo = activePolicy != null ? 
-                    $"Active: {activePolicy.PolicyName} ({activePolicy.RefundPercentage}%)" : 
-                    "No active policy";
-                
-                return Ok(new { 
-                    message = "Debug info", 
-                    totalPolicies = count,
-                    activePolicy = activePolicyInfo,
-                    timestamp = DateTime.Now 
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error in Debug: {ex.Message}");
-                return StatusCode(500, new { error = "Database error", message = ex.Message });
-            }
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

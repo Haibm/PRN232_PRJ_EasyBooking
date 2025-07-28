@@ -184,6 +184,95 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "GetAll",
+    "RelativePath": "api/staff/discount-codes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "Create",
+    "RelativePath": "api/staff/discount-codes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "discountCodeDto",
+        "Type": "EasyBooking.Business.DTOs.DiscountCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "GetById",
+    "RelativePath": "api/staff/discount-codes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "Update",
+    "RelativePath": "api/staff/discount-codes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "discountCodeDto",
+        "Type": "EasyBooking.Business.DTOs.DiscountCodeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "Delete",
+    "RelativePath": "api/staff/discount-codes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.DiscountCodeController",
+    "Method": "GetActiveCodes",
+    "RelativePath": "api/staff/discount-codes/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.Staff.GenreController",
     "Method": "GetAll",
     "RelativePath": "api/staff/genres",
@@ -339,6 +428,121 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "GetAll",
+    "RelativePath": "api/staff/point-configs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "Create",
+    "RelativePath": "api/staff/point-configs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pointConfigDto",
+        "Type": "EasyBooking.Business.DTOs.PointConfigDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "GetById",
+    "RelativePath": "api/staff/point-configs/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "Update",
+    "RelativePath": "api/staff/point-configs/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pointConfigDto",
+        "Type": "EasyBooking.Business.DTOs.PointConfigDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "Delete",
+    "RelativePath": "api/staff/point-configs/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "GetActiveConfig",
+    "RelativePath": "api/staff/point-configs/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "CalculatePoints",
+    "RelativePath": "api/staff/point-configs/calculate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EasyBooking.API.Controllers.Staff.CalculatePointsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.PointConfigController",
+    "Method": "SimpleTest",
+    "RelativePath": "api/staff/point-configs/simple-test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -440,26 +644,6 @@
     "ContainingType": "EasyBooking.API.Controllers.Staff.RefundPolicyController",
     "Method": "GetActivePolicy",
     "RelativePath": "api/staff/refund-policies/active",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.Staff.RefundPolicyController",
-    "Method": "Debug",
-    "RelativePath": "api/staff/refund-policies/debug",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EasyBooking.API.Controllers.Staff.RefundPolicyController",
-    "Method": "Test",
-    "RelativePath": "api/staff/refund-policies/test",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -872,6 +1056,188 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "GetAll",
+    "RelativePath": "api/staff/user-points",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "GetById",
+    "RelativePath": "api/staff/user-points/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "AddPoints",
+    "RelativePath": "api/staff/user-points/add-points",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EasyBooking.API.Controllers.Staff.AddPointsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "GetStatistics",
+    "RelativePath": "api/staff/user-points/statistics",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "GetByUserId",
+    "RelativePath": "api/staff/user-points/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.Staff.UserPointsController",
+    "Method": "GetUserTransactions",
+    "RelativePath": "api/staff/user-points/user/{userId}/transactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.TestController",
+    "Method": "Auth",
+    "RelativePath": "api/test/auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.TestController",
+    "Method": "Public",
+    "RelativePath": "api/test/public",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "GetAvailableCodes",
+    "RelativePath": "api/user/discount-codes/available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "CalculateDiscount",
+    "RelativePath": "api/user/discount-codes/calculate-discount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EasyBooking.API.Controllers.User.CalculateDiscountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "GetMyCodes",
+    "RelativePath": "api/user/discount-codes/my-codes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "GetMyUnusedCodes",
+    "RelativePath": "api/user/discount-codes/my-unused-codes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "RedeemCode",
+    "RelativePath": "api/user/discount-codes/redeem/{discountCodeId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "discountCodeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.DiscountCodeController",
+    "Method": "UseCode",
+    "RelativePath": "api/user/discount-codes/use-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EasyBooking.API.Controllers.User.UseCodeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.User.MovieController",
     "Method": "GetAll",
     "RelativePath": "api/user/movies",
@@ -1039,6 +1405,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EasyBooking.API.Controllers.User.PointTransactionController",
+    "Method": "GetMyTransactions",
+    "RelativePath": "api/user/point-transactions/my-transactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.PointTransactionController",
+    "Method": "GetMyTransactionsByType",
+    "RelativePath": "api/user/point-transactions/my-transactions/{transactionType}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionType",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.PointTransactionController",
+    "Method": "GetTransactionSummary",
+    "RelativePath": "api/user/point-transactions/transaction-summary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EasyBooking.API.Controllers.User.TicketController",
     "Method": "RefundTicket",
     "RelativePath": "api/user/tickets/{id}/refund",
@@ -1089,6 +1491,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.UserPointsController",
+    "Method": "GetMyPoints",
+    "RelativePath": "api/user/user-points/my-points",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EasyBooking.API.Controllers.User.UserPointsController",
+    "Method": "GetMyTransactions",
+    "RelativePath": "api/user/user-points/my-transactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

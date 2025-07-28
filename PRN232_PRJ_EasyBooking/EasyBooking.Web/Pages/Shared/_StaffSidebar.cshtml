@@ -132,5 +132,22 @@
                 </ul>
             </div>
         </li>
+        <!-- Manage Discount System -->
+        <li class="nav-item">
+            @{
+                var isDiscountActive = currentPath.StartsWith("/staff/managediscountcodes") || currentPath.StartsWith("/staff/manageuserpoints") || currentPath.StartsWith("/staff/managepointconfigs");
+            }
+            <a class="nav-link collapsed text-white @(isDiscountActive ? "active" : "")"
+               data-bs-toggle="collapse" href="#discountMenu" role="button" aria-expanded="@isDiscountActive.ToString().ToLower()">
+                <i class="bi bi-tags"></i> Manage Discount System
+            </a>
+            <div class="collapse @(isDiscountActive ? "show" : "")" id="discountMenu">
+                <ul class="list-unstyled ps-3">
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managediscountcodes/list" ? "active" : "")" href="/Staff/ManageDiscountCodes/List">Discount Codes</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/manageuserpoints/list" ? "active" : "")" href="/Staff/ManageUserPoints/List">User Points</a></li>
+                    <li><a class="nav-link text-white @(currentPath == "/staff/managepointconfigs/list" ? "active" : "")" href="/Staff/ManagePointConfigs/List">Point Configs</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </div> 

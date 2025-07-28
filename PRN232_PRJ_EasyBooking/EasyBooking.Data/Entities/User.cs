@@ -39,7 +39,13 @@ public partial class User
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
+    public virtual ICollection<PointTransaction> PointTransactions { get; set; } = new List<PointTransaction>();
+
     public virtual ICollection<RefundHistory> RefundHistories { get; set; } = new List<RefundHistory>();
 
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+
+    public virtual ICollection<UserDiscountCode> UserDiscountCodes { get; set; } = new List<UserDiscountCode>();
+
+    public virtual ICollection<UserPoints> UserPoints { get; set; } = new List<UserPoints>();
 }

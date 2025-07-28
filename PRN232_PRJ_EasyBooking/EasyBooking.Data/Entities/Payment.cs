@@ -37,5 +37,9 @@ public partial class Payment
 
     public virtual ICollection<OrderHistory> OrderHistories { get; set; } = new List<OrderHistory>();
 
+    public virtual ICollection<PointTransaction> PointTransactions { get; set; } = new List<PointTransaction>();
+
     public virtual User? User { get; set; }
+
+    public virtual ICollection<UserDiscountCode> UserDiscountCodes { get; set; } = new List<UserDiscountCode>();
 }

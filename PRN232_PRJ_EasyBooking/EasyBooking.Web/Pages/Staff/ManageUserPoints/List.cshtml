@@ -1,0 +1,260 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageUserPoints.ListModel
+@{
+    ViewData["Title"] = "Quản lý điểm thưởng";
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>
+                    <i class="fas fa-coins text-warning"></i>
+                    Quản lý điểm thưởng
+                </h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPointsModal">
+                    <i class="fas fa-plus"></i>
+                    Thêm điểm cho user
+                </button>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Thống kê -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng users có điểm</h5>
+                    <h3>@Model.TotalUsers</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng điểm đã tích</h5>
+                    <h3>@Model.TotalEarnedPoints</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng điểm đã sử dụng</h5>
+                    <h3>@Model.TotalUsedPoints</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Điểm hiện tại</h5>
+                    <h3>@Model.TotalCurrentPoints</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bộ lọc -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Bộ lọc</h5>
+                </div>
+                <div class="card-body">
+                    <form method="get" class="row">
+                        <div class="col-md-3">
+                            <label for="searchTerm" class="form-label">Tìm kiếm</label>
+                            <input type="text" class="form-control" id="searchTerm" name="SearchTerm" value="@Model.SearchTerm" placeholder="Tên user, email...">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="minPoints" class="form-label">Điểm tối thiểu</label>
+                            <input type="number" class="form-control" id="minPoints" name="MinPoints" value="@Model.MinPoints" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="maxPoints" class="form-label">Điểm tối đa</label>
+                            <input type="number" class="form-control" id="maxPoints" name="MaxPoints" value="@Model.MaxPoints" min="0">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search"></i>
+                                    Tìm kiếm
+                                </button>
+                                <a href="@Url.Page("./List")" class="btn btn-secondary">
+                                    <i class="fas fa-refresh"></i>
+                                    Làm mới
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng điểm thưởng -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Danh sách điểm thưởng</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.UserPoints != null && Model.UserPoints.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Điểm hiện tại</th>
+                                        <th>Tổng điểm đã tích</th>
+                                        <th>Tổng điểm đã sử dụng</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var userPoint in Model.UserPoints)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <strong>User ID: @userPoint.UserId</strong>
+                                                    <br>
+                                                    <small class="text-muted">User ID: @userPoint.UserId</small>
+                                                </div>
+                                            </td>
+                                            <td>User ID: @userPoint.UserId</td>
+                                            <td>
+                                                <span class="badge bg-primary fs-6">@userPoint.CurrentPoints điểm</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-success">@userPoint.TotalEarnedPoints điểm</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-warning">@userPoint.TotalUsedPoints điểm</span>
+                                            </td>
+                                            <td>
+                                                <small>@userPoint.CreateAt.ToString("dd/MM/yyyy HH:mm")</small>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" onclick="viewTransactions(@userPoint.UserId)">
+                                                    <i class="fas fa-history"></i>
+                                                    Lịch sử
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-success" onclick="addPoints(@userPoint.UserId, 'User ID: @userPoint.UserId')">
+                                                    <i class="fas fa-plus"></i>
+                                                    Thêm điểm
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-coins fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Chưa có dữ liệu điểm thưởng</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal thêm điểm -->
+<div class="modal fade" id="addPointsModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm điểm cho user</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" id="addPointsForm">
+                <div class="modal-body">
+                    <input type="hidden" id="selectedUserId" name="UserId" value="0">
+                    
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">User</label>
+                        <input type="text" class="form-control" id="userName" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="points" class="form-label">Số điểm *</label>
+                        <input type="number" class="form-control" id="points" name="Points" required min="1">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="description" name="Description" rows="3" placeholder="Lý do thêm điểm..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Thêm điểm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xem lịch sử giao dịch -->
+<div class="modal fade" id="transactionsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Lịch sử giao dịch điểm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="transactionsContent">
+                    <!-- Nội dung sẽ được load bằng JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addPoints(userId, userName) {
+        document.getElementById('selectedUserId').value = userId;
+        document.getElementById('userName').value = userName;
+        document.getElementById('points').value = '';
+        document.getElementById('description').value = '';
+        
+        var modal = new bootstrap.Modal(document.getElementById('addPointsModal'));
+        modal.show();
+    }
+    
+    function viewTransactions(userId) {
+        // TODO: Implement view transactions functionality
+        alert('Chức năng xem lịch sử giao dịch sẽ được implement sau');
+    }
+</script> 

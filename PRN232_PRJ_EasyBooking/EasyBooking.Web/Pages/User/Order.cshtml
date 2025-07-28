@@ -30,8 +30,20 @@
                 <span id="order-total"></span>
             </div>
             <div class="d-flex justify-content-between mb-1">
+                <span>Giảm giá:</span>
+                <span id="order-discount" class="text-success">0đ</span>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
                 <span>Thành tiền:</span>
                 <span style="color:#e91e63;font-weight:bold;font-size:18px;" id="order-final"></span>
+            </div>
+            <div class="mb-3">
+                <label for="discountCode" class="form-label">Mã giảm giá (nếu có):</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="discountCode" placeholder="Nhập mã giảm giá">
+                    <button type="button" class="btn btn-outline-primary" onclick="applyDiscount()">Áp dụng</button>
+                </div>
+                <small class="text-muted">Nhập mã giảm giá để được giảm giá</small>
             </div>
             <form method="post">
                 <button type="submit" class="btn btn-lg w-100 mt-3" style="background:#e91e63;color:#fff;font-weight:bold;">Tiến hành thanh toán</button>
@@ -57,8 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('order-cinema').innerText = orderData.cinemaName;
     document.getElementById('order-room').innerText = orderData.roomName;
     document.getElementById('order-seats').innerText = (orderData.seats || []).join(', ');
-    document.getElementById('order-total').innerText = (orderData.totalPrice || 0).toLocaleString() + 'đ';
-    document.getElementById('order-final').innerText = (orderData.totalPrice || 0).toLocaleString() + 'đ';
+    const originalPrice = orderData.totalPrice || 0;
+    document.getElementById('order-total').innerText = originalPrice.toLocaleString() + 'đ';
+    document.getElementById('order-final').innerText = originalPrice.toLocaleString() + 'đ';
+    
+    // Lưu giá gốc để tính toán
+    window.originalPrice = originalPrice;
+    window.currentDiscount = 0;
 
     document.querySelector('form').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -85,6 +102,53 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Có lỗi khi tạo đơn hàng: ' + (data.error || ''));
         }
     });
+    
+    async function applyDiscount() {
+        const discountCode = document.getElementById('discountCode').value.trim();
+        if (!discountCode) {
+            alert('Vui lòng nhập mã giảm giá');
+            return;
+        }
+        
+        const token = getCookie('jwtToken');
+        try {
+            const response = await fetch('https://localhost:7087/api/user/discount-codes/calculate-discount', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({
+                    code: discountCode,
+                    originalAmount: window.originalPrice
+                })
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                const discountAmount = data.discountAmount || 0;
+                const finalAmount = data.finalAmount || window.originalPrice;
+                
+                window.currentDiscount = discountAmount;
+                document.getElementById('order-discount').innerText = discountAmount.toLocaleString() + 'đ';
+                document.getElementById('order-final').innerText = finalAmount.toLocaleString() + 'đ';
+                
+                // Cập nhật orderData với mã giảm giá
+                const orderData = JSON.parse(sessionStorage.getItem('orderData') || '{}');
+                orderData.discountCode = discountCode;
+                orderData.discountAmount = discountAmount;
+                orderData.finalAmount = finalAmount;
+                sessionStorage.setItem('orderData', JSON.stringify(orderData));
+                
+                alert('Áp dụng mã giảm giá thành công!');
+            } else {
+                const error = await response.json();
+                alert('Lỗi: ' + (error.error || 'Mã giảm giá không hợp lệ'));
+            }
+        } catch (error) {
+            alert('Có lỗi xảy ra: ' + error.message);
+        }
+    }
 });
 </script>
 }

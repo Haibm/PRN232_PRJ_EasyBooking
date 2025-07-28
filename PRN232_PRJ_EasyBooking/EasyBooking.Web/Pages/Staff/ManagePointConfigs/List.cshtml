@@ -1,0 +1,408 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManagePointConfigs.ListModel
+@{
+    ViewData["Title"] = "Quản lý cấu hình điểm";
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>
+                    <i class="fas fa-cog text-primary"></i>
+                    Quản lý cấu hình điểm
+                </h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPointConfigModal">
+                    <i class="fas fa-plus"></i>
+                    Thêm cấu hình điểm
+                </button>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Thống kê -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng cấu hình</h5>
+                    <h3>@Model.TotalConfigs</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Đang hoạt động</h5>
+                    <h3>@Model.ActiveConfigs</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Cấu hình mặc định</h5>
+                    <h3>@Model.DefaultConfigs</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Cấu hình tùy chỉnh</h5>
+                    <h3>@Model.CustomConfigs</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng cấu hình điểm -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Danh sách cấu hình điểm</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.PointConfigs != null && Model.PointConfigs.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Tên cấu hình</th>
+                                        <th>Mô tả</th>
+                                        <th>Điểm/VNĐ</th>
+                                        <th>Số tiền tối thiểu</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var config in Model.PointConfigs)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@config.ConfigName</strong>
+                                                @if (config.IsActive)
+                                                {
+                                                    <span class="badge bg-success ms-2">Đang sử dụng</span>
+                                                }
+                                            </td>
+                                            <td>@config.Description</td>
+                                            <td>
+                                                <span class="text-success">@config.AmountPerPoint điểm / @config.MinAmountToEarn.ToString("N0") VNĐ</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-warning">@config.MinAmountToEarn.ToString("N0") VNĐ</span>
+                                            </td>
+                                            <td>
+                                                @if (config.IsActive)
+                                                {
+                                                    <span class="badge bg-success">Hoạt động</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Không hoạt động</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info" onclick="editConfig(@config.PointConfigId)" title="Sửa">
+                                                    <i class="fas fa-edit"></i> Sửa
+                                                </button>
+                                                <button class="btn btn-sm btn-success" onclick="toggleActive(@config.PointConfigId, @config.IsActive.ToString().ToLower())" title="Kích hoạt">
+                                                    <i class="fas fa-toggle-on"></i> Kích hoạt
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" onclick="deleteConfig(@config.PointConfigId, '@config.ConfigName')" title="Xóa">
+                                                    <i class="fas fa-trash"></i> Xóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-cog fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Chưa có cấu hình điểm nào</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal thêm/sửa cấu hình điểm -->
+<div class="modal fade" id="addPointConfigModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Thêm cấu hình điểm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" id="pointConfigForm">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" id="pointConfigId" name="PointConfigId" value="0">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="configName" class="form-label">Tên cấu hình *</label>
+                                <input type="text" class="form-control" id="configName" name="ConfigName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Mô tả</label>
+                                <input type="text" class="form-control" id="description" name="Description">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="amountPerPoint" class="form-label">Số điểm *</label>
+                                <input type="number" class="form-control" id="amountPerPoint" name="AmountPerPoint" required min="1">
+                                <small class="text-muted">Số điểm được tích</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="minAmountToEarn" class="form-label">Số tiền tối thiểu (VNĐ) *</label>
+                                <input type="number" class="form-control" id="minAmountToEarn" name="MinAmountToEarn" required min="1000">
+                                <small class="text-muted">Số tiền tối thiểu để tích điểm</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="isActive" name="IsActive" value="true">
+                            <label class="form-check-label" for="isActive">
+                                Kích hoạt cấu hình này
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    
+    // Test API function
+    function testAPI() {
+        console.log("Testing API...");
+        
+        // Test raw database access
+        fetch('https://localhost:7087/api/staff/point-configs/raw-test', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            console.log("Raw Test API Response Status:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Raw Test API Response:", data);
+        })
+        .catch(error => {
+            console.error("Raw Test API Error:", error);
+        });
+        
+        // Test without authentication
+        fetch('https://localhost:7087/api/staff/point-configs/test', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            console.log("Test API Response Status:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Test API Response:", data);
+        })
+        .catch(error => {
+            console.error("Test API Error:", error);
+        });
+        
+        // Test with authentication
+        const token = getCookie('jwtToken');
+        if (token) {
+            fetch('https://localhost:7087/api/staff/point-configs', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                console.log("Auth API Response Status:", response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log("Auth API Response:", data);
+            })
+            .catch(error => {
+                console.error("Auth API Error:", error);
+            });
+        } else {
+            console.log("No JWT token found");
+        }
+    }
+    
+    // Auto test when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("Page loaded, testing API...");
+        testAPI();
+    });
+    
+    function editConfig(configId) {
+        // Load point config data and populate modal
+        fetch(`https://localhost:7087/api/staff/point-configs/${configId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('modalTitle').textContent = 'Sửa cấu hình điểm';
+            document.getElementById('pointConfigId').value = data.pointConfigId;
+            document.getElementById('configName').value = data.configName;
+            document.getElementById('description').value = data.description || '';
+            document.getElementById('amountPerPoint').value = data.amountPerPoint;
+            document.getElementById('minAmountToEarn').value = data.minAmountToEarn;
+            document.getElementById('isActive').checked = data.isActive;
+            
+            // Show modal
+            var modal = new bootstrap.Modal(document.getElementById('addPointConfigModal'));
+            modal.show();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Không thể tải thông tin cấu hình điểm');
+        });
+    }
+    
+    function deleteConfig(configId, configName) {
+        if (confirm(`Bạn có chắc chắn muốn xóa cấu hình "${configName}"?`)) {
+            fetch(`https://localhost:7087/api/staff/point-configs/${configId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Xóa cấu hình điểm thành công!');
+                    location.reload();
+                } else {
+                    throw new Error('Xóa thất bại');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi xóa cấu hình điểm');
+            });
+        }
+    }
+    
+    function toggleActive(configId, currentStatus) {
+        var action = currentStatus === 'true' ? 'vô hiệu hóa' : 'kích hoạt';
+        if (confirm(`Bạn có chắc chắn muốn ${action} cấu hình này?`)) {
+            // Lấy thông tin cấu hình hiện tại
+            fetch(`https://localhost:7087/api/staff/point-configs/${configId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Đảo ngược trạng thái
+                data.isActive = !data.isActive;
+                
+                // Gửi request cập nhật
+                return fetch(`https://localhost:7087/api/staff/point-configs/${configId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Cập nhật trạng thái thành công!');
+                    location.reload();
+                } else {
+                    throw new Error('Cập nhật thất bại');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi cập nhật trạng thái');
+            });
+        }
+    }
+    
+    // Reset form when adding new point config
+    function addNewConfig() {
+        document.getElementById('modalTitle').textContent = 'Thêm cấu hình điểm';
+        document.getElementById('pointConfigId').value = '0';
+        document.getElementById('pointConfigForm').reset();
+        document.getElementById('isActive').checked = true;
+    }
+</script> 

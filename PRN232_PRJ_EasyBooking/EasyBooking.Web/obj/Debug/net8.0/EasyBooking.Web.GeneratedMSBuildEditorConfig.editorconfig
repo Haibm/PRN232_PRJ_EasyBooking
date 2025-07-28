@@ -138,6 +138,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlQ2luZW1hc1xMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManageDiscountCodes/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlRGlzY291bnRDb2Rlc1xMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManageGenres/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlR2VucmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -164,6 +168,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManageOrders/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlT3JkZXJzXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManagePointConfigs/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlUG9pbnRDb25maWdzXExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManageRefunds/List.cshtml]
@@ -218,8 +226,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlVGlja2V0c1xMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/Staff/ManageUserPoints/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhZmZcTWFuYWdlVXNlclBvaW50c1xMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/DiscountCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEaXNjb3VudENvZGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/MyPoints.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNeVBvaW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Ki_8/PRN232/PRN232_PRJ_EasyBooking/PRN232_PRJ_EasyBooking/EasyBooking.Web/Pages/User/Order.cshtml]

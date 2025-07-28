@@ -9,12 +9,6 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2><i class="fas fa-percentage"></i> Quản lý chính sách hoàn vé</h2>
         <div>
-            <button class="btn btn-info me-2" onclick="testAPI()">
-                <i class="fas fa-test"></i> Test API
-            </button>
-            <button class="btn btn-warning me-2" onclick="debugAPI()">
-                <i class="fas fa-bug"></i> Debug DB
-            </button>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#policyModal">
                 <i class="fas fa-plus"></i> Thêm chính sách
             </button>
@@ -300,57 +294,5 @@
             document.getElementById('isActive').checked = false;
             document.getElementById('policyModalTitle').innerText = 'Thêm chính sách hoàn vé';
         });
-
-        function testAPI() {
-            console.log('Testing API...');
-            fetch(`${API_BASE_URL}/api/staff/refund-policies/test`, {
-                headers: getAuthHeaders()
-            })
-            .then(response => {
-                console.log('Test response status:', response.status);
-                console.log('Test response headers:', response.headers);
-                if (!response.ok) {
-                    return response.text().then(text => {
-                        console.log('Test error response text:', text);
-                        throw new Error(`HTTP ${response.status}: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Test response:', data);
-                alert('API Test thành công: ' + JSON.stringify(data, null, 2));
-            })
-            .catch(error => {
-                console.error('Test API Error:', error);
-                alert('API Test thất bại: ' + error.message);
-            });
-        }
-
-        function debugAPI() {
-            console.log('Debugging API...');
-            fetch(`${API_BASE_URL}/api/staff/refund-policies/debug`, {
-                headers: getAuthHeaders()
-            })
-            .then(response => {
-                console.log('Debug response status:', response.status);
-                console.log('Debug response headers:', response.headers);
-                if (!response.ok) {
-                    return response.text().then(text => {
-                        console.log('Debug error response text:', text);
-                        throw new Error(`HTTP ${response.status}: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Debug response:', data);
-                alert('API Debug thành công: ' + JSON.stringify(data, null, 2));
-            })
-            .catch(error => {
-                console.error('Debug API Error:', error);
-                alert('API Debug thất bại: ' + error.message);
-            });
-        }
     </script>
 } 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EasyBooking.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace EasyBooking.Data.DbContexts;
 
@@ -20,6 +21,8 @@ public partial class CinemaBookingDbContext : DbContext
 
     public virtual DbSet<Cinema> Cinemas { get; set; }
 
+    public virtual DbSet<DiscountCode> DiscountCodes { get; set; }
+
     public virtual DbSet<Genre> Genres { get; set; }
 
     public virtual DbSet<Movie> Movies { get; set; }
@@ -27,6 +30,10 @@ public partial class CinemaBookingDbContext : DbContext
     public virtual DbSet<OrderHistory> OrderHistories { get; set; }
 
     public virtual DbSet<Payment> Payments { get; set; }
+
+    public virtual DbSet<PointConfig> PointConfigs { get; set; }
+
+    public virtual DbSet<PointTransaction> PointTransactions { get; set; }
 
     public virtual DbSet<RefundHistory> RefundHistories { get; set; }
 
@@ -42,10 +49,16 @@ public partial class CinemaBookingDbContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-UDKT6N6\\SQLEXPRESS;Initial Catalog=CinemaBookingDB;Integrated Security=True;TrustServerCertificate=True");
+    public virtual DbSet<UserDiscountCode> UserDiscountCodes { get; set; }
 
+    public virtual DbSet<UserPoints> UserPoints { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+        if (!optionsBuilder.IsConfigured) { optionsBuilder.UseSqlServer(config.GetConnectionString("MyCnn")); }
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AuditLog>(entity =>
@@ -82,6 +95,30 @@ public partial class CinemaBookingDbContext : DbContext
             entity.Property(e => e.UpdateBy).HasMaxLength(50);
         });
 
+        modelBuilder.Entity<DiscountCode>(entity =>
+        {
+            entity.ToTable("DiscountCode");
+
+            entity.HasIndex(e => e.Code, "UQ_DiscountCode_Code").IsUnique();
+
+            entity.Property(e => e.Code).HasMaxLength(50);
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateBy).HasMaxLength(50);
+            entity.Property(e => e.DeleteAt).HasColumnType("datetime");
+            entity.Property(e => e.DeleteBy).HasMaxLength(50);
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.DiscountAmount).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.DiscountPercentage).HasColumnType("decimal(5, 2)");
+            entity.Property(e => e.EndDate).HasColumnType("datetime");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.StartDate).HasColumnType("datetime");
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdateBy).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<Genre>(entity =>
         {
             entity.HasKey(e => e.GenreId).HasName("PK__Genres__0385057E43CD9AD6");
@@ -111,7 +148,7 @@ public partial class CinemaBookingDbContext : DbContext
             entity.Property(e => e.DeleteAt).HasColumnType("datetime");
             entity.Property(e => e.DeleteBy).HasMaxLength(50);
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
-            entity.Property(e => e.PosterUrl).HasMaxLength(4000);
+            entity.Property(e => e.PosterUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(100);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
             entity.Property(e => e.UpdateBy).HasMaxLength(50);
@@ -190,6 +227,60 @@ public partial class CinemaBookingDbContext : DbContext
                 .HasConstraintName("FK__Payments__UserId__282DF8C2");
         });
 
+        modelBuilder.Entity<PointConfig>(entity =>
+        {
+            entity.HasKey(e => e.PointConfigId);
+
+            entity.ToTable("PointConfig");
+
+            entity.Property(e => e.ConfigName).HasMaxLength(100);
+            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.MinAmountToEarn).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateBy).HasMaxLength(50);
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdateBy).HasMaxLength(50);
+            entity.Property(e => e.DeleteAt).HasColumnType("datetime");
+            entity.Property(e => e.DeleteBy).HasMaxLength(50);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.IsDelete).HasDefaultValue(false);
+        });
+
+        modelBuilder.Entity<PointTransaction>(entity =>
+        {
+            entity.ToTable("PointTransaction");
+
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateBy).HasMaxLength(50);
+            entity.Property(e => e.DeleteAt).HasColumnType("datetime");
+            entity.Property(e => e.DeleteBy).HasMaxLength(50);
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.TransactionDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.TransactionType).HasMaxLength(20);
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdateBy).HasMaxLength(50);
+
+            entity.HasOne(d => d.DiscountCode).WithMany(p => p.PointTransactions)
+                .HasForeignKey(d => d.DiscountCodeId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK_PointTransaction_DiscountCode");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.PointTransactions)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK_PointTransaction_Payments");
+
+            entity.HasOne(d => d.User).WithMany(p => p.PointTransactions)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_PointTransaction_Users");
+        });
+
         modelBuilder.Entity<RefundHistory>(entity =>
         {
             entity.HasKey(e => e.RefundHistoryId).HasName("PK__RefundHi__B96AD197782A6215");
@@ -214,9 +305,11 @@ public partial class CinemaBookingDbContext : DbContext
 
         modelBuilder.Entity<RefundPolicy>(entity =>
         {
-            entity.HasKey(e => e.RefundPolicyId).HasName("PK__RefundPo__B96AD197782A6216");
+            entity.HasKey(e => e.RefundPolicyId).HasName("PK__RefundPo__378B9DCBA0246679");
 
             entity.ToTable("RefundPolicy");
+
+            entity.HasIndex(e => e.IsActive, "IX_RefundPolicy_IsActive");
 
             entity.Property(e => e.CreateAt)
                 .HasDefaultValueSql("(getdate())")
@@ -225,7 +318,6 @@ public partial class CinemaBookingDbContext : DbContext
             entity.Property(e => e.DeleteAt).HasColumnType("datetime");
             entity.Property(e => e.DeleteBy).HasMaxLength(50);
             entity.Property(e => e.Description).HasMaxLength(500);
-            entity.Property(e => e.IsActive).HasDefaultValue(false);
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.PolicyName).HasMaxLength(100);
             entity.Property(e => e.RefundPercentage).HasColumnType("decimal(5, 2)");
@@ -362,6 +454,55 @@ public partial class CinemaBookingDbContext : DbContext
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
             entity.Property(e => e.UpdateBy).HasMaxLength(50);
             entity.Property(e => e.Username).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<UserDiscountCode>(entity =>
+        {
+            entity.ToTable("UserDiscountCode");
+
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateBy).HasMaxLength(50);
+            entity.Property(e => e.DeleteAt).HasColumnType("datetime");
+            entity.Property(e => e.DeleteBy).HasMaxLength(50);
+            entity.Property(e => e.RedeemDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdateBy).HasMaxLength(50);
+            entity.Property(e => e.UsedDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.DiscountCode).WithMany(p => p.UserDiscountCodes)
+                .HasForeignKey(d => d.DiscountCodeId)
+                .HasConstraintName("FK_UserDiscountCode_DiscountCode");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.UserDiscountCodes)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK_UserDiscountCode_Payments");
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserDiscountCodes)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_UserDiscountCode_Users");
+        });
+
+        modelBuilder.Entity<UserPoints>(entity =>
+        {
+            entity.HasKey(e => e.UserPointsId);
+
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.CreateBy).HasMaxLength(50);
+            entity.Property(e => e.DeleteAt).HasColumnType("datetime");
+            entity.Property(e => e.DeleteBy).HasMaxLength(50);
+            entity.Property(e => e.UpdateAt).HasColumnType("datetime");
+            entity.Property(e => e.UpdateBy).HasMaxLength(50);
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserPoints)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_UserPoints_Users");
         });
 
         OnModelCreatingPartial(modelBuilder);

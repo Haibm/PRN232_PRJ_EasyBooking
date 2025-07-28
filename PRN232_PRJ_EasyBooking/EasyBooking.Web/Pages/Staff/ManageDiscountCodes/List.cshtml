@@ -1,0 +1,457 @@
+@page
+@model EasyBooking.Web.Pages.Staff.ManageDiscountCodes.ListModel
+@{
+    ViewData["Title"] = "Quản lý mã giảm giá";
+    Layout = "_StaffLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>
+                    <i class="fas fa-tags text-primary"></i>
+                    Quản lý mã giảm giá
+                </h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDiscountCodeModal" onclick="addNewCode()">
+                    <i class="fas fa-plus"></i>
+                    Thêm mã giảm giá
+                </button>
+            </div>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Thống kê -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng mã giảm giá</h5>
+                    <h3>@Model.TotalCodes</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Đang hoạt động</h5>
+                    <h3>@Model.ActiveCodes</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng lượt sử dụng</h5>
+                    <h3>@Model.TotalUsage</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Sắp hết hạn</h5>
+                    <h3>@Model.ExpiringCodes</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng mã giảm giá -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Danh sách mã giảm giá</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.DiscountCodes != null && Model.DiscountCodes.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giảm giá</th>
+                                        <th>Điểm yêu cầu</th>
+                                        <th>Thời gian</th>
+                                        <th>Sử dụng</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var code in Model.DiscountCodes)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-primary">@code.Code</span>
+                                            </td>
+                                            <td>@code.Name</td>
+                                            <td>
+                                                @if (code.DiscountPercentage > 0)
+                                                {
+                                                    <span class="text-success">@code.DiscountPercentage%</span>
+                                                }
+                                                else if (code.DiscountAmount > 0)
+                                                {
+                                                    <span class="text-success">@code.DiscountAmount.ToString("N0") VNĐ</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <span class="text-warning">@code.RequiredPoints điểm</span>
+                                            </td>
+                                            <td>
+                                                <small>
+                                                    @code.StartDate.ToString("dd/MM/yyyy") - @code.EndDate.ToString("dd/MM/yyyy")
+                                                </small>
+                                            </td>
+                                            <td>
+                                                @if (code.MaxUsage > 0)
+                                                {
+                                                    <span>@code.CurrentUsage/@code.MaxUsage</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>@code.CurrentUsage/∞</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (code.IsActive)
+                                                {
+                                                    <span class="badge bg-success">Hoạt động</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Không hoạt động</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info" onclick="editCode(@code.DiscountCodeId)" title="Sửa">
+                                                    <i class="fas fa-edit"></i> Sửa
+                                                </button>
+                                                <button class="btn btn-sm btn-success" onclick="toggleActive(@code.DiscountCodeId, @code.IsActive.ToString().ToLower())" title="Kích hoạt">
+                                                    <i class="fas fa-toggle-on"></i> Kích hoạt
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" onclick="deleteCode(@code.DiscountCodeId, '@code.Code')" title="Xóa">
+                                                    <i class="fas fa-trash"></i> Xóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-tags fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Chưa có mã giảm giá nào</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal thêm/sửa mã giảm giá -->
+<div class="modal fade" id="addDiscountCodeModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Thêm mã giảm giá</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" id="discountCodeForm">
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" id="discountCodeId" name="DiscountCodeId" value="0">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="code" class="form-label">Mã giảm giá *</label>
+                                <input type="text" class="form-control" id="code" name="Code" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Tên mã giảm giá *</label>
+                                <input type="text" class="form-control" id="name" name="Name" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="discountType" class="form-label">Loại giảm giá</label>
+                                <select class="form-control" id="discountType" onchange="toggleDiscountInputs()">
+                                    <option value="percentage">Phần trăm (%)</option>
+                                    <option value="amount">Số tiền (VNĐ)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="discountValue" class="form-label">Giá trị giảm giá *</label>
+                                <input type="number" class="form-control" id="discountValue" name="DiscountValue" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="requiredPoints" class="form-label">Điểm yêu cầu</label>
+                                <input type="number" class="form-control" id="requiredPoints" name="RequiredPoints" value="0" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="maxUsage" class="form-label">Số lần sử dụng tối đa</label>
+                                <input type="number" class="form-control" id="maxUsage" name="MaxUsage" value="0" min="0">
+                                <small class="text-muted">0 = không giới hạn</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="startDate" class="form-label">Ngày bắt đầu *</label>
+                                <input type="datetime-local" class="form-control" id="startDate" name="StartDate" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="endDate" class="form-label">Ngày kết thúc *</label>
+                                <input type="datetime-local" class="form-control" id="endDate" name="EndDate" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    
+    function toggleDiscountInputs() {
+        const discountType = document.getElementById('discountType').value;
+        const discountValue = document.getElementById('discountValue');
+        
+        if (discountType === 'percentage') {
+            discountValue.placeholder = 'Nhập phần trăm (0-100)';
+            discountValue.min = '0';
+            discountValue.max = '100';
+        } else {
+            discountValue.placeholder = 'Nhập số tiền (VNĐ)';
+            discountValue.min = '0';
+            discountValue.removeAttribute('max');
+        }
+    }
+    
+    function editCode(codeId) {
+        // Load discount code data and populate modal
+        fetch(`https://localhost:7087/api/staff/discount-codes/${codeId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('modalTitle').textContent = 'Sửa mã giảm giá';
+            document.getElementById('discountCodeId').value = data.discountCodeId;
+            document.getElementById('code').value = data.code;
+            document.getElementById('name').value = data.name;
+            document.getElementById('description').value = data.description || '';
+            document.getElementById('requiredPoints').value = data.requiredPoints;
+            document.getElementById('maxUsage').value = data.maxUsage;
+            document.getElementById('startDate').value = data.startDate.slice(0, 16);
+            document.getElementById('endDate').value = data.endDate.slice(0, 16);
+            
+            // Set discount type and value
+            if (data.discountPercentage > 0) {
+                document.getElementById('discountType').value = 'percentage';
+                document.getElementById('discountValue').value = data.discountPercentage;
+            } else {
+                document.getElementById('discountType').value = 'amount';
+                document.getElementById('discountValue').value = data.discountAmount;
+            }
+            
+            toggleDiscountInputs();
+            
+            // Show modal
+            var modal = new bootstrap.Modal(document.getElementById('addDiscountCodeModal'));
+            modal.show();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Không thể tải thông tin mã giảm giá');
+        });
+    }
+    
+    function deleteCode(codeId, code) {
+        if (confirm(`Bạn có chắc chắn muốn xóa mã giảm giá "${code}"?`)) {
+            fetch(`https://localhost:7087/api/staff/discount-codes/${codeId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Xóa mã giảm giá thành công!');
+                    location.reload();
+                } else {
+                    throw new Error('Xóa thất bại');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi xóa mã giảm giá');
+            });
+        }
+    }
+    
+    function toggleActive(codeId, currentStatus) {
+        var action = currentStatus === 'true' ? 'vô hiệu hóa' : 'kích hoạt';
+        if (confirm(`Bạn có chắc chắn muốn ${action} mã giảm giá này?`)) {
+            // Lấy thông tin mã giảm giá hiện tại
+            fetch(`https://localhost:7087/api/staff/discount-codes/${codeId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Đảo ngược trạng thái
+                data.isActive = !data.isActive;
+                
+                // Gửi request cập nhật
+                return fetch(`https://localhost:7087/api/staff/discount-codes/${codeId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'Bearer ' + getCookie('jwtToken'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Cập nhật trạng thái thành công!');
+                    location.reload();
+                } else {
+                    throw new Error('Cập nhật thất bại');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi cập nhật trạng thái');
+            });
+        }
+    }
+    
+    // Reset form when adding new discount code
+    function addNewCode() {
+        document.getElementById('modalTitle').textContent = 'Thêm mã giảm giá';
+        document.getElementById('discountCodeId').value = '0';
+        document.getElementById('discountCodeForm').reset();
+        
+        // Set default dates
+        const now = new Date();
+        const future = new Date();
+        future.setFullYear(future.getFullYear() + 1);
+        
+        document.getElementById('startDate').value = now.toISOString().slice(0, 16);
+        document.getElementById('endDate').value = future.toISOString().slice(0, 16);
+    }
+    
+    // Auto-open modal for editing
+    document.addEventListener('DOMContentLoaded', function() {
+        @if (TempData["ShowEditModal"] == "true" && TempData["EditDiscountCode"] != null)
+        {
+            <text>
+            var editData = @Html.Raw(TempData["EditDiscountCode"]);
+            if (editData) {
+                document.getElementById('modalTitle').textContent = 'Sửa mã giảm giá';
+                document.getElementById('discountCodeId').value = editData.discountCodeId;
+                document.getElementById('code').value = editData.code;
+                document.getElementById('name').value = editData.name;
+                document.getElementById('description').value = editData.description || '';
+                document.getElementById('requiredPoints').value = editData.requiredPoints;
+                document.getElementById('maxUsage').value = editData.maxUsage;
+                document.getElementById('startDate').value = editData.startDate.slice(0, 16);
+                document.getElementById('endDate').value = editData.endDate.slice(0, 16);
+                
+                // Set discount type and value
+                if (editData.discountPercentage > 0) {
+                    document.getElementById('discountType').value = 'percentage';
+                    document.getElementById('discountValue').value = editData.discountPercentage;
+                } else {
+                    document.getElementById('discountType').value = 'amount';
+                    document.getElementById('discountValue').value = editData.discountAmount;
+                }
+                
+                toggleDiscountInputs();
+                
+                // Show modal
+                var modal = new bootstrap.Modal(document.getElementById('addDiscountCodeModal'));
+                modal.show();
+            }
+            </text>
+        }
+    });
+</script> 

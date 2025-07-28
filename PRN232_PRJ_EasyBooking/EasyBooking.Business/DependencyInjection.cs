@@ -35,6 +35,19 @@ namespace EasyBooking.Business
             services.AddScoped<IRefundHistoryService, RefundHistoryService>();
             services.AddScoped<IRefundPolicyRepository, RefundPolicyRepository>();
             services.AddScoped<IRefundPolicyService, RefundPolicyService>();
+            
+            // Discount System
+                    services.AddScoped<IUserPointsRepository, UserPointsRepository>();
+        services.AddScoped<IUserPointsService, UserPointsService>();
+        services.AddScoped<IPointConfigRepository, PointConfigRepository>();
+        services.AddScoped<IPointConfigService, PointConfigService>();
+            services.AddScoped<IDiscountCodeRepository, DiscountCodeRepository>();
+            services.AddScoped<IDiscountCodeService, DiscountCodeService>();
+            services.AddScoped<IUserDiscountCodeRepository, UserDiscountCodeRepository>();
+            services.AddScoped<IUserDiscountCodeService, UserDiscountCodeService>();
+            services.AddScoped<IPointTransactionRepository, PointTransactionRepository>();
+            services.AddScoped<IPointTransactionService, PointTransactionService>();
+            
             return services;
         }
     }
